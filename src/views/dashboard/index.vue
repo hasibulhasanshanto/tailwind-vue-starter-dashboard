@@ -4,21 +4,25 @@ import Navbar from "../../components/dashboard/Header.vue";
 import Sidebar from "../../components/dashboard/Sidebar.vue";
 
 const showSidebar = ref<boolean>(false);
+const showDropDown = ref<boolean>(false);
 
 const toggleMenu = () => {
   showSidebar.value = !showSidebar.value;
+};
+const toggleDrop = () => {
+  showDropDown.value = !showDropDown.value;
 };
 </script>
 
 <template>
   <div class="w-screen h-screen flex text-center">
     <!-- Sidebar  -->
-    <Sidebar :showSidebar="showSidebar" />
+    <Sidebar :showSidebar="showSidebar"/>
 
     <!-- Main Start -->
     <main class="w-full h-full">
       <!-- Navbar  -->
-      <Navbar @toggleMenu="toggleMenu" />
+      <Navbar @toggleMenu="toggleMenu" @toggleDrop="toggleDrop" :showDropDown="showDropDown" />
       <!-- Page content  -->
       <div class="h-[calc(100vh-50px)] bg-gray-50 p-[20px]">
         <div class="border border-gray-300 rounded-md p-[20px] h-full">

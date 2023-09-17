@@ -3,7 +3,7 @@
 </script> 
 <template>
     <div>
-        <p>Home page</p>
+        <p>Dashboard page</p>
     </div>
 </template>
 

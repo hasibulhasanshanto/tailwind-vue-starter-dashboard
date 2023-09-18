@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import CiHamburger from "../icons/hamburger.vue";
 import IonMdSearch from "../icons/search.vue";
+import Button from "../common/Button.vue";
+import Link from "../common/Link.vue";
 
 defineProps(["showDropDown"]);
 </script>
@@ -38,7 +40,7 @@ defineProps(["showDropDown"]);
                     clip-rule="evenodd"
                   ></path>
                 </svg> -->
-                <IonMdSearch class="text-gray-500"/>
+                <IonMdSearch class="text-gray-500" />
               </div>
               <input
                 type="text"
@@ -47,7 +49,7 @@ defineProps(["showDropDown"]);
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5 dark:bg-gray-700"
                 placeholder="Search..."
                 required
-              /> 
+              />
             </div>
           </form>
         </div>
@@ -65,7 +67,9 @@ defineProps(["showDropDown"]);
             />
             <div class="font-semibold dark:text-white text-left">
               <div>Hasibul Hasan</div>
-              <div class="text-xs text-gray-500 dark:text-gray-400">Free user</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400">
+                Free user
+              </div>
             </div>
           </div>
           <!-- Drop down -->
@@ -79,40 +83,19 @@ defineProps(["showDropDown"]);
           >
             <div class="py-1 text-left" role="none">
               <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-              <a
-                href="#"
+              <Link to="/profile" class="text-gray-700 block px-4 py-2 text-sm">
+                Profile
+              </Link>
+              <Link
+                to="/settings"
                 class="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabindex="-1"
-                id="menu-item-0"
-                >Account settings</a
               >
-              <a
-                href="#"
-                class="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabindex="-1"
-                id="menu-item-1"
-                >Support</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabindex="-1"
-                id="menu-item-2"
-                >License</a
-              >
-              <form method="POST" action="#" role="none">
-                <button
-                  type="submit"
-                  class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-3"
-                >
+                Settings
+              </Link>
+              <form action="#">
+                <Button type="submit" deClass="text-gray-700">
                   Sign out
-                </button>
+                </Button>
               </form>
             </div>
           </div>

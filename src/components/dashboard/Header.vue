@@ -23,7 +23,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 <template>
   <header>
     <div
-      class="h-[60px] bg-gray-100 flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
+      class="h-[60px] bg-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
     >
       <!-- left Side  -->
       <div class="flex items-center">
@@ -35,7 +35,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
         <!-- Search bar -->
         <div class="ml-3">
           <form class="hidden md:flex items-center w-[500px]">
-            <label for="voice-search" class="sr-only">Search</label>
+            <label for="search" class="sr-only">Search</label>
             <div class="relative w-full">
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
@@ -46,7 +46,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                 type="text"
                 id="search"
                 name="search"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5 dark:bg-gray-700"
+                class="bg-[#f1f5f9] border border-[#f1f5f9] text-gray-700 text-sm rounded-lg block w-full pl-10 p-2.5 focus:ring-0 !outline-none"
                 placeholder="Search..."
                 required
               />
@@ -78,20 +78,18 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             <div class="py-1 text-left divide-y">
               <!-- Options -->
               <div class="py-1">
-                <Link
-                  to="/profile"
+                <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <Bangladesh class="mr-2" />
                   Bangla
-                </Link>
-                <Link
-                  to="/settings"
+                </Button>
+                <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <UnitedStates class="mr-2" />
                   English
-                </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -111,27 +109,24 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             <div class="py-1 text-left divide-y">
               <!-- Options -->
               <div class="py-1">
-                <Link
-                  to="/profile"
+                <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <LightModeOutline class="mr-2" />
                   Light
-                </Link>
-                <Link
-                  to="/settings"
+                </Button>
+                <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <DarkModeOutline class="mr-2" />
                   Dark
-                </Link>
-                <Link
-                  to="/settings"
+                </Button>
+                <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <Computer class="mr-2" />
                   System
-                </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -327,10 +322,10 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
               alt=""
             />
             <div
-              class="font-semibold dark:text-white text-left hidden md:block"
+              class="font-semibold text-left hidden md:block"
             >
               <div>Hasibul Hasan</div>
-              <div class="text-xs text-gray-500 dark:text-gray-400">
+              <div class="text-xs text-gray-500">
                 Free user
               </div>
             </div>

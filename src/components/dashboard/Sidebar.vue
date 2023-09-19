@@ -12,7 +12,7 @@ defineProps(["showSidebar"]);
 <template>
   <div v-show="!showSidebar" class="w-[350px] h-full text-white">
     <aside>
-      <div class="h-[60px] bg-gray-100 flex items-center justify-start">
+      <div class="h-[60px] bg-white flex items-center justify-start">
         <div class="px-[20px]">
           <router-link to="/dashboard">
             <h3 class="font-bold text-sm md:text-xl text-black">
@@ -21,7 +21,7 @@ defineProps(["showSidebar"]);
           </router-link>
         </div>
       </div>
-      <div class="h-[calc(100vh-50px)] bg-gray-700 py-4">
+      <div class="h-[calc(100vh-50px)] bg-gray-700 py-4 drop-shadow-lg">
         <div
           class="flex flex-col justify-between h-full px-[20px] space-y-[10px]"
         >

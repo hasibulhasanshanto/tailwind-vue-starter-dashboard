@@ -42,7 +42,7 @@ const toggleLang = () => {
 </script>
 
 <template>
-  <div class="w-screen h-screen flex text-center">
+  <div class="flex bg-[#f8fafc]">
     <!-- Sidebar  -->
     <Sidebar :showSidebar="showSidebar" />
 
@@ -61,8 +61,8 @@ const toggleLang = () => {
         :showLang="showLang"
       />
       <!-- Page content  -->
-      <div class="h-[calc(100vh-50px)] bg-gray-50 p-[20px]">
-        <div class="border border-gray-300 rounded-md p-[20px] h-full">
+      <div class="h-[calc(100vh-50px)] p-[20px] overflow-auto">
+        <div class="container flex-grow">
           <router-view></router-view>
         </div>
       </div>

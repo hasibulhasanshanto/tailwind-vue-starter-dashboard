@@ -5,6 +5,8 @@ import NotificationsOutline from "../icons/notification.vue";
 import LightModeOutline from "../icons/light.vue";
 import DarkModeOutline from "../icons/dark.vue";
 import Computer from "../icons/computer.vue";
+import Bangladesh from "../icons/bgd.vue";
+import UnitedStates from "../icons/usa.vue";
 import Warning from "../icons/warning.vue";
 import Success from "../icons/success.vue";
 import Cross from "../icons/cross.vue";
@@ -15,7 +17,7 @@ import LogoutRounded from "../icons/logout.vue";
 import Button from "../common/Button.vue";
 import Link from "../common/Link.vue";
 
-defineProps(["showDropDown", "showNotification", "showLightDark"]);
+defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 </script>
 
 <template>
@@ -56,6 +58,45 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
 
       <!-- right Side  -->
       <div class="flex items-center justify-end">
+        <!-- Language -->
+        <div class="mx-2">
+          <button
+            class="flex items-center justify-start space-x-1 py-2"
+            @click="$emit('toggleLang')"
+          >
+            <Bangladesh />
+            <div class="font-semibold text-left hidden md:block">
+              <div>Bangla</div>
+            </div>
+          </button>
+
+          <!-- Drop down -->
+          <div
+            v-show="showLang"
+            class="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          >
+            <div class="py-1 text-left divide-y">
+              <!-- Options -->
+              <div class="py-1">
+                <Link
+                  to="/profile"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <Bangladesh class="mr-2" />
+                  Bangla
+                </Link>
+                <Link
+                  to="/settings"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <UnitedStates class="mr-2" />
+                  English
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Light Dark -->
         <div class="mx-2">
           <button @click="$emit('toggleLightDark')" class="py-2">
@@ -65,7 +106,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
           <!-- Drop down -->
           <div
             v-show="showLightDark"
-            class="absolute right-[130px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute right-[10px] md:right-[130px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div class="py-1 text-left divide-y">
               <!-- Options -->
@@ -97,7 +138,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
         </div>
 
         <!-- Notifications -->
-        <div class="mx-2">
+        <div class="mx-2 hidden md:block">
           <button @click="$emit('toggleNotification')" class="py-2">
             <NotificationsOutline />
           </button>
@@ -240,7 +281,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
                     </div>
                   </div>
                 </Link>
-                
+
                 <!-- Notification item  -->
                 <Link
                   to="#"
@@ -285,7 +326,9 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
               src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
               alt=""
             />
-            <div class="font-semibold dark:text-white text-left">
+            <div
+              class="font-semibold dark:text-white text-left hidden md:block"
+            >
               <div>Hasibul Hasan</div>
               <div class="text-xs text-gray-500 dark:text-gray-400">
                 Free user

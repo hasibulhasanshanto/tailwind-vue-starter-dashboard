@@ -93,7 +93,7 @@ defineProps(["showDropDown"]);
                 Settings
               </Link>
               <form action="#">
-                <Button type="submit" deClass="text-gray-700">
+                <Button type="submit" styleClass="text-gray-700">
                   Sign out
                 </Button>
               </form>

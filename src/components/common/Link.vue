@@ -1,12 +1,12 @@
 <script setup lang="ts">
-defineProps(["to", "deClass", "target", "disabled"]);
+defineProps(["to", "styleClass", "target", "disabled"]);
 </script>
 
 <template>
   <router-link
     :to="to"
     class="py-2 text-sm"
-    :class="deClass ?? ''"
+    :class="styleClass ?? ''"
     :target="target ?? '_self'"
     :disabled="disabled ?? false"
   >

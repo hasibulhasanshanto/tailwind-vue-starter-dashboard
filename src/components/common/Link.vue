@@ -5,7 +5,7 @@ defineProps(["to", "styleClass", "target", "disabled"]);
 <template>
   <router-link
     :to="to"
-    class="py-2 text-sm"
+    class="block w-full py-2 text-sm"
     :class="styleClass ?? ''"
     :target="target ?? '_self'"
     :disabled="disabled ?? false"

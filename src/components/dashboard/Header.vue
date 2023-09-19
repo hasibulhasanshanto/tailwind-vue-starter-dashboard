@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import ProfileCircleOutline from "../icons/profile.vue";
+import SettingsOutlineRounded from "../icons/settings.vue";
 import CiHamburger from "../icons/hamburger.vue";
 import IonMdSearch from "../icons/search.vue";
+import LogoutRounded from "../icons/logout.vue";
 import Button from "../common/Button.vue";
 import Link from "../common/Link.vue";
 
@@ -10,36 +13,23 @@ defineProps(["showDropDown"]);
 <template>
   <header>
     <div
-      class="h-[50px] bg-gray-100 flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 border-b border-stone-700"
+      class="h-[60px] bg-gray-100 flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
     >
-      <!-- Menu icon -->
-      <div @click="$emit('toggleMenu')" class="cursor-pointer w-[30px]">
-        <CiHamburger />
-      </div>
+      <!-- left Side  -->
+      <div class="flex items-center">
+        <!-- Menu icon -->
+        <div @click="$emit('toggleMenu')" class="cursor-pointer w-[30px]">
+          <CiHamburger />
+        </div>
 
-      <!-- Right Side  -->
-      <div class="w-[calc(100%-30px)] flex">
-        <div class="w-[calc(100%-200px)] flex justify-center">
-          <!-- Search bar -->
+        <!-- Search bar -->
+        <div class="ml-3">           
           <form class="hidden md:flex items-center w-[500px]">
             <label for="voice-search" class="sr-only">Search</label>
             <div class="relative w-full">
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <!-- <svg
-                  aria-hidden="true"
-                  class="w-5 h-auto text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg> -->
                 <IonMdSearch class="text-gray-500" />
               </div>
               <input
@@ -53,9 +43,13 @@ defineProps(["showDropDown"]);
             </div>
           </form>
         </div>
+      </div>
+      <!-- left Side ends ./  -->
 
+      <!-- right Side  -->
+      <div class="flex items-center justify-end">
         <!-- User login -->
-        <div class="w-[200px]">
+        <div class="mx-3">
           <div
             class="flex items-center justify-start space-x-4"
             @click="$emit('toggleDrop')"
@@ -72,28 +66,45 @@ defineProps(["showDropDown"]);
               </div>
             </div>
           </div>
+
           <!-- Drop down -->
           <div
             v-show="showDropDown"
-            class="absolute right-[10px] z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-            role="menu"
-            aria-orientation="vertical"
-            aria-labelledby="menu-button"
-            tabindex="-1"
+            class="absolute right-[10px] z-10 mt-1 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
-            <div class="py-1 text-left" role="none">
+            <div class="py-1 text-left divide-y">
               <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-              <Link to="/profile" class="text-gray-700 block px-4 py-2 text-sm">
-                Profile
-              </Link>
-              <Link
-                to="/settings"
-                class="text-gray-700 block px-4 py-2 text-sm"
-              >
-                Settings
-              </Link>
+              <!-- User info -->
+              <div class="px-4 py-3">
+                <p class="text-sm">Logged in as</p>
+                <p class="truncate text-sm font-medium">user@example.com</p>
+              </div>
+
+              <!-- Options -->
+              <div class="py-1">
+                <Link
+                  to="/profile"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <ProfileCircleOutline class="mr-1" />
+                  Profile
+                </Link>
+                <Link
+                  to="/settings"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <SettingsOutlineRounded class="mr-1" />
+                  Settings
+                </Link>
+              </div>
+
+              <!-- Logged out -->
               <form action="#">
-                <Button type="submit" styleClass="text-gray-700">
+                <Button
+                  type="submit"
+                  styleClass="text-gray-700 hover:bg-gray-100 inline-flex items-center px-4"
+                >
+                  <LogoutRounded class="mr-1" />
                   Sign out
                 </Button>
               </form>
@@ -101,6 +112,7 @@ defineProps(["showDropDown"]);
           </div>
         </div>
       </div>
+      <!-- right Side ends ./  -->
     </div>
   </header>
 </template>

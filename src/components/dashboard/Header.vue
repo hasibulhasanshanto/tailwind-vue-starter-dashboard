@@ -5,6 +5,9 @@ import NotificationsOutline from "../icons/notification.vue";
 import LightModeOutline from "../icons/light.vue";
 import DarkModeOutline from "../icons/dark.vue";
 import Computer from "../icons/computer.vue";
+import Warning from "../icons/warning.vue";
+import Success from "../icons/success.vue";
+import Cross from "../icons/cross.vue";
 import ArrowRight from "../icons/right-arrow.vue";
 import CiHamburger from "../icons/hamburger.vue";
 import IonMdSearch from "../icons/search.vue";
@@ -71,21 +74,21 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
                   to="/profile"
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <LightModeOutline class="mr-1" />
+                  <LightModeOutline class="mr-2" />
                   Light
                 </Link>
                 <Link
                   to="/settings"
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <DarkModeOutline class="mr-1" />
+                  <DarkModeOutline class="mr-2" />
                   Dark
                 </Link>
                 <Link
                   to="/settings"
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <Computer class="mr-1" />
+                  <Computer class="mr-2" />
                   System
                 </Link>
               </div>
@@ -107,24 +110,153 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
             <div class="py-1 text-left divide-y">
               <div class="flex justify-between mx-4 py-3">
                 <p class="text-sm font-semibold">Notifications</p>
-                <p class="truncate text-sm">Clear All</p>
+                <p class="truncate text-sm cursor-pointer">Clear All</p>
               </div>
 
               <!-- Options -->
-              <div class="py-1">
+              <div class="py-1 h-[300px] overflow-auto">
+                <!-- Notification item  -->
                 <Link
-                  to="/profile"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  to="#"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
                 >
-                  <ProfileCircleOutline class="mr-1" />
-                  Profile
+                  <div class="w-[12%] mr-1 mt-1">
+                    <Warning class="h-6 w-6" />
+                  </div>
+
+                  <div class="w-[calc(100-12%)]">
+                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                    <div class="text-gray-500">
+                      <p class="text-sm">CPU usage is at 92%</p>
+                      <p class="text-xs">5 min ago</p>
+                    </div>
+                  </div>
                 </Link>
+
+                <!-- Notification item  -->
                 <Link
-                  to="/settings"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  to="#"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
                 >
-                  <SettingsOutlineRounded class="mr-1" />
-                  Settings
+                  <div class="w-[12%] mr-1 mt-1">
+                    <Success class="h-6 w-6" />
+                  </div>
+
+                  <div class="w-[calc(100-12%)]">
+                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                    <div class="text-gray-500">
+                      <p class="text-sm">CPU usage is at 92%</p>
+                      <p class="text-xs">5 min ago</p>
+                    </div>
+                  </div>
+                </Link>
+
+                <!-- Notification item  -->
+                <Link
+                  to="#"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                >
+                  <div class="w-[12%] mr-1 mt-1">
+                    <Cross class="h-6 w-6" />
+                  </div>
+
+                  <div class="w-[calc(100-12%)]">
+                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                    <div class="text-gray-500">
+                      <p class="text-sm">CPU usage is at 92%</p>
+                      <p class="text-xs">5 min ago</p>
+                    </div>
+                  </div>
+                </Link>
+
+                <!-- Notification item  -->
+                <Link
+                  to="#"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                >
+                  <div class="w-[12%] mr-1 mt-1">
+                    <Success class="h-6 w-6" />
+                  </div>
+
+                  <div class="w-[calc(100-12%)]">
+                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                    <div class="text-gray-500">
+                      <p class="text-sm">CPU usage is at 92%</p>
+                      <p class="text-xs">5 min ago</p>
+                    </div>
+                  </div>
+                </Link>
+
+                <!-- Notification item  -->
+                <Link
+                  to="#"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                >
+                  <div class="w-[12%] mr-1 mt-1">
+                    <Success class="h-6 w-6" />
+                  </div>
+
+                  <div class="w-[calc(100-12%)]">
+                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                    <div class="text-gray-500">
+                      <p class="text-sm">CPU usage is at 92%</p>
+                      <p class="text-xs">5 min ago</p>
+                    </div>
+                  </div>
+                </Link>
+
+                <!-- Notification item  -->
+                <Link
+                  to="#"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                >
+                  <div class="w-[12%] mr-1 mt-1">
+                    <Success class="h-6 w-6" />
+                  </div>
+
+                  <div class="w-[calc(100-12%)]">
+                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                    <div class="text-gray-500">
+                      <p class="text-sm">CPU usage is at 92%</p>
+                      <p class="text-xs">5 min ago</p>
+                    </div>
+                  </div>
+                </Link>
+
+                <!-- Notification item  -->
+                <Link
+                  to="#"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                >
+                  <div class="w-[12%] mr-1 mt-1">
+                    <Success class="h-6 w-6" />
+                  </div>
+
+                  <div class="w-[calc(100-12%)]">
+                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                    <div class="text-gray-500">
+                      <p class="text-sm">CPU usage is at 92%</p>
+                      <p class="text-xs">5 min ago</p>
+                    </div>
+                  </div>
+                </Link>
+                
+                <!-- Notification item  -->
+                <Link
+                  to="#"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                >
+                  <div class="w-[12%] mr-1 mt-1">
+                    <Success class="h-6 w-6" />
+                  </div>
+
+                  <div class="w-[calc(100-12%)]">
+                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                    <div class="text-gray-500">
+                      <p class="text-sm">CPU usage is at 92%</p>
+                      <p class="text-xs">5 min ago</p>
+                    </div>
+                  </div>
                 </Link>
               </div>
 
@@ -132,7 +264,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
               <div>
                 <Button
                   type="submit"
-                  styleClass="text-gray-700 hover:bg-gray-100 inline-flex items-center justify-center px-4 !text-md"
+                  styleClass="text-gray-700 inline-flex items-center justify-center px-4 !text-md"
                 >
                   See more
                   <ArrowRight class="ml-1" />
@@ -141,6 +273,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
             </div>
           </div>
         </div>
+
         <!-- User login -->
         <div class="mx-2">
           <div
@@ -179,14 +312,14 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
                   to="/profile"
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <ProfileCircleOutline class="mr-1" />
+                  <ProfileCircleOutline class="mr-2" />
                   Profile
                 </Link>
                 <Link
                   to="/settings"
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <SettingsOutlineRounded class="mr-1" />
+                  <SettingsOutlineRounded class="mr-2" />
                   Settings
                 </Link>
               </div>
@@ -197,7 +330,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark"]);
                   type="submit"
                   styleClass="text-gray-700 hover:bg-gray-100 inline-flex items-center px-4"
                 >
-                  <LogoutRounded class="mr-1" />
+                  <LogoutRounded class="mr-2" />
                   Sign out
                 </Button>
               </form>

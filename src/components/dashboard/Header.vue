@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import ProfileCircleOutline from "../icons/profile.vue";
 import SettingsOutlineRounded from "../icons/settings.vue";
+import NotificationsOutline from "../icons/notification.vue";
+import LightModeOutline from "../icons/light.vue";
+import DarkModeOutline from "../icons/dark.vue";
+import Computer from "../icons/computer.vue";
+import ArrowRight from "../icons/right-arrow.vue";
 import CiHamburger from "../icons/hamburger.vue";
 import IonMdSearch from "../icons/search.vue";
 import LogoutRounded from "../icons/logout.vue";
 import Button from "../common/Button.vue";
 import Link from "../common/Link.vue";
 
-defineProps(["showDropDown"]);
+defineProps(["showDropDown", "showNotification", "showLightDark"]);
 </script>
 
 <template>
@@ -23,7 +28,7 @@ defineProps(["showDropDown"]);
         </div>
 
         <!-- Search bar -->
-        <div class="ml-3">           
+        <div class="ml-3">
           <form class="hidden md:flex items-center w-[500px]">
             <label for="voice-search" class="sr-only">Search</label>
             <div class="relative w-full">
@@ -48,10 +53,98 @@ defineProps(["showDropDown"]);
 
       <!-- right Side  -->
       <div class="flex items-center justify-end">
-        <!-- User login -->
-        <div class="mx-3">
+        <!-- Light Dark -->
+        <div class="mx-2">
+          <button @click="$emit('toggleLightDark')" class="py-2">
+            <LightModeOutline />
+          </button>
+
+          <!-- Drop down -->
           <div
-            class="flex items-center justify-start space-x-4"
+            v-show="showLightDark"
+            class="absolute right-[130px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          >
+            <div class="py-1 text-left divide-y">
+              <!-- Options -->
+              <div class="py-1">
+                <Link
+                  to="/profile"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <LightModeOutline class="mr-1" />
+                  Light
+                </Link>
+                <Link
+                  to="/settings"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <DarkModeOutline class="mr-1" />
+                  Dark
+                </Link>
+                <Link
+                  to="/settings"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <Computer class="mr-1" />
+                  System
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="mx-2">
+          <button @click="$emit('toggleNotification')" class="py-2">
+            <NotificationsOutline />
+          </button>
+
+          <!-- Drop down -->
+          <div
+            v-show="showNotification"
+            class="absolute right-[195px] z-10 mt-[10px] w-80 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          >
+            <div class="py-1 text-left divide-y">
+              <div class="flex justify-between mx-4 py-3">
+                <p class="text-sm font-semibold">Notifications</p>
+                <p class="truncate text-sm">Clear All</p>
+              </div>
+
+              <!-- Options -->
+              <div class="py-1">
+                <Link
+                  to="/profile"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <ProfileCircleOutline class="mr-1" />
+                  Profile
+                </Link>
+                <Link
+                  to="/settings"
+                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                >
+                  <SettingsOutlineRounded class="mr-1" />
+                  Settings
+                </Link>
+              </div>
+
+              <!-- Logged out -->
+              <div>
+                <Button
+                  type="submit"
+                  styleClass="text-gray-700 hover:bg-gray-100 inline-flex items-center justify-center px-4 !text-md"
+                >
+                  See more
+                  <ArrowRight class="ml-1" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- User login -->
+        <div class="mx-2">
+          <div
+            class="flex items-center justify-start space-x-4 cursor-pointer"
             @click="$emit('toggleDrop')"
           >
             <img
@@ -70,7 +163,7 @@ defineProps(["showDropDown"]);
           <!-- Drop down -->
           <div
             v-show="showDropDown"
-            class="absolute right-[10px] z-10 mt-1 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute right-[10px] z-10 mt-[10px] w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div class="py-1 text-left divide-y">
               <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->

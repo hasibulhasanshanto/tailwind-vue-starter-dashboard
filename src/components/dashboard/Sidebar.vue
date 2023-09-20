@@ -10,7 +10,7 @@ defineProps(["showSidebar"]);
 </script>
 
 <template>
-  <div v-show="!showSidebar" class="w-[350px] h-full text-white">
+  <div v-show="!showSidebar" class="w-[350px] h-full text-white hidden md:block">
     <aside>
       <div class="h-[60px] bg-white flex items-center justify-start">
         <div class="px-[20px]">

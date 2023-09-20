@@ -12,6 +12,7 @@ import Success from "../icons/success.vue";
 import Cross from "../icons/cross.vue";
 import ArrowRight from "../icons/right-arrow.vue";
 import HamburgerMenu from "../icons/hamburger.vue";
+import MenuFill from "../icons/menu2.vue";
 import SearchLine from "../icons/search.vue";
 import LogoutLine from "../icons/logout.vue";
 import Button from "../common/Button.vue";
@@ -28,8 +29,12 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
       <!-- left Side  -->
       <div class="flex items-center">
         <!-- Menu icon -->
-        <div @click="$emit('toggleMenu')" class="cursor-pointer w-[30px]">
+        <div @click="$emit('toggleMenu')" class="cursor-pointer w-[30px] hidden md:block">
           <HamburgerMenu class="h-5 w-5" />
+        </div>
+
+        <div id="drawer-show-button" class="cursor-pointer w-[30px] block md:hidden">
+          <MenuFill class="h-5 w-5" />
         </div>
 
         <!-- Search bar -->

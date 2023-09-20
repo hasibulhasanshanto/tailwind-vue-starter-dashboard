@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Navbar from "../../components/dashboard/Header.vue";
 import Sidebar from "../../components/dashboard/Sidebar.vue";
+import OffCanvas from "../../components/dashboard/OffCanvas.vue";
 
 const showSidebar = ref<boolean>(false);
 const showDropDown = ref<boolean>(false);
@@ -43,6 +44,7 @@ const toggleLang = () => {
 
 <template>
   <div class="flex bg-[#f8fafc]">
+    <OffCanvas/>
     <!-- Sidebar  -->
     <Sidebar :showSidebar="showSidebar" />
 

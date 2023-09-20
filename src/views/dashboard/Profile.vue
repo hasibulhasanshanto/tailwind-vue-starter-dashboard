@@ -1,6 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Breadcrumb from '@/components/common/Breadcrumb.vue';
+</script>
 <template>
-  <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+  <!-- Breadcrumb  -->
+  <Breadcrumb :breadArray="['Profile', 'Home', 'User']"/>
+
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 pb-10">
     <!-- Left Section Start  -->
     <section
       class="col-span-1 flex h-min w-full flex-col gap-6 lg:sticky lg:top-10"

@@ -1,9 +1,11 @@
 <script setup lang="ts">
-
-</script> 
+import Breadcrumb from "@/components/common/Breadcrumb.vue";
+</script>
 <template>
-    <div>
-        <p>Settings page</p>
-    </div>
-</template>
+  <!-- Breadcrumb  -->
+  <Breadcrumb :breadArray="['Settings', 'Home']" />
 
+  <div>
+    <p>Settings page</p>
+  </div>
+</template>

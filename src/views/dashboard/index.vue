@@ -62,7 +62,8 @@ const toggleLang = () => {
       />
       <!-- Page content  -->
       <div class="h-[calc(100vh-50px)] p-[20px] overflow-auto">
-        <div class="container flex-grow">
+        <!-- <div class="container flex-grow mx-auto"> -->
+        <div class="h-full">
           <router-view></router-view>
         </div>
       </div>

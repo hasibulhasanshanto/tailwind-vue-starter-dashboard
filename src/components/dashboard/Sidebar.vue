@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import IcOutlineHome from "../icons/home.vue";
+import HomeLine from "../icons/home.vue";
 import ProfileCircleOutline from "../icons/profile.vue";
-import SettingsOutlineRounded from "../icons/settings.vue";
-import LogoutRounded from "../icons/logout.vue";
-import PhChatCircle from "../icons/chat.vue";
+import SettingsLine from "../icons/settings.vue";
+import LogoutLine from "../icons/logout.vue";
+import WechatLine from "../icons/chat.vue";
 import MenuLink from "../common/MenuLink.vue";
 
 defineProps(["showSidebar"]);
@@ -27,28 +27,28 @@ defineProps(["showSidebar"]);
         >
           <div class="flex flex-col justify-between space-y-[10px]">
             <MenuLink to="/dashboard">
-              <IcOutlineHome class="mr-2" />
+              <HomeLine class="mr-2 h-5 w-5" />
               Home
             </MenuLink>
 
             <MenuLink to="/profile">
-              <ProfileCircleOutline class="mr-2" />
+              <ProfileCircleOutline class="mr-2 h-5 w-5" />
               Profile
             </MenuLink>
 
             <MenuLink to="/chat">
-              <PhChatCircle class="mr-2" />
+              <WechatLine class="mr-2 h-5 w-5" />
               Chat
             </MenuLink>
 
             <MenuLink to="/settings">
-              <SettingsOutlineRounded class="mr-2" />
+              <SettingsLine class="mr-2 h-5 w-5" />
               Settings
             </MenuLink>
           </div>
           <div class="h-[50px]">
             <MenuLink to="/">
-              <LogoutRounded class="mr-2" />
+              <LogoutLine class="mr-2 h-5 w-5" />
               Sign Out
             </MenuLink>
           </div>

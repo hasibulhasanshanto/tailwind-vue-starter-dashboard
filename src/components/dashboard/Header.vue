@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import ProfileCircleOutline from "../icons/profile.vue";
-import SettingsOutlineRounded from "../icons/settings.vue";
-import NotificationsOutline from "../icons/notification.vue";
-import LightModeOutline from "../icons/light.vue";
-import DarkModeOutline from "../icons/dark.vue";
+import SettingsLine from "../icons/settings.vue";
+import NotificationLine from "../icons/notification.vue";
+import SunLine from "../icons/light.vue";
+import MoonLine from "../icons/dark.vue";
 import Computer from "../icons/computer.vue";
 import Bangladesh from "../icons/bgd.vue";
 import UnitedStates from "../icons/usa.vue";
@@ -11,9 +11,9 @@ import Warning from "../icons/warning.vue";
 import Success from "../icons/success.vue";
 import Cross from "../icons/cross.vue";
 import ArrowRight from "../icons/right-arrow.vue";
-import CiHamburger from "../icons/hamburger.vue";
-import IonMdSearch from "../icons/search.vue";
-import LogoutRounded from "../icons/logout.vue";
+import HamburgerMenu from "../icons/hamburger.vue";
+import SearchLine from "../icons/search.vue";
+import LogoutLine from "../icons/logout.vue";
 import Button from "../common/Button.vue";
 import Link from "../common/Link.vue";
 
@@ -29,7 +29,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
       <div class="flex items-center">
         <!-- Menu icon -->
         <div @click="$emit('toggleMenu')" class="cursor-pointer w-[30px]">
-          <CiHamburger />
+          <HamburgerMenu class="h-5 w-5" />
         </div>
 
         <!-- Search bar -->
@@ -40,7 +40,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <IonMdSearch class="text-gray-500" />
+                <SearchLine class="text-gray-500 h-5 w-5" />
               </div>
               <input
                 type="text"
@@ -64,7 +64,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             class="flex items-center justify-start space-x-1 py-2"
             @click="$emit('toggleLang')"
           >
-            <Bangladesh />
+            <Bangladesh class="h-6 w-6" />
             <div class="font-semibold text-left hidden md:block">
               <div>Bangla</div>
             </div>
@@ -81,13 +81,13 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                 <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <Bangladesh class="mr-2" />
+                  <Bangladesh class="mr-2 h-6 w-6" />
                   Bangla
                 </Button>
                 <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <UnitedStates class="mr-2" />
+                  <UnitedStates class="mr-2 h-6 w-6" />
                   English
                 </Button>
               </div>
@@ -98,7 +98,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
         <!-- Light Dark -->
         <div class="mx-2">
           <button @click="$emit('toggleLightDark')" class="py-2">
-            <LightModeOutline />
+            <SunLine class="h-6 w-6" />
           </button>
 
           <!-- Drop down -->
@@ -112,19 +112,19 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                 <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <LightModeOutline class="mr-2" />
+                  <SunLine class="mr-2 h-6 w-6" />
                   Light
                 </Button>
                 <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <DarkModeOutline class="mr-2" />
+                  <MoonLine class="mr-2 h-6 w-6" />
                   Dark
                 </Button>
                 <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <Computer class="mr-2" />
+                  <Computer class="mr-2 h-6 w-6" />
                   System
                 </Button>
               </div>
@@ -135,7 +135,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
         <!-- Notifications -->
         <div class="mx-2 hidden md:block">
           <button @click="$emit('toggleNotification')" class="py-2">
-            <NotificationsOutline />
+            <NotificationLine class="h-6 w-6" />
           </button>
 
           <!-- Drop down -->
@@ -350,14 +350,14 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   to="/profile"
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <ProfileCircleOutline class="mr-2" />
+                  <ProfileCircleOutline class="mr-2 h-5 w-5" />
                   Profile
                 </Link>
                 <Link
                   to="/settings"
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <SettingsOutlineRounded class="mr-2" />
+                  <SettingsLine class="mr-2 h-5 w-5" />
                   Settings
                 </Link>
               </div>
@@ -368,7 +368,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   type="submit"
                   styleClass="text-gray-700 hover:bg-gray-100 inline-flex items-center px-4"
                 >
-                  <LogoutRounded class="mr-2" />
+                  <LogoutLine class="mr-2 h-5 w-5" />
                   Sign out
                 </Button>
               </form>

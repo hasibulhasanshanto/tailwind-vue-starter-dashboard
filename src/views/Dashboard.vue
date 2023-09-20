@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Breadcrumb from '@/components/common/Breadcrumb.vue';
+import Breadcrumb from "@/components/common/Breadcrumb.vue";
 </script>
 <template>
   <!-- Breadcrumb  -->
-  <Breadcrumb :breadArray="['Dashboard', 'Home']"/>
-  
+  <Breadcrumb :breadArray="['Dashboard', 'Home']" />
+
   <!-- Overview Section Start -->
   <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
     <!-- Product Views  -->
@@ -36,7 +36,9 @@ import Breadcrumb from '@/components/common/Breadcrumb.vue';
           <p class="text-sm tracking-wide text-slate-500">Product Views</p>
           <div class="flex flex-wrap items-baseline justify-between gap-2">
             <h4>$24,92</h4>
-            <span class="flex items-center text-xs font-medium text-success-500">
+            <span
+              class="flex items-center text-xs font-medium text-success-500"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -57,7 +59,7 @@ import Breadcrumb from '@/components/common/Breadcrumb.vue';
           </div>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- Product Views  -->
     <div class="card">
       <div class="card-body flex items-center gap-4">
@@ -101,13 +103,13 @@ import Breadcrumb from '@/components/common/Breadcrumb.vue';
                 class="feather feather-arrow-up-right h-3 w-3"
               >
                 <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>2.2%</span
+                <polyline points="7 7 17 7 17 17"></polyline></svg
+              >2.2%</span
             >
           </div>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- Product Views  -->
     <div class="card">
       <div class="card-body flex items-center gap-4">
@@ -151,13 +153,13 @@ import Breadcrumb from '@/components/common/Breadcrumb.vue';
                 class="feather feather-arrow-up-right h-3 w-3"
               >
                 <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>2.2%</span
+                <polyline points="7 7 17 7 17 17"></polyline></svg
+              >2.2%</span
             >
           </div>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- Product Views  -->
     <div class="card">
       <div class="card-body flex items-center gap-4">
@@ -201,12 +203,12 @@ import Breadcrumb from '@/components/common/Breadcrumb.vue';
                 class="feather feather-arrow-up-right h-3 w-3"
               >
                 <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>2.2%</span
+                <polyline points="7 7 17 7 17 17"></polyline></svg
+              >2.2%</span
             >
           </div>
         </div>
       </div>
-    </div> 
+    </div>
   </section>
 </template>

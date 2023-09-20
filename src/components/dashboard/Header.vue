@@ -28,12 +28,19 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
     >
       <!-- left Side  -->
       <div class="flex items-center">
-        <!-- Menu icon -->
-        <div @click="$emit('toggleMenu')" class="cursor-pointer w-[30px] hidden md:block">
+        <!-- Menu icon desktop -->
+        <div
+          @click="$emit('toggleMenu')"
+          class="cursor-pointer w-[30px] hidden md:block"
+        >
           <HamburgerMenu class="h-5 w-5" />
         </div>
 
-        <div id="drawer-show-button" class="cursor-pointer w-[30px] block md:hidden">
+        <!-- Menu icon mobile -->
+        <div
+          id="drawer-show-button"
+          class="cursor-pointer w-[30px] block md:hidden"
+        >
           <MenuFill class="h-5 w-5" />
         </div>
 
@@ -83,13 +90,13 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             <div class="py-1 text-left divide-y">
               <!-- Options -->
               <div class="py-1">
-                <Button 
+                <Button
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <Bangladesh class="mr-2 h-6 w-6" />
                   Bangla
                 </Button>
-                <Button 
+                <Button
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <UnitedStates class="mr-2 h-6 w-6" />
@@ -114,19 +121,19 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             <div class="py-1 text-left divide-y">
               <!-- Options -->
               <div class="py-1">
-                <Button 
+                <Button
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <SunLine class="mr-2 h-6 w-6" />
                   Light
                 </Button>
-                <Button 
+                <Button
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <MoonLine class="mr-2 h-6 w-6" />
                   Dark
                 </Button>
-                <Button 
+                <Button
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <Computer class="mr-2 h-6 w-6" />
@@ -326,13 +333,9 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
               src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
               alt=""
             />
-            <div
-              class="font-semibold text-left hidden md:block"
-            >
+            <div class="font-semibold text-left hidden md:block">
               <div>Hasibul Hasan</div>
-              <div class="text-xs text-gray-500">
-                Free user
-              </div>
+              <div class="text-xs text-gray-500">Free user</div>
             </div>
           </div>
 

@@ -17,8 +17,6 @@ import SearchLine from "../icons/search.vue";
 import LogoutLine from "../icons/logout.vue";
 import Button from "../common/Button.vue";
 import Link from "../common/Link.vue";
-
-defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 </script>
 
 <template>
@@ -73,8 +71,10 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
         <!-- Language -->
         <div class="mx-2">
           <button
+            id="languageFlButton"
+            data-dropdown-toggle="languageFl"
             class="flex items-center justify-start space-x-1 py-2"
-            @click="$emit('toggleLang')"
+            type="button"
           >
             <Bangladesh class="h-6 w-6" />
             <div class="font-semibold text-left hidden md:block">
@@ -82,10 +82,10 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             </div>
           </button>
 
-          <!-- Drop down -->
+          <!-- Dropdown menu -->
           <div
-            v-show="showLang"
-            class="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            id="languageFl"
+            class="z-10 w-44 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
           >
             <div class="py-1 text-left divide-y">
               <!-- Options -->
@@ -109,14 +109,19 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 
         <!-- Light Dark -->
         <div class="mx-2">
-          <button @click="$emit('toggleLightDark')" class="py-2">
+          <button
+            id="dropdownDefaultButton"
+            data-dropdown-toggle="dropdown"
+            class="py-2"
+            type="button"
+          >
             <SunLine class="h-6 w-6" />
           </button>
 
-          <!-- Drop down -->
+          <!-- Dropdown menu -->
           <div
-            v-show="showLightDark"
-            class="absolute right-[10px] md:right-[130px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            id="dropdown"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
           >
             <div class="py-1 text-left divide-y">
               <!-- Options -->
@@ -146,14 +151,19 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 
         <!-- Notifications -->
         <div class="mx-2 hidden md:block">
-          <button @click="$emit('toggleNotification')" class="py-2">
+          <button
+            id="notificationButton"
+            data-dropdown-toggle="notification"
+            class="py-2"
+            type="button"
+          >
             <NotificationLine class="h-6 w-6" />
           </button>
 
-          <!-- Drop down -->
+          <!-- Dropdown menu -->
           <div
-            v-show="showNotification"
-            class="absolute right-[195px] z-10 mt-[10px] w-80 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            id="notification"
+            class="z-10 w-80 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
           >
             <div class="py-1 text-left divide-y">
               <div class="flex justify-between mx-4 py-3">
@@ -324,9 +334,14 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 
         <!-- User login -->
         <div class="mx-2">
-          <div
-            class="flex items-center justify-start space-x-4 cursor-pointer"
-            @click="$emit('toggleDrop')"
+          <button
+            id="userAreaButton"
+            data-dropdown-toggle="userArea"
+            class="flex items-center justify-start space-x-4"
+            type="button"
+            data-dropdown-offset-distance="-170"
+            data-dropdown-offset-skidding="126"
+            data-dropdown-placement="right"
           >
             <img
               class="w-10 h-10 rounded-full border-2 border-gray-50"
@@ -337,12 +352,12 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
               <div>Hasibul Hasan</div>
               <div class="text-xs text-gray-500">Free user</div>
             </div>
-          </div>
+          </button>
 
-          <!-- Drop down -->
+          <!-- Dropdown menu -->
           <div
-            v-show="showDropDown"
-            class="absolute right-[10px] z-10 mt-[10px] w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            id="userArea"
+            class="z-10 w-56 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
           >
             <div class="py-1 text-left divide-y">
               <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->

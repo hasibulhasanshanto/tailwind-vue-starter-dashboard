@@ -5,7 +5,8 @@ import SettingsLine from "../icons/settings.vue";
 import LogoutLine from "../icons/logout.vue";
 import WechatLine from "../icons/chat.vue";
 import MenuLink from "../common/MenuLink.vue";
-import { computed, ref } from "vue";
+import Button from "../common/Button.vue";
+import { computed } from "vue";
 const props = defineProps(["showSidebar"]);
 
 const iconClass = computed(() => {
@@ -54,12 +55,12 @@ const iconClass = computed(() => {
             </MenuLink>
           </div>
           <div class="h-[50px]">
-            <button
+            <Button
               class="inline-flex items-center py-[10px] px-[20px] w-full text-sm font-medium text-gray-800 hover:bg-red-200 hover:text-black transition duration-400 ease-in-out"
             >
               <LogoutLine :class="iconClass" />
               <span v-show="!showSidebar">Sign Out</span>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

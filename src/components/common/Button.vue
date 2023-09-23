@@ -5,7 +5,7 @@ defineProps(["type", "styleClass", "disabled"]);
 <template>
   <button
     :type="type"
-    class="block w-full py-2 text-left text-sm"
+    class="block w-full py-2 text-left text-sm hover:bg-red-200"
     :class="styleClass ?? ''"
     :disabled="disabled ?? false"
   >

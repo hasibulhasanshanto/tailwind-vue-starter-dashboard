@@ -24,7 +24,7 @@ const iconClass = computed(() => {
         class="h-[60px] flex items-center justify-start duration-400 ease-out"
       >
         <div class="px-[20px]">
-          <router-link to="/">
+          <router-link to="/" class="logo-exact">
             <h3 class="font-bold text-sm md:text-xl text-black">
               {{ showSidebar ? "SB" : "Admin Dashboard" }}
             </h3>
@@ -69,6 +69,9 @@ const iconClass = computed(() => {
 </template>
 
 <style scoped>
+.logo-exact {
+  border-left: 0px !important;
+}
 .router-link-exact-active {
   background-color: rgb(251 213 213 /1);
   border-left: 5px solid red;

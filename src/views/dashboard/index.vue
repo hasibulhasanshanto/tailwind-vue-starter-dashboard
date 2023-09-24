@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Navbar from "../../components/dashboard/Header.vue";
 import Sidebar from "../../components/dashboard/Sidebar.vue";
+import Footer from "../../components/dashboard/Footer.vue";
 import OffCanvas from "../../components/dashboard/OffCanvas.vue";
 
 const showSidebar = ref<boolean>(false);
@@ -43,13 +44,13 @@ const toggleLang = () => {
 </script>
 
 <template>
-  <div class="flex bg-[#f8fafc]">
+  <div class="flex bg-[#f8fafc] absolute flex-row !w-[100%]">
     <OffCanvas/>
     <!-- Sidebar  -->
-    <Sidebar :showSidebar="showSidebar" />
+    <Sidebar :showSidebar="showSidebar" class="relative" />
 
     <!-- Main Start -->
-    <main class="w-full h-full">
+    <main class="w-full h-full relative">
       <!-- Navbar  -->
       <Navbar
         @toggleMenu="toggleMenu"
@@ -60,15 +61,16 @@ const toggleLang = () => {
         :showDropDown="showDropDown"
         :showNotification="showNotification"
         :showLightDark="showLightDark"
-        :showLang="showLang"
+        :showLang="showLang" 
       />
       <!-- Page content  -->
-      <div class="h-[calc(100vh-50px)] p-[20px] overflow-auto">
+      <div class="h-[calc(100vh-50px)] overflow-auto">
         <!-- <div class="container flex-grow mx-auto"> -->
-        <div class="h-full">
+        <div class="h-full p-[20px]">
           <router-view></router-view>
         </div>
       </div>
+      <Footer/> 
     </main>
     <!-- Main ends /.  -->
   </div>

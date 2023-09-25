@@ -40,8 +40,17 @@ const iconClass = computed(() => {
           </MenuLink>
 
           <MenuLink to="/chat">
-            <i class="ri-chat-smile-2-line" :class="iconClass"></i>
-            <span v-show="!showSidebar" class="text-md font-medium">Chat</span>
+            <i class="ri-discuss-line" :class="iconClass"></i>
+            <span
+              v-show="!showSidebar"
+              class="flex-1 whitespace-nowrap text-md font-medium"
+              >Messages</span
+            >
+            <!-- right side content  -->
+            <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >3</span
+            >
           </MenuLink>
 
           <MenuLink to="/settings">

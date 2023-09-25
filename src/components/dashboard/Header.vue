@@ -26,10 +26,8 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
           <i class="ri-menu-2-line ri-xl"></i>
         </div>
 
-        <div
-          id="drawer-show-button"
-          class="cursor-pointer w-[30px] block md:hidden"
-        >
+        <!-- block md:hidden -->
+        <div id="drawer-show-button" class="cursor-pointer w-[30px]">
           <i class="ri-menu-line ri-xl"></i>
         </div>
 

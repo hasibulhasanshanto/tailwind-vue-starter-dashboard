@@ -3,8 +3,9 @@ import Breadcrumb from "../components/common/Breadcrumb.vue";
 </script>
 <template>
   <!-- Breadcrumb  -->
-  <Breadcrumb :breadArray="['Messages', 'Home']" />
+  <Breadcrumb :breadArray="['Vip Service', 'Home']" />
+
   <div>
-    <p>Messages page</p>
+    <p>Vip Service page</p>
   </div>
 </template>

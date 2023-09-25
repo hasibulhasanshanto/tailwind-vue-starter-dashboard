@@ -23,6 +23,11 @@ const router = createRouter({
       name: "settings",
       component: () => import("../views/Settings.vue"),
     },
+    {
+      path: "/vip-service",
+      name: "vipService",
+      component: () => import("../views/VipService.vue"),
+    },
   ],
 });
 

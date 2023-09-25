@@ -18,8 +18,8 @@ const toggleMenu = () => {
     <Sidebar class="hidden md:block" :showSidebar="showSidebar" />
     <!-- Sidebar /.-->
 
-    <!-- Off canvas  -->
-    <OffCanvas class="block md:hidden" />
+    <!-- Off canvas class="block md:hidden"  -->
+    <OffCanvas />
     <!-- Off canvas  /.-->
 
     <div

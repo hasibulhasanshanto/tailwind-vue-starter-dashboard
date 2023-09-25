@@ -17,6 +17,7 @@ import SearchLine from "../icons/search.vue";
 import LogoutLine from "../icons/logout.vue";
 import Button from "../common/Button.vue";
 import Link from "../common/Link.vue";
+import Dropdown from "../common/Dropdown.vue";
 
 defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 </script>
@@ -102,40 +103,41 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 
         <!-- Light Dark -->
         <div class="mx-2">
-          <button @click="$emit('toggleLightDark')" class="py-2">
-            <SunLine class="h-6 w-6" />
-          </button>
+          <Dropdown btnId="darkBtn" dropId="darkDropdown" buttonClass="py-2 text-gray-900" dropDownClass="absolute right-[10px] md:right-[130px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <template v-slot:button> 
+              <i class="ri-sun-line ri-xl"></i>
+            </template>
 
-          <!-- Drop down -->
-          <div
-            v-show="showLightDark"
-            class="absolute right-[10px] md:right-[130px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-          >
-            <div class="py-1 text-left divide-y">
-              <!-- Options -->
-              <div class="py-1">
-                <Button 
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+            <template v-slot:dropdown-options> 
+              <li>
+                <Button
+                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <SunLine class="mr-2 h-6 w-6" />
+                  <i class="ri-sun-line ri-xl mr-2"></i>
                   Light
                 </Button>
-                <Button 
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+              </li>
+
+              <li>
+                <Button
+                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <MoonLine class="mr-2 h-6 w-6" />
+                  <i class="ri-moon-line ri-xl mr-2"></i>
                   Dark
                 </Button>
-                <Button 
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+              </li>
+
+              <li>
+                <Button
+                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <Computer class="mr-2 h-6 w-6" />
+                  <i class="ri-computer-line ri-xl mr-2"></i>
                   System
                 </Button>
-              </div>
-            </div>
-          </div>
-        </div>
+              </li>
+            </template>
+          </Dropdown>
+        </div> 
 
         <!-- Notifications -->
         <div class="mx-2 hidden md:block">

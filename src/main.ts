@@ -1,3 +1,4 @@
+import 'remixicon/fonts/remixicon.css'
 import './assets/style.css'
 
 import { createApp } from 'vue'

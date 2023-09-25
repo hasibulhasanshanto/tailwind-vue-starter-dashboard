@@ -4,4 +4,7 @@ import Breadcrumb from "@/components/common/Breadcrumb.vue";
 <template>
   <!-- Breadcrumb  -->
   <Breadcrumb :breadArray="['Chat', 'Home']" />
+  <div>
+    <p>Chat page</p>
+  </div>
 </template>

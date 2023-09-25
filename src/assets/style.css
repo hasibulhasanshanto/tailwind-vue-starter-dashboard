@@ -17,26 +17,26 @@ body {
 
 
 /* width */
-/* ::-webkit-scrollbar {
-    width: 10px;
-  } */
+::-webkit-scrollbar {
+  width: 8px;
+}
 
 /* Track */
-/* ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-  } */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
 
 /* Handle */
-/* ::-webkit-scrollbar-thumb {
-    background: rgba(131, 131, 131, 0.582); 
-    border-radius: 10px;
-  } */
+::-webkit-scrollbar-thumb {
+  background: rgba(131, 131, 131, 0.582);
+  border-radius: 10px;
+}
 
 /* Handle on hover */
-/* ::-webkit-scrollbar-thumb:hover {
-    background: #616161bd; 
-  } */
+::-webkit-scrollbar-thumb:hover {
+  background: #6161618e;
+}
 
 /* App layout css */
 #app {
@@ -50,7 +50,6 @@ body {
   top: 0px;
   z-index: 20;
   height: 100vh;
-  width: 18rem;
   overflow: hidden;
   background-color: white;
   transition-property: all;
@@ -58,15 +57,11 @@ body {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sidebar.collapsed {
-  width: 5rem;
-}
-
 body .wrapper {
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
-  transition-property: margin;
+  /* transition-property: margin; */
   /* transition-duration: 300ms; */
   /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 }
@@ -74,9 +69,8 @@ body .wrapper {
 body .wrapper .header {
   position: sticky;
   top: 0px;
-  z-index: 50;
+  z-index: 30;
   display: flex;
-  height: 4rem;
   width: 100%;
   align-items: center;
   overflow: visible;
@@ -88,7 +82,7 @@ body .wrapper .content {
   width: 100%;
   flex-direction: column;
   scroll-behavior: smooth;
-  min-height: calc(100vh - 4rem);
+  min-height: calc(100vh - 60px);
 }
 
 body .wrapper .footer {
@@ -104,17 +98,6 @@ body .wrapper .footer {
   padding-right: 1rem;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  color: rgb(100 116 139 / 1);
-}
-
-body .wrapper.expanded {
-  margin-left: 5rem;
-}
-
-@media (min-width: 1024px) {
-  body .wrapper {
-    margin-left: 18rem;
-  }
 }
 
 .container {
@@ -123,14 +106,14 @@ body .wrapper.expanded {
   margin-left: auto;
 }
 
-
+/* Extra css  */
 .card {
   width: 100%;
   border-radius: 0.4rem;
   background-color: rgb(255 255 255 / 1);
   transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.3s;
+  /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s; */
 }
 
 .card-body {

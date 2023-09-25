@@ -6,22 +6,22 @@ const router = createRouter({
     {
       path: "/",
       name: "dashboard",
-      component: import("../views/dashboard/Dashboard.vue"),
+      component: import("../views/Dashboard.vue"),
     },
     {
       path: "/profile",
       name: "profile",
-      component: import("../views/dashboard/Profile.vue"),
+      component: import("../views/Profile.vue"),
     },
     {
       path: "/chat",
       name: "chat",
-      component: import("../views/dashboard/Chat.vue"),
+      component: import("../views/Chat.vue"),
     },
     {
       path: "/settings",
       name: "settings",
-      component: import("../views/dashboard/Settings.vue"),
+      component: import("../views/Settings.vue"),
     },
   ],
 });

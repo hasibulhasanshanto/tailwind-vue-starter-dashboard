@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { RouterView } from "vue-router";
-import Navbar from "@/components/dashboard/Header.vue";
-import Sidebar from "@/components/dashboard/Sidebar.vue";
-import Footer from "@/components/dashboard/Footer.vue";
-import OffCanvas from "@/components/dashboard/OffCanvas.vue";
+import Navbar from "./components/dashboard/Header.vue";
+import Sidebar from "./components/dashboard/Sidebar.vue";
+import Footer from "./components/dashboard/Footer.vue";
+import OffCanvas from "./components/dashboard/OffCanvas.vue";
 const showSidebar = ref<boolean>(false);
 
 const toggleMenu = () => {
@@ -19,17 +19,20 @@ const toggleMenu = () => {
     <!-- Sidebar /.-->
 
     <!-- Off canvas  -->
-    <OffCanvas />
+    <OffCanvas class="block md:hidden" />
     <!-- Off canvas  /.-->
 
-    <div class="wrapper">
+    <div
+      class="wrapper ml-0"
+      :class="showSidebar ? 'md:ml-[70px]' : 'md:ml-[280px]'"
+    >
       <!-- Header  -->
       <Navbar @toggleMenu="toggleMenu" />
       <!-- Header  /.-->
 
       <div class="content">
         <!-- Main  -->
-        <main class="container p-6">
+        <main class="container p-4">
           <RouterView />
         </main>
         <!-- Main  /.-->

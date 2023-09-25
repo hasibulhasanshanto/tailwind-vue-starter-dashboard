@@ -45,12 +45,12 @@ const toggleLang = () => {
 
 <template>
   <div class="flex bg-[#f8fafc]">
-    <OffCanvas/>
+    <OffCanvas />
     <!-- Sidebar  -->
     <Sidebar :showSidebar="showSidebar" />
 
     <!-- Main Start -->
-    <main class="flex flex-1 flex-col">
+    <main class="flex flex-1 flex-col ml-[350px]">
       <!-- Navbar  -->
       <Navbar
         @toggleMenu="toggleMenu"
@@ -61,22 +61,18 @@ const toggleLang = () => {
         :showDropDown="showDropDown"
         :showNotification="showNotification"
         :showLightDark="showLightDark"
-        :showLang="showLang" 
+        :showLang="showLang"
       />
       <!-- Page content  -->
-      <div class="h-[calc(100vh-50px)] overflow-auto">
+      <div class="h-[calc(100vh-50px)] w-full flex flex-col">
         <!-- <div class="container flex-grow mx-auto"> -->
-        <div class="h-full p-[20px]">
+        <div class="h-full w-full p-[20px] mx-auto">
           <router-view></router-view>
         </div>
+        <!-- Footer  -->
+        <Footer />
       </div>
-      <Footer/> 
     </main>
     <!-- Main ends /.  -->
   </div>
 </template>
-<style>
-body {
-  overflow: hidden;
-}
-</style>

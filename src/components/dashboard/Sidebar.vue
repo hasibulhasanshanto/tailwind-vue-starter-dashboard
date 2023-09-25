@@ -1,9 +1,4 @@
-<script setup lang="ts">
-import HomeLine from "../icons/home.vue";
-import ProfileCircleOutline from "../icons/profile.vue";
-import SettingsLine from "../icons/settings.vue";
-import LogoutLine from "../icons/logout.vue";
-import WechatLine from "../icons/chat.vue";
+<script setup lang="ts"> 
 import MenuLink from "../common/MenuLink.vue";
 
 defineProps(["showSidebar"]);
@@ -23,34 +18,34 @@ defineProps(["showSidebar"]);
       </div>
       <div class="h-[calc(100vh-50px)] bg-gray-700 py-4 drop-shadow-lg">
         <div
-          class="flex flex-col justify-between h-full px-[20px] space-y-[10px]"
+          class="flex flex-col justify-between h-full px-[10px] space-y-[10px]"
         >
           <div class="flex flex-col justify-between space-y-[10px]">
             <MenuLink to="/dashboard">
-              <HomeLine class="mr-2 h-5 w-5" />
+              <i class="ri-home-3-line ri-xl mr-2"></i> 
               Home
             </MenuLink>
 
             <MenuLink to="/profile">
-              <ProfileCircleOutline class="mr-2 h-5 w-5" />
+              <i class="ri-user-3-line ri-xl mr-2"></i> 
               Profile
             </MenuLink>
 
             <MenuLink to="/chat">
-              <WechatLine class="mr-2 h-5 w-5" />
+              <i class="ri-chat-smile-2-line ri-xl mr-2"></i> 
               Chat
             </MenuLink>
 
             <MenuLink to="/settings">
-              <SettingsLine class="mr-2 h-5 w-5" />
+              <i class="ri-settings-5-line ri-xl mr-2"></i> 
               Settings
             </MenuLink>
           </div>
           <div class="h-[50px]">
-            <MenuLink to="/">
-              <LogoutLine class="mr-2 h-5 w-5" />
+            <Button>
+              <i class="ri-logout-box-r-line ri-xl mr-2"></i> 
               Sign Out
-            </MenuLink>
+            </Button>
           </div>
         </div>
       </div>

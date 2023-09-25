@@ -4,7 +4,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 const dropdownOpen = ref<boolean>(false);
 const trigger = ref<any>(null);
 const dropdown = ref<any>(null);
-defineProps(["btnId", "dropId","buttonClass", "dropDownClass"]);
+defineProps(["btnId", "dropId", "buttonClass", "dropDownClass"]);
 
 // close on click outside
 const clickHandler = ({ target }: any) => {

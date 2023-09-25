@@ -104,43 +104,43 @@ onMounted(() => {
           <!-- Dropdown  -->
           <ul id="dropdown-example" class="hidden py-2 space-y-2 ml-2">
             <li>
-              <MenuLink to="#">
+              <MenuLink to="/activities/interests">
                 <i class="ri-user-3-line ri-xl mr-2"></i>
                 <span>Interests</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="#">
+              <MenuLink to="/activities/photo-requests">
                 <i class="ri-user-3-line ri-xl mr-2"></i>
                 <span>Photo Requests</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="#">
+              <MenuLink to="/activities/shortlists">
                 <i class="ri-user-3-line ri-xl mr-2"></i>
                 <span>Shortlists</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="#">
+              <MenuLink to="/activities/profile-viewers">
                 <i class="ri-user-3-line ri-xl mr-2"></i>
                 <span>Profile Viewers</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="#">
+              <MenuLink to="/activities/profile-visited">
                 <i class="ri-user-3-line ri-xl mr-2"></i>
                 <span>Profile Visited</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="#">
+              <MenuLink to="/activities/block-lists">
                 <i class="ri-user-3-line ri-xl mr-2"></i>
                 <span>Block Lists</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="#">
+              <MenuLink to="/activities/rejection-lists">
                 <i class="ri-user-3-line ri-xl mr-2"></i>
                 <span>Rejection List</span>
               </MenuLink>

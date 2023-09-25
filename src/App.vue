@@ -18,10 +18,11 @@ const toggleMenu = () => {
     <Sidebar class="hidden md:block" :showSidebar="showSidebar" />
     <!-- Sidebar /.-->
 
-    <!-- Off canvas class="block md:hidden"  -->
-    <OffCanvas />
+    <!-- Off canvas -->
+    <OffCanvas class="block md:hidden" />
     <!-- Off canvas  /.-->
 
+    <!-- Wrapper -->
     <div
       class="wrapper ml-0"
       :class="showSidebar ? 'md:ml-[70px]' : 'md:ml-[280px]'"
@@ -42,5 +43,6 @@ const toggleMenu = () => {
         <!-- Footer  /.-->
       </div>
     </div>
+    <!-- Wrapper /.-->
   </div>
 </template>

@@ -14,7 +14,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 <template>
   <header>
     <div
-      class="h-[60px] bg-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between sticky"
+      class="h-[60px] bg-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between sticky overflow-visible"
     >
       <!-- left Side  -->
       <div class="flex items-center">

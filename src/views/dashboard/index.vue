@@ -44,13 +44,13 @@ const toggleLang = () => {
 </script>
 
 <template>
-  <div class="flex bg-[#f8fafc] absolute flex-row !w-[100%]">
+  <div class="flex bg-[#f8fafc]">
     <OffCanvas/>
     <!-- Sidebar  -->
-    <Sidebar :showSidebar="showSidebar" class="relative" />
+    <Sidebar :showSidebar="showSidebar" />
 
     <!-- Main Start -->
-    <main class="w-full h-full relative">
+    <main class="flex flex-1 flex-col">
       <!-- Navbar  -->
       <Navbar
         @toggleMenu="toggleMenu"

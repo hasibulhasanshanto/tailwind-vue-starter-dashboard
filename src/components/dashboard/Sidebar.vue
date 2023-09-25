@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import Button from "../common/Button.vue";
 import MenuLink from "../common/MenuLink.vue";
 
 const props = defineProps(["showSidebar"]);
@@ -11,7 +12,7 @@ const iconClass = computed(() => {
 
 <template>
   <aside
-    class="sidebar h-full text-white bg-white duration-200 ease-out"
+    class="sidebar h-full text-white bg-white duration-200 ease-out shadow-sm drop-shadow-md"
     :class="showSidebar ? 'w-[70px]' : 'w-[280px]'"
   >
     <div class="h-[60px] flex items-center justify-start duration-400 ease-out">

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { Drawer } from "flowbite";
-import MenuLink from "../common/MenuLink.vue";
 import Button from "../common/Button.vue";
+import MenuLink from "../common/MenuLink.vue";
 
 onMounted(() => {
   // set the drawer menu element

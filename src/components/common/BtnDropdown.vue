@@ -35,31 +35,31 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div>
-    <button
-      :id="btnId ?? 'dropdownDefaultButton'"
-      :data-dropdown-toggle="dropId ?? 'dropdown'"
-      ref="trigger"
-      :class="buttonClass"
-      aria-haspopup="true"
-      @click.prevent="dropdownOpen = !dropdownOpen"
-      :aria-expanded="dropdownOpen"
-    >
-      <slot name="button">
-        <i class="ri-arrow-down-line ri-xl mr-2"></i>
-        Button
-      </slot>
-    </button>
+  <transition
+    enter-active-class="transition ease-in duration-200 transform"
+    enter-from-class="opacity-0 -translate-y-4"
+    enter-to-class="opacity-100 translate-y-0"
+    leave-active-class="transition ease-out duration-200"
+    leave-from-class="opacity-100"
+    leave-to-class="opacity-0"
+  >
+    <div>
+      <button
+        :id="btnId ?? 'dropdownDefaultButton'"
+        :data-dropdown-toggle="dropId ?? 'dropdown'"
+        :class="buttonClass"
+        ref="trigger"
+        aria-haspopup="true"
+        @click.prevent="dropdownOpen = !dropdownOpen"
+        :aria-expanded="dropdownOpen"
+      >
+        <slot name="button">
+          <i class="ri-arrow-down-line ri-xl mr-2"></i>
+          Button
+        </slot>
+      </button>
 
-    <!-- Drop down -->
-    <transition
-      enter-active-class="transition ease-out duration-200 transform"
-      enter-from-class="opacity-0 translate-y-2"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition ease-out duration-200"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
+      <!-- Drop down -->
       <div
         :id="dropId ?? 'dropdown'"
         v-show="dropdownOpen"
@@ -83,6 +83,6 @@ onUnmounted(() => {
           </ul>
         </div>
       </div>
-    </transition>
-  </div>
+    </div>
+  </transition>
 </template>

@@ -12,7 +12,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 </script>
 
 <template>
-  <header class="header">
+  <header class="header shadow-sm">
     <div
       class="h-[60px] bg-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
     >
@@ -41,7 +41,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <i class="ri-search-line text-gray-500 ri-xl"></i>
+                <i class="ri-search-line text-gray-500 ri-lg"></i>
               </div>
               <input
                 type="text"
@@ -326,7 +326,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             btnId="userProfileBtn"
             dropId="userProfileDropdown"
             buttonClass="flex items-center justify-start space-x-4 cursor-pointer"
-            dropDownClass="absolute right-[10px] z-10 mt-[10px] w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100"
+            dropDownClass="z-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100"
           >
             <template v-slot:button>
               <img

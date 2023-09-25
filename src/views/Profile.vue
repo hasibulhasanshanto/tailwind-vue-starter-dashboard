@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Breadcrumb from '@/components/common/Breadcrumb.vue';
+import Breadcrumb from "../components/common/Breadcrumb.vue";
 </script>
 <template>
   <!-- Breadcrumb  -->
-  <Breadcrumb :breadArray="['Profile', 'Home', 'User']"/>
+  <Breadcrumb :breadArray="['Profile', 'Home', 'User']" />
 
   <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 pb-10">
     <!-- Left Section Start  -->

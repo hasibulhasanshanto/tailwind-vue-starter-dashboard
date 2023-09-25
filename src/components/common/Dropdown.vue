@@ -37,8 +37,8 @@ onUnmounted(() => {
 <template>
   <div>
     <button
-      :id="btnId"
-      :data-dropdown-toggle="dropId"
+      :id="btnId ?? 'dropdownDefaultButton'"
+      :data-dropdown-toggle="dropId ?? 'dropdown'"
       ref="trigger"
       :class="buttonClass"
       aria-haspopup="true"
@@ -61,10 +61,10 @@ onUnmounted(() => {
       leave-to-class="opacity-0"
     >
       <div
-        :id="dropId"
+        :id="dropId ?? 'dropdown'"
         v-show="dropdownOpen"
         :class="dropDownClass"
-        :aria-labelledby="btnId"
+        :aria-labelledby="btnId ?? 'dropdownDefaultButton'"
       >
         <div class="py-1 text-left divide-y">
           <ul

@@ -66,40 +66,35 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
       <div class="flex items-center justify-end">
         <!-- Language -->
         <div class="mx-2">
-          <button
-            class="flex items-center justify-start space-x-1 py-2"
-            @click="$emit('toggleLang')"
-          >
-            <Bangladesh class="h-6 w-6" />
+          <Dropdown btnId="langBtn" dropId="langDropdown" buttonClass="flex items-center justify-start space-x-1 py-2" dropDownClass="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <template v-slot:button> 
+              <Bangladesh class="h-6 w-6" />
             <div class="font-semibold text-left hidden md:block">
               <div>Bangla</div>
             </div>
-          </button>
+            </template>
 
-          <!-- Drop down -->
-          <div
-            v-show="showLang"
-            class="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-          >
-            <div class="py-1 text-left divide-y">
-              <!-- Options -->
-              <div class="py-1">
+            <template v-slot:dropdown-options> 
+              <li>
                 <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <Bangladesh class="mr-2 h-6 w-6" />
                   Bangla
                 </Button>
+              </li>
+
+              <li>
                 <Button 
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <UnitedStates class="mr-2 h-6 w-6" />
                   English
                 </Button>
-              </div>
-            </div>
-          </div>
-        </div>
+              </li> 
+            </template>
+          </Dropdown>
+        </div> 
 
         <!-- Light Dark -->
         <div class="mx-2">

@@ -33,7 +33,7 @@ const toggleMenu = () => {
 
       <div class="content">
         <!-- Main  -->
-        <main class="container p-4">
+        <main class="sb-container py-4 px-6">
           <RouterView />
         </main>
         <!-- Main  /.-->

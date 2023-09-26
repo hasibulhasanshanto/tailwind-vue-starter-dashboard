@@ -145,7 +145,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             btnId="notificationBtn"
             dropId="notificationDropdown"
             buttonClass="py-2 text-gray-900"
-            dropDownClass="absolute right-[195px] z-10 mt-[10px] w-80 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            dropDownClass="absolute right-[195px] z-10 mt-[10px] w-80 top-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <template v-slot:button>
               <i class="ri-notification-2-line ri-xl"></i>
@@ -326,7 +326,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             btnId="userProfileBtn"
             dropId="userProfileDropdown"
             buttonClass="flex items-center justify-start space-x-4 cursor-pointer"
-            dropDownClass="z-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100"
+            dropDownClass="absolute right-[195px] z-10 mt-[15px] w-56 top-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <template v-slot:button>
               <img

@@ -89,6 +89,19 @@ onMounted(() => {
             >
           </MenuLink>
         </li>
+
+        <li>
+          <MenuLink to="/chat">
+            <i class="ri-notification-2-line ri-xl mr-2"></i>
+            <span class="flex-1 whitespace-nowrap">Notifications</span>
+            <!-- right side content  -->
+            <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >3</span
+            >
+          </MenuLink>
+        </li>
+
         <!-- Activities Dropdown -->
         <li>
           <Button
@@ -97,7 +110,7 @@ onMounted(() => {
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example"
           >
-            <i class="ri-exchange-box-line ri-xl mr-2"></i>
+            <i class="ri-funds-box-line ri-xl mr-2"></i>
             <span class="flex-1 text-left whitespace-nowrap">Activities</span>
             <i class="ri-arrow-down-s-line ri-xl"></i>
           </Button>
@@ -105,43 +118,44 @@ onMounted(() => {
           <ul id="dropdown-example" class="hidden py-2 space-y-2 ml-2">
             <li>
               <MenuLink to="/activities/interests">
-                <i class="ri-user-3-line ri-xl mr-2"></i>
+                <i class="ri-service-line ri-xl mr-2"></i>
                 <span>Interests</span>
               </MenuLink>
             </li>
             <li>
               <MenuLink to="/activities/photo-requests">
-                <i class="ri-user-3-line ri-xl mr-2"></i>
+                <i class="ri-image-add-line ri-xl mr-2"></i>
                 <span>Photo Requests</span>
               </MenuLink>
             </li>
             <li>
               <MenuLink to="/activities/shortlists">
-                <i class="ri-user-3-line ri-xl mr-2"></i>
+                <!-- <i class="ri-heart-line ri-xl mr-2"></i> -->
+                <i class="ri-hearts-line ri-xl mr-2"></i>
                 <span>Shortlists</span>
               </MenuLink>
             </li>
             <li>
               <MenuLink to="/activities/profile-viewers">
-                <i class="ri-user-3-line ri-xl mr-2"></i>
+                <i class="ri-pass-valid-line ri-xl mr-2"></i>
                 <span>Profile Viewers</span>
               </MenuLink>
             </li>
             <li>
               <MenuLink to="/activities/profile-visited">
-                <i class="ri-user-3-line ri-xl mr-2"></i>
+                <i class="ri-pass-pending-line ri-xl mr-2"></i>
                 <span>Profile Visited</span>
               </MenuLink>
             </li>
             <li>
               <MenuLink to="/activities/block-lists">
-                <i class="ri-user-3-line ri-xl mr-2"></i>
+                <i class="ri-prohibited-line ri-xl mr-2"></i>
                 <span>Block Lists</span>
               </MenuLink>
             </li>
             <li>
               <MenuLink to="/activities/rejection-lists">
-                <i class="ri-user-3-line ri-xl mr-2"></i>
+                <i class="ri-spam-2-line ri-xl mr-2"></i>
                 <span>Rejection List</span>
               </MenuLink>
             </li>

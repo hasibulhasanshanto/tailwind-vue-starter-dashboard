@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { RouterView } from "vue-router";
 import Navbar from "./components/dashboard/Header.vue";
 import Sidebar from "./components/dashboard/Sidebar.vue";
+import Footer from "./components/dashboard/Footer.vue";
 import OffCanvas from "./components/dashboard/OffCanvas.vue";
-
 const showSidebar = ref<boolean>(false);
 
 const toggleMenu = () => {
@@ -12,32 +13,36 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <div class="flex bg-[#f8fafc]">
-    <!-- Off canvas menu  -->
-    <OffCanvas />
+  <div class="body-content">
+    <!-- Sidebar -->
+    <Sidebar class="hidden md:block" :showSidebar="showSidebar" />
+    <!-- Sidebar /.-->
 
-    <!-- Sidebar  -->
-    <Sidebar :showSidebar="showSidebar" />
+    <!-- Off canvas -->
+    <OffCanvas class="block md:hidden" />
+    <!-- Off canvas  /.-->
 
-    <!-- Main Start -->
-    <main class="w-full h-full relative">
-      <!-- Navbar  -->
+    <!-- Wrapper -->
+    <div
+      class="wrapper ml-0"
+      :class="showSidebar ? 'md:ml-[70px]' : 'md:ml-[280px]'"
+    >
+      <!-- Header  -->
       <Navbar @toggleMenu="toggleMenu" />
-      <!-- Page content  -->
-      <!-- TODO: add to body and see -> overflow-auto  -->
-      <div class="h-[calc(100vh-50px)] p-[20px]">
-        <!-- <div class="container flex-grow mx-auto"> -->
-        <div class="h-full">
-          <router-view></router-view>
-        </div>
+      <!-- Header  /.-->
+
+      <div class="content">
+        <!-- Main  -->
+        <main class="sb-container py-4 px-6">
+          <RouterView />
+        </main>
+        <!-- Main  /.-->
+
+        <!-- Footer  -->
+        <Footer />
+        <!-- Footer  /.-->
       </div>
-    </main>
-    <!-- Main ends /.  -->
+    </div>
+    <!-- Wrapper /.-->
   </div>
 </template>
-
-<style>
-/* body {
-  overflow: hidden;
-} */
-</style>

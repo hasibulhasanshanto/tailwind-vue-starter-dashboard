@@ -1,45 +1,36 @@
 <script setup lang="ts">
-import ProfileCircleOutline from "../icons/profile.vue";
-import SettingsLine from "../icons/settings.vue";
-import NotificationLine from "../icons/notification.vue";
-import SunLine from "../icons/light.vue";
-import MoonLine from "../icons/dark.vue";
-import Computer from "../icons/computer.vue";
 import Bangladesh from "../icons/bgd.vue";
 import UnitedStates from "../icons/usa.vue";
 import Warning from "../icons/warning.vue";
 import Success from "../icons/success.vue";
 import Cross from "../icons/cross.vue";
-import ArrowRight from "../icons/right-arrow.vue";
-import HamburgerMenu from "../icons/hamburger.vue";
-import MenuFill from "../icons/menu2.vue";
-import SearchLine from "../icons/search.vue";
-import LogoutLine from "../icons/logout.vue";
 import Button from "../common/Button.vue";
 import Link from "../common/Link.vue";
+import BtnDropdown from "../common/BtnDropdown.vue";
+
+defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 </script>
 
 <template>
-  <header>
+  <header class="header shadow-sm">
     <div
       class="h-[60px] bg-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
     >
       <!-- left Side  -->
       <div class="flex items-center">
-        <!-- Menu icon desktop -->
+        <!-- Menu icon -->
         <div
           @click="$emit('toggleMenu')"
           class="cursor-pointer w-[30px] hidden md:block"
         >
-          <HamburgerMenu class="h-5 w-5" />
+          <i class="ri-menu-2-line ri-xl"></i>
         </div>
 
-        <!-- Menu icon mobile -->
         <div
           id="drawer-show-button"
           class="cursor-pointer w-[30px] block md:hidden"
         >
-          <MenuFill class="h-5 w-5" />
+          <i class="ri-menu-line ri-xl"></i>
         </div>
 
         <!-- Search bar -->
@@ -50,7 +41,7 @@ import Link from "../common/Link.vue";
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <SearchLine class="text-gray-500 h-5 w-5" />
+                <i class="ri-search-line text-gray-500 ri-lg"></i>
               </div>
               <input
                 type="text"
@@ -70,333 +61,324 @@ import Link from "../common/Link.vue";
       <div class="flex items-center justify-end">
         <!-- Language -->
         <div class="mx-2">
-          <button
-            id="languageFlButton"
-            data-dropdown-toggle="languageFl"
-            class="flex items-center justify-start space-x-1 py-2"
-            type="button"
+          <BtnDropdown
+            btnId="langBtn"
+            dropId="langDropdown"
+            buttonClass="flex items-center justify-start space-x-1 py-2"
+            dropDownClass="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
-            <Bangladesh class="h-6 w-6" />
-            <div class="font-semibold text-left hidden md:block">
-              <div>Bangla</div>
-            </div>
-          </button>
+            <template v-slot:button>
+              <Bangladesh class="h-6 w-6" />
+              <div class="font-semibold text-left hidden md:block">
+                <div>Bangla</div>
+              </div>
+            </template>
 
-          <!-- Dropdown menu -->
-          <div
-            id="languageFl"
-            class="z-10 w-44 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-          >
-            <div class="py-1 text-left divide-y">
-              <!-- Options -->
-              <div class="py-1">
+            <template v-slot:dropdown-options>
+              <li>
                 <Button
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <Bangladesh class="mr-2 h-6 w-6" />
                   Bangla
                 </Button>
+              </li>
+
+              <li>
                 <Button
                   class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
                   <UnitedStates class="mr-2 h-6 w-6" />
                   English
                 </Button>
-              </div>
-            </div>
-          </div>
+              </li>
+            </template>
+          </BtnDropdown>
         </div>
 
         <!-- Light Dark -->
         <div class="mx-2">
-          <button
-            id="dropdownDefaultButton"
-            data-dropdown-toggle="dropdown"
-            class="py-2"
-            type="button"
+          <BtnDropdown
+            btnId="darkBtn"
+            dropId="darkDropdown"
+            buttonClass="py-2 text-gray-900"
+            dropDownClass="absolute right-[10px] md:right-[130px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
-            <SunLine class="h-6 w-6" />
-          </button>
+            <template v-slot:button>
+              <i class="ri-sun-line ri-xl"></i>
+            </template>
 
-          <!-- Dropdown menu -->
-          <div
-            id="dropdown"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-          >
-            <div class="py-1 text-left divide-y">
-              <!-- Options -->
-              <div class="py-1">
+            <template v-slot:dropdown-options>
+              <li>
                 <Button
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <SunLine class="mr-2 h-6 w-6" />
+                  <i class="ri-sun-line ri-xl mr-2"></i>
                   Light
                 </Button>
+              </li>
+
+              <li>
                 <Button
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <MoonLine class="mr-2 h-6 w-6" />
+                  <i class="ri-moon-line ri-xl mr-2"></i>
                   Dark
                 </Button>
+              </li>
+
+              <li>
                 <Button
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
                 >
-                  <Computer class="mr-2 h-6 w-6" />
+                  <i class="ri-computer-line ri-xl mr-2"></i>
                   System
                 </Button>
-              </div>
-            </div>
-          </div>
+              </li>
+            </template>
+          </BtnDropdown>
         </div>
 
         <!-- Notifications -->
         <div class="mx-2 hidden md:block">
-          <button
-            id="notificationButton"
-            data-dropdown-toggle="notification"
-            class="py-2"
-            type="button"
+          <BtnDropdown
+            btnId="notificationBtn"
+            dropId="notificationDropdown"
+            buttonClass="py-2 text-gray-900"
+            dropDownClass="absolute right-[195px] z-10 mt-[10px] w-80 top-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
-            <NotificationLine class="h-6 w-6" />
-          </button>
+            <template v-slot:button>
+              <i class="ri-notification-2-line ri-xl"></i>
+            </template>
 
-          <!-- Dropdown menu -->
-          <div
-            id="notification"
-            class="z-10 w-80 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-          >
-            <div class="py-1 text-left divide-y">
-              <div class="flex justify-between mx-4 py-3">
-                <p class="text-sm font-semibold">Notifications</p>
-                <p class="truncate text-sm cursor-pointer">Clear All</p>
+            <template v-slot:dropdown-options>
+              <div class="divide-y">
+                <div class="flex justify-between mx-4 py-3">
+                  <p class="text-sm font-semibold">Notifications</p>
+                  <p class="truncate text-sm cursor-pointer">Clear All</p>
+                </div>
+
+                <!-- Options -->
+                <div class="py-1 h-[300px] overflow-auto">
+                  <!-- Notification item  -->
+                  <Link
+                    to="#"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                  >
+                    <div class="w-[12%] mr-1 mt-1">
+                      <Warning class="h-6 w-6" />
+                    </div>
+
+                    <div class="w-[calc(100-12%)]">
+                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                      <div class="text-gray-500">
+                        <p class="text-sm">CPU usage is at 92%</p>
+                        <p class="text-xs">5 min ago</p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <!-- Notification item  -->
+                  <Link
+                    to="#"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                  >
+                    <div class="w-[12%] mr-1 mt-1">
+                      <Success class="h-6 w-6" />
+                    </div>
+
+                    <div class="w-[calc(100-12%)]">
+                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                      <div class="text-gray-500">
+                        <p class="text-sm">CPU usage is at 92%</p>
+                        <p class="text-xs">5 min ago</p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <!-- Notification item  -->
+                  <Link
+                    to="#"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                  >
+                    <div class="w-[12%] mr-1 mt-1">
+                      <Cross class="h-6 w-6" />
+                    </div>
+
+                    <div class="w-[calc(100-12%)]">
+                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                      <div class="text-gray-500">
+                        <p class="text-sm">CPU usage is at 92%</p>
+                        <p class="text-xs">5 min ago</p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <!-- Notification item  -->
+                  <Link
+                    to="#"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                  >
+                    <div class="w-[12%] mr-1 mt-1">
+                      <Success class="h-6 w-6" />
+                    </div>
+
+                    <div class="w-[calc(100-12%)]">
+                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                      <div class="text-gray-500">
+                        <p class="text-sm">CPU usage is at 92%</p>
+                        <p class="text-xs">5 min ago</p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <!-- Notification item  -->
+                  <Link
+                    to="#"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                  >
+                    <div class="w-[12%] mr-1 mt-1">
+                      <Success class="h-6 w-6" />
+                    </div>
+
+                    <div class="w-[calc(100-12%)]">
+                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                      <div class="text-gray-500">
+                        <p class="text-sm">CPU usage is at 92%</p>
+                        <p class="text-xs">5 min ago</p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <!-- Notification item  -->
+                  <Link
+                    to="#"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                  >
+                    <div class="w-[12%] mr-1 mt-1">
+                      <Success class="h-6 w-6" />
+                    </div>
+
+                    <div class="w-[calc(100-12%)]">
+                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                      <div class="text-gray-500">
+                        <p class="text-sm">CPU usage is at 92%</p>
+                        <p class="text-xs">5 min ago</p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <!-- Notification item  -->
+                  <Link
+                    to="#"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                  >
+                    <div class="w-[12%] mr-1 mt-1">
+                      <Success class="h-6 w-6" />
+                    </div>
+
+                    <div class="w-[calc(100-12%)]">
+                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                      <div class="text-gray-500">
+                        <p class="text-sm">CPU usage is at 92%</p>
+                        <p class="text-xs">5 min ago</p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <!-- Notification item  -->
+                  <Link
+                    to="#"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                  >
+                    <div class="w-[12%] mr-1 mt-1">
+                      <Success class="h-6 w-6" />
+                    </div>
+
+                    <div class="w-[calc(100-12%)]">
+                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
+                      <div class="text-gray-500">
+                        <p class="text-sm">CPU usage is at 92%</p>
+                        <p class="text-xs">5 min ago</p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+
+                <!-- Logged out -->
+                <div>
+                  <Button
+                    type="submit"
+                    styleClass="text-gray-700 inline-flex items-center justify-center px-4 !text-md"
+                  >
+                    See more
+                    <i class="ri-arrow-right-line ri-md ml-1"></i>
+                  </Button>
+                </div>
               </div>
-
-              <!-- Options -->
-              <div class="py-1 h-[300px] overflow-auto">
-                <!-- Notification item  -->
-                <Link
-                  to="#"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
-                >
-                  <div class="w-[12%] mr-1 mt-1">
-                    <Warning class="h-6 w-6" />
-                  </div>
-
-                  <div class="w-[calc(100-12%)]">
-                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                    <div class="text-gray-500">
-                      <p class="text-sm">CPU usage is at 92%</p>
-                      <p class="text-xs">5 min ago</p>
-                    </div>
-                  </div>
-                </Link>
-
-                <!-- Notification item  -->
-                <Link
-                  to="#"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
-                >
-                  <div class="w-[12%] mr-1 mt-1">
-                    <Success class="h-6 w-6" />
-                  </div>
-
-                  <div class="w-[calc(100-12%)]">
-                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                    <div class="text-gray-500">
-                      <p class="text-sm">CPU usage is at 92%</p>
-                      <p class="text-xs">5 min ago</p>
-                    </div>
-                  </div>
-                </Link>
-
-                <!-- Notification item  -->
-                <Link
-                  to="#"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
-                >
-                  <div class="w-[12%] mr-1 mt-1">
-                    <Cross class="h-6 w-6" />
-                  </div>
-
-                  <div class="w-[calc(100-12%)]">
-                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                    <div class="text-gray-500">
-                      <p class="text-sm">CPU usage is at 92%</p>
-                      <p class="text-xs">5 min ago</p>
-                    </div>
-                  </div>
-                </Link>
-
-                <!-- Notification item  -->
-                <Link
-                  to="#"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
-                >
-                  <div class="w-[12%] mr-1 mt-1">
-                    <Success class="h-6 w-6" />
-                  </div>
-
-                  <div class="w-[calc(100-12%)]">
-                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                    <div class="text-gray-500">
-                      <p class="text-sm">CPU usage is at 92%</p>
-                      <p class="text-xs">5 min ago</p>
-                    </div>
-                  </div>
-                </Link>
-
-                <!-- Notification item  -->
-                <Link
-                  to="#"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
-                >
-                  <div class="w-[12%] mr-1 mt-1">
-                    <Success class="h-6 w-6" />
-                  </div>
-
-                  <div class="w-[calc(100-12%)]">
-                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                    <div class="text-gray-500">
-                      <p class="text-sm">CPU usage is at 92%</p>
-                      <p class="text-xs">5 min ago</p>
-                    </div>
-                  </div>
-                </Link>
-
-                <!-- Notification item  -->
-                <Link
-                  to="#"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
-                >
-                  <div class="w-[12%] mr-1 mt-1">
-                    <Success class="h-6 w-6" />
-                  </div>
-
-                  <div class="w-[calc(100-12%)]">
-                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                    <div class="text-gray-500">
-                      <p class="text-sm">CPU usage is at 92%</p>
-                      <p class="text-xs">5 min ago</p>
-                    </div>
-                  </div>
-                </Link>
-
-                <!-- Notification item  -->
-                <Link
-                  to="#"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
-                >
-                  <div class="w-[12%] mr-1 mt-1">
-                    <Success class="h-6 w-6" />
-                  </div>
-
-                  <div class="w-[calc(100-12%)]">
-                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                    <div class="text-gray-500">
-                      <p class="text-sm">CPU usage is at 92%</p>
-                      <p class="text-xs">5 min ago</p>
-                    </div>
-                  </div>
-                </Link>
-
-                <!-- Notification item  -->
-                <Link
-                  to="#"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
-                >
-                  <div class="w-[12%] mr-1 mt-1">
-                    <Success class="h-6 w-6" />
-                  </div>
-
-                  <div class="w-[calc(100-12%)]">
-                    <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                    <div class="text-gray-500">
-                      <p class="text-sm">CPU usage is at 92%</p>
-                      <p class="text-xs">5 min ago</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-
-              <!-- Logged out -->
-              <div>
-                <Button
-                  type="submit"
-                  styleClass="text-gray-700 inline-flex items-center justify-center px-4 !text-md"
-                >
-                  See more
-                  <ArrowRight class="ml-1" />
-                </Button>
-              </div>
-            </div>
-          </div>
+            </template>
+          </BtnDropdown>
         </div>
 
         <!-- User login -->
         <div class="mx-2">
-          <button
-            id="userAreaButton"
-            data-dropdown-toggle="userArea"
-            class="flex items-center justify-start space-x-4"
-            type="button"
-            data-dropdown-offset-distance="-170"
-            data-dropdown-offset-skidding="126"
-            data-dropdown-placement="right"
+          <BtnDropdown
+            btnId="userProfileBtn"
+            dropId="userProfileDropdown"
+            buttonClass="flex items-center justify-start space-x-4 cursor-pointer"
+            dropDownClass="absolute right-[195px] z-10 mt-[15px] w-56 top-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
-            <img
-              class="w-10 h-10 rounded-full border-2 border-gray-50"
-              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
-              alt=""
-            />
-            <div class="font-semibold text-left hidden md:block">
-              <div>Hasibul Hasan</div>
-              <div class="text-xs text-gray-500">Free user</div>
-            </div>
-          </button>
-
-          <!-- Dropdown menu -->
-          <div
-            id="userArea"
-            class="z-10 w-56 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-          >
-            <div class="py-1 text-left divide-y">
-              <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-              <!-- User info -->
-              <div class="px-4 py-3">
-                <p class="text-sm">Logged in as</p>
-                <p class="truncate text-sm font-medium">user@example.com</p>
+            <template v-slot:button>
+              <img
+                class="w-10 h-10 rounded-full border-2 border-gray-50"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
+                alt=""
+              />
+              <div class="font-semibold text-left hidden md:block">
+                <div>Hasibul Hasan</div>
+                <div class="text-xs text-gray-500">Free user</div>
               </div>
+            </template>
 
-              <!-- Options -->
-              <div class="py-1">
-                <Link
-                  to="/profile"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
-                >
-                  <ProfileCircleOutline class="mr-2 h-5 w-5" />
-                  Profile
-                </Link>
-                <Link
-                  to="/settings"
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
-                >
-                  <SettingsLine class="mr-2 h-5 w-5" />
-                  Settings
-                </Link>
+            <template v-slot:dropdown-options>
+              <div class="divide-y">
+                <!-- User info -->
+                <div class="px-4 py-3">
+                  <p class="text-sm">Logged in as</p>
+                  <p class="truncate text-sm font-medium">user@example.com</p>
+                </div>
+
+                <!-- Options -->
+                <div class="py-1">
+                  <Link
+                    to="/profile"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  >
+                    <i class="ri-user-3-line ri-xl mr-2"></i>
+                    Profile
+                  </Link>
+                  <Link
+                    to="/settings"
+                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  >
+                    <i class="ri-settings-5-line ri-xl mr-2"></i>
+                    Settings
+                  </Link>
+                </div>
+
+                <!-- Logged out -->
+                <form action="#">
+                  <Button
+                    type="submit"
+                    styleClass="text-gray-700 hover:bg-gray-100 inline-flex items-center px-4"
+                  >
+                    <i class="ri-logout-box-r-line ri-xl mr-2"></i>
+                    Sign out
+                  </Button>
+                </form>
               </div>
-
-              <!-- Logged out -->
-              <form action="#">
-                <Button
-                  type="submit"
-                  styleClass="text-gray-700 hover:bg-gray-100 inline-flex items-center px-4"
-                >
-                  <LogoutLine class="mr-2 h-5 w-5" />
-                  Sign out
-                </Button>
-              </form>
-            </div>
-          </div>
+            </template>
+          </BtnDropdown>
         </div>
       </div>
       <!-- right Side ends ./  -->

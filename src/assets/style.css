@@ -2,43 +2,126 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  background: #f8fafc;
+  /* dark  */
+  /* background: #1B2430; */
+  /* background: #040303; */
+  /* background: #0F0E0E; */
+  /* background: #191919; */
+
+  /* sidebar, navbar, content card, footer dark */
+  /* background: #2C394B; */
+  /* body dark */
+  /* background: #040303; */
+}
+
+
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(131, 131, 131, 0.582); 
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #616161bd; 
-  }
+  width: 8px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(131, 131, 131, 0.582);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6161618e;
+}
+
+/* App layout css */
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  bottom: 0px;
+  top: 0px;
+  z-index: 20;
+  height: 100vh;
+  overflow: hidden;
+  /* background-color: white; */
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body .wrapper {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  transition-property: margin;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body .wrapper .header {
+  position: sticky;
+  top: 0px;
+  z-index: 30;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  overflow: visible;
+  background-color: white;
+}
+
+body .wrapper .content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  min-height: calc(100vh - 60px);
+}
+
+body .wrapper .footer {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+  padding: 1rem;
+}
+
+.sb-container {
+  min-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Extra css  */
 .card {
-    width: 100%;
-    border-radius: 0.4rem;
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
-        0 1px 2px -1px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.3s;
+  width: 100%;
+  border-radius: 0.4rem;
+  background-color: rgb(255 255 255 / 1); 
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
 }
 
 .card-body {
-    padding: 1.5rem;
+  padding: 1.5rem;
 }

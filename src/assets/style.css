@@ -13,6 +13,16 @@
 
 body {
   background: #f8fafc;
+  /* dark  */
+  /* background: #1B2430; */
+  /* background: #040303; */
+  /* background: #0F0E0E; */
+  /* background: #191919; */
+
+  /* sidebar, navbar, content card, footer dark */
+  /* background: #2C394B; */
+  /* body dark */
+  /* background: #040303; */
 }
 
 
@@ -51,7 +61,7 @@ body {
   z-index: 20;
   height: 100vh;
   overflow: hidden;
-  background-color: white;
+  /* background-color: white; */
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -106,7 +116,7 @@ body .wrapper .footer {
 .card {
   width: 100%;
   border-radius: 0.4rem;
-  background-color: rgb(255 255 255 / 1);
+  background-color: rgb(255 255 255 / 1); 
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.3s;

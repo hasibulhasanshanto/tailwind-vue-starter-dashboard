@@ -35,7 +35,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative inline-flex">
+  <div class="relative flex">
     <button
       :id="btnId ?? 'dropdownDefaultButton'"
       :data-dropdown-toggle="dropId ?? 'dropdown'"

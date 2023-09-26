@@ -2,7 +2,7 @@
 
 <template>
   <footer
-    class="footer flex items-center justify-center py-6 bg-[#ECF9FF] mt-auto w-full"
+    class="footer flex items-center justify-center py-6 bg-[#F4F6FF] mt-auto w-full"
   >
     <p class="text-black text-sm">Copyright &copy; 2023 Primea Admin</p>
   </footer>

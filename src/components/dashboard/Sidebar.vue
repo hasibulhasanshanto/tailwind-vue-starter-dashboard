@@ -69,8 +69,8 @@ const iconClass = computed(() => {
           <Button
             type="button"
             class="inline-flex items-center py-[10px] px-[20px] w-full text-sm font-medium text-gray-800 hover:bg-red-200 hover:text-black transition duration-400 ease-in-out"
-            aria-controls="dropdown-example"
-            data-collapse-toggle="dropdown-example"
+            aria-controls="dropdown-activities-sidebar"
+            data-collapse-toggle="dropdown-activities-sidebar"
           >
             <i class="ri-funds-box-line" :class="iconClass"></i>
             <span
@@ -81,46 +81,46 @@ const iconClass = computed(() => {
             <i v-show="!showSidebar" class="ri-arrow-down-s-line ri-xl"></i>
           </Button>
           <!-- Dropdown  -->
-          <ul id="dropdown-example" class="hidden py-1 space-y-2 ml-2">
+          <ul id="dropdown-activities-sidebar" class="hidden py-1 space-y-2">
             <li>
-              <MenuLink to="/activities/interests">
+              <MenuLink to="/activities/interests" :styleClass="!showSidebar ? 'pl-[30px]' : 'pl-[25px]'">
                 <i class="ri-service-line" :class="iconClass"></i>
                 <span v-show="!showSidebar">Interests</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="/activities/photo-requests">
+              <MenuLink to="/activities/photo-requests" :styleClass="!showSidebar ? 'pl-[30px]' : 'pl-[25px]'">
                 <i class="ri-image-add-line" :class="iconClass"></i>
                 <span v-show="!showSidebar">Photo Requests</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="/activities/shortlists">
+              <MenuLink to="/activities/shortlists" :styleClass="!showSidebar ? 'pl-[30px]' : 'pl-[25px]'">
                 <!-- <i class="ri-heart-line ri-xl mr-2"></i> -->
                 <i class="ri-hearts-line" :class="iconClass"></i>
                 <span v-show="!showSidebar">Shortlists</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="/activities/profile-viewers">
+              <MenuLink to="/activities/profile-viewers" :styleClass="!showSidebar ? 'pl-[30px]' : 'pl-[25px]'">
                 <i class="ri-pass-valid-line" :class="iconClass"></i>
                 <span v-show="!showSidebar">Profile Viewers</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="/activities/profile-visited">
+              <MenuLink to="/activities/profile-visited" :styleClass="!showSidebar ? 'pl-[30px]' : 'pl-[25px]'">
                 <i class="ri-pass-pending-line" :class="iconClass"></i>
                 <span v-show="!showSidebar">Profile Visited</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="/activities/block-lists">
+              <MenuLink to="/activities/block-lists" :styleClass="!showSidebar ? 'pl-[30px]' : 'pl-[25px]'">
                 <i class="ri-prohibited-line" :class="iconClass"></i>
                 <span v-show="!showSidebar">Block Lists</span>
               </MenuLink>
             </li>
             <li>
-              <MenuLink to="/activities/rejection-lists">
+              <MenuLink to="/activities/rejection-lists" :styleClass="!showSidebar ? 'pl-[30px]' : 'pl-[25px]'">
                 <i class="ri-spam-2-line" :class="iconClass"></i>
                 <span v-show="!showSidebar">Rejection List</span>
               </MenuLink>

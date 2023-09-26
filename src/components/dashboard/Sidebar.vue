@@ -33,12 +33,10 @@ const dropItemStyle = computed(() => {
         </router-link>
       </div>
     </div>
-    <div class="h-[calc(100vh-50px)] py-4 drop-shadow-lg">
-      <div
-        class="flex flex-col justify-between h-full space-y-[10px] overflow-y-auto"
-      >
+    <div class="h-[calc(100vh-50px)] pt-2 pb-4 drop-shadow-lg">
+      <div class="flex flex-col justify-between h-full overflow-y-auto">
         <div
-          class="flex flex-col justify-between space-y-[10px] text-md font-medium"
+          class="flex flex-col justify-between space-y-1 text-md font-medium"
         >
           <MenuLink to="/" :styleClass="menuItemStyle">
             <i class="ri-home-3-line" :class="iconClass"></i>

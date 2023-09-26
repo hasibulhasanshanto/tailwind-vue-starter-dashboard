@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      jakarta: ["Plus Jakarta Sans", "sans-serif"],
+    },
     colors: {
       light: {
         100: "#ffffff",
@@ -17,6 +20,8 @@ module.exports = {
         500: "#f6fdfc",
         600: "#f2f6fb",
         700: "#f1f2f2",
+        800: "#f1f5f9",
+        900: "#f8fafc",
       },
       dark: {
         100: "#121212",

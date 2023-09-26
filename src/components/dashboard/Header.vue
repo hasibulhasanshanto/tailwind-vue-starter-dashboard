@@ -25,7 +25,7 @@ const languageChange = (params: string) => {
 <template>
   <header class="header shadow-sm">
     <div
-      class="h-[60px] bg-white dark:bg-dark-300 text-gray-700 dark:text-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
+      class="h-[60px] bg-white dark:bg-dark-300 text-gray-800 dark:text-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
     >
       <!-- left Side  -->
       <div class="flex items-center">
@@ -54,14 +54,14 @@ const languageChange = (params: string) => {
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
                 <i
-                  class="ri-search-line text-gray-500 dark:text-gray-300 ri-lg"
+                  class="ri-search-line text-gray-500 dark:text-light-400 ri-lg"
                 ></i>
               </div>
               <input
                 type="text"
                 id="search"
                 name="search"
-                class="bg-[#f1f5f9] border border-[#f1f5f9] text-gray-700 dark:text-white text-sm rounded-lg block w-full pl-10 p-2.5 focus:ring-0 !outline-none"
+                class="text-gray-700 dark:text-white bg-light-800 border border-light-800 dark:bg-dark-400 dark:border-dark-400 placeholder-gray-500 dark:placeholder-light-400 text-sm rounded-lg block w-full pl-10 p-2.5 border-transparent focus:border-transparent focus:ring-0"
                 placeholder="Search..."
                 required
               />
@@ -79,7 +79,7 @@ const languageChange = (params: string) => {
             btnId="langBtn"
             dropId="langDropdown"
             buttonClass="flex items-center justify-start text-gray-700 dark:text-white space-x-1 py-2"
-            dropDownClass="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-[#2C394B] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            dropDownClass="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-dark-300 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <template v-slot:button>
               <span v-if="langOption === 'bangla'"
@@ -98,7 +98,7 @@ const languageChange = (params: string) => {
               <li>
                 <Button
                   @click="languageChange('bangla')"
-                  class="text-gray-700 dark:text-white hover:dark:text-gray-900 px-4 py-2 text-sm inline-flex items-center"
+                  styleClass="px-4 text-sm inline-flex items-center"
                 >
                   <Bangladesh class="mr-2 h-6 w-6" />
                   Bangla
@@ -108,7 +108,7 @@ const languageChange = (params: string) => {
               <li>
                 <Button
                   @click="languageChange('english')"
-                  class="text-gray-700 dark:text-white hover:dark:text-gray-900 px-4 py-2 text-sm inline-flex items-center"
+                  styleClass="px-4 text-sm inline-flex items-center"
                 >
                   <UnitedStates class="mr-2 h-6 w-6" />
                   English
@@ -117,6 +117,8 @@ const languageChange = (params: string) => {
             </template>
           </BtnDropdown>
         </div>
+
+        <!-- Light Dark -->
         <div class="mx-2">
           <button @click="toggleDark()">
             <span v-if="isDark"><i class="ri-moon-line ri-xl"></i></span>
@@ -125,59 +127,13 @@ const languageChange = (params: string) => {
           </button>
         </div>
 
-        <!-- Light Dark -->
-        <!-- <div class="mx-2">
-          <BtnDropdown
-            btnId="darkBtn"
-            dropId="darkDropdown"
-            buttonClass="py-2 text-gray-900"
-            dropDownClass="absolute right-[10px] md:right-[130px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-          >
-            <template v-slot:button>
-              <i class="ri-sun-line ri-xl"></i>
-            </template>
-
-            <template v-slot:dropdown-options>
-              <li>
-                <Button
-                @click="toggleDark(false)"
-                  class="w-full text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex items-center"
-                >
-                  <i class="ri-sun-line ri-xl mr-2"></i>
-                  Light
-                </Button>
-              </li>
-
-              <li>
-                <Button
-                @click="toggleDark(true)"
-                  class="w-full text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex items-center"
-                >
-                  <i class="ri-moon-line ri-xl mr-2"></i>
-                  Dark
-                </Button>
-              </li>
-
-              <li>
-                <Button
-                @click="toggleDark(false)"
-                  class="w-full text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex items-center"
-                >
-                  <i class="ri-computer-line ri-xl mr-2"></i>
-                  System
-                </Button>
-              </li>
-            </template>
-          </BtnDropdown>
-        </div> -->
-
         <!-- Notifications -->
         <div class="mx-2 hidden md:block">
           <BtnDropdown
             btnId="notificationBtn"
             dropId="notificationDropdown"
             buttonClass="py-2 text-gray-700 dark:text-white"
-            dropDownClass="absolute right-[195px] z-10 mt-[10px] w-80 top-full origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-[#2C394B] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            dropDownClass="absolute right-[195px] z-10 mt-[10px] w-80 top-full origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-dark-300 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <template v-slot:button>
               <i class="ri-notification-2-line ri-xl"></i>
@@ -203,12 +159,12 @@ const languageChange = (params: string) => {
 
                     <div class="w-[calc(100-12%)]">
                       <h4
-                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                        class="text-gray-700 dark:text-white group-hover:dark:text-white font-medium"
                       >
                         High CPU Usage
                       </h4>
                       <div
-                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-light-400"
                       >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
@@ -227,12 +183,12 @@ const languageChange = (params: string) => {
 
                     <div class="w-[calc(100-12%)]">
                       <h4
-                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                        class="text-gray-700 dark:text-white group-hover:dark:text-white font-medium"
                       >
                         High CPU Usage
                       </h4>
                       <div
-                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-light-400"
                       >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
@@ -251,12 +207,12 @@ const languageChange = (params: string) => {
 
                     <div class="w-[calc(100-12%)]">
                       <h4
-                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                        class="text-gray-700 dark:text-white group-hover:dark:text-white font-medium"
                       >
                         High CPU Usage
                       </h4>
                       <div
-                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-light-400"
                       >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
@@ -275,12 +231,12 @@ const languageChange = (params: string) => {
 
                     <div class="w-[calc(100-12%)]">
                       <h4
-                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                        class="text-gray-700 dark:text-white group-hover:dark:text-white font-medium"
                       >
                         High CPU Usage
                       </h4>
                       <div
-                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-light-400"
                       >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
@@ -299,12 +255,12 @@ const languageChange = (params: string) => {
 
                     <div class="w-[calc(100-12%)]">
                       <h4
-                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                        class="text-gray-700 dark:text-white group-hover:dark:text-white font-medium"
                       >
                         High CPU Usage
                       </h4>
                       <div
-                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-light-400"
                       >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
@@ -323,12 +279,12 @@ const languageChange = (params: string) => {
 
                     <div class="w-[calc(100-12%)]">
                       <h4
-                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                        class="text-gray-700 dark:text-white group-hover:dark:text-white font-medium"
                       >
                         High CPU Usage
                       </h4>
                       <div
-                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-light-400"
                       >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
@@ -347,12 +303,12 @@ const languageChange = (params: string) => {
 
                     <div class="w-[calc(100-12%)]">
                       <h4
-                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                        class="text-gray-700 dark:text-white group-hover:dark:text-white font-medium"
                       >
                         High CPU Usage
                       </h4>
                       <div
-                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-light-400"
                       >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
@@ -371,12 +327,12 @@ const languageChange = (params: string) => {
 
                     <div class="w-[calc(100-12%)]">
                       <h4
-                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                        class="text-gray-700 dark:text-white group-hover:dark:text-white font-medium"
                       >
                         High CPU Usage
                       </h4>
                       <div
-                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-light-400"
                       >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
@@ -406,7 +362,7 @@ const languageChange = (params: string) => {
             btnId="userProfileBtn"
             dropId="userProfileDropdown"
             buttonClass="flex items-center justify-start space-x-4 cursor-pointer"
-            dropDownClass="absolute right-[195px] z-10 mt-[15px] w-56 top-full origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-[#2C394B] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            dropDownClass="absolute right-[195px] z-10 mt-[15px] w-56 top-full origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-dark-300 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <template v-slot:button>
               <img
@@ -416,7 +372,7 @@ const languageChange = (params: string) => {
               />
               <div class="font-semibold text-left hidden md:block">
                 <h3
-                  class="text-md front-semibold text-gray-700 dark:text-white"
+                  class="text-md front-semibold text-gray-800 dark:text-white"
                 >
                   Hasibul Hasan
                 </h3>
@@ -438,14 +394,14 @@ const languageChange = (params: string) => {
                 <div class="py-1">
                   <Link
                     to="/profile"
-                    class="text-gray-700 dark:text-white hover:dark:text-gray-900 px-4 py-2 text-sm inline-flex items-center"
+                    styleClass="px-4 inline-flex items-center"
                   >
                     <i class="ri-user-3-line ri-xl mr-2"></i>
                     Profile
                   </Link>
                   <Link
                     to="/settings"
-                    class="text-gray-700 dark:text-white hover:dark:text-gray-900 px-4 py-2 text-sm inline-flex items-center"
+                    styleClass="px-4 inline-flex items-center"
                   >
                     <i class="ri-settings-5-line ri-xl mr-2"></i>
                     Settings
@@ -456,7 +412,7 @@ const languageChange = (params: string) => {
                 <form action="#">
                   <Button
                     type="submit"
-                    styleClass="text-gray-700 dark:text-white hover:dark:text-gray-900 inline-flex items-center px-4"
+                    styleClass="inline-flex items-center px-4 text-sm"
                   >
                     <i class="ri-logout-box-r-line ri-xl mr-2"></i>
                     Sign out

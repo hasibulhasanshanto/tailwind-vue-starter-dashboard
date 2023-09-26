@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,20 +13,24 @@
   font-weight: normal;
 }
 
-body {
-  background: #f8fafc;
-  /* dark  */
-  /* background: #1B2430; */
-  /* background: #040303; */
-  /* background: #0F0E0E; */
-  /* background: #191919; */
+/* Extra CSS class  */
+@layer components {
+  body {
+    @apply bg-[#25242a] font-jakarta;
+  }
 
-  /* sidebar, navbar, content card, footer dark */
-  /* background: #2C394B; */
-  /* body dark */
-  /* background: #040303; */
+  .sb-container {
+    @apply w-full mx-auto;
+  }
+
+  .card {
+    @apply w-full rounded-md bg-white dark:bg-dark-200 transition-all ease-in-out delay-300 shadow-sm drop-shadow-md shadow-black/10 dark:shadow-dark-600/20;
+  }
+
+  .card-body {
+    @apply p-[1.5rem];
+  }
 }
-
 
 /* width */
 ::-webkit-scrollbar {
@@ -104,24 +110,4 @@ body .wrapper .footer {
   column-gap: 2rem;
   row-gap: 0.5rem;
   padding: 1rem;
-}
-
-.sb-container {
-  min-width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-/* Extra css  */
-.card {
-  width: 100%;
-  border-radius: 0.4rem;
-  background-color: rgb(255 255 255 / 1); 
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.3s;
-}
-
-.card-body {
-  padding: 1.5rem;
 }

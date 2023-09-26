@@ -25,7 +25,9 @@ const dropItemStyle = computed(() => {
     <div class="h-[60px] flex items-center justify-start duration-400 ease-out">
       <div class="px-[20px]">
         <router-link to="/" class="logo-exact">
-          <h3 class="font-bold text-sm md:text-xl text-black dark:text-white">
+          <h3
+            class="font-bold text-sm md:text-xl text-gray-800 dark:text-white"
+          >
             {{ showSidebar ? "SB" : "Admin Dashboard" }}
           </h3>
         </router-link>
@@ -56,7 +58,7 @@ const dropItemStyle = computed(() => {
             <!-- right side content  -->
             <span
               v-show="!showSidebar"
-              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm text-white bg-primary rounded-full dark:bg-dark-100"
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm text-white bg-dark-600 rounded-full dark:bg-dark-100"
               >3</span
             >
           </MenuLink>

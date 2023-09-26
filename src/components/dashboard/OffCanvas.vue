@@ -44,10 +44,10 @@ onMounted(() => {
     tabindex="-1"
     aria-labelledby="drawer-navigation-label"
   >
-    <div class="flex items-center justify-between px-5 py-4">
+    <div class="flex items-center justify-between px-5 pt-4 pb-2">
       <h5
         id="drawer-navigation-label"
-        class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400"
+        class="text-base font-semibold text-gray-500 uppercase dark:text-white"
       >
         Menu
       </h5>
@@ -56,14 +56,14 @@ onMounted(() => {
         type="button"
         data-drawer-hide="drawer-navigation"
         aria-controls="drawer-navigation"
-        class="text-gray-700 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center"
+        class="text-gray-800 dark:text-white hover:text-gray-900 bg-transparent hover:bg-gray-200 hover:dark:bg-dark-100 rounded-lg text-sm w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center"
       >
         <i class="ri-close-fill ri-2x"></i>
         <span class="sr-only">Close menu</span>
       </button>
     </div>
     <div class="py-4 overflow-y-auto">
-      <ul class="space-y-3 text-md font-medium">
+      <ul class="space-y-1 text-md font-medium">
         <li>
           <MenuLink to="/">
             <i class="ri-home-3-line ri-xl mr-2"></i>
@@ -84,7 +84,7 @@ onMounted(() => {
             <span class="flex-1 whitespace-nowrap">Messages</span>
             <!-- right side content  -->
             <span
-              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm text-white bg-dark-600 rounded-full dark:bg-dark-100"
               >3</span
             >
           </MenuLink>
@@ -96,7 +96,7 @@ onMounted(() => {
             <span class="flex-1 whitespace-nowrap">Notifications</span>
             <!-- right side content  -->
             <span
-              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm text-white bg-dark-600 rounded-full dark:bg-dark-100"
               >3</span
             >
           </MenuLink>
@@ -105,8 +105,8 @@ onMounted(() => {
         <!-- Activities Dropdown -->
         <li>
           <Button
+            styleClass="w-full inline-flex items-center py-[10px] px-[20px] text-md"
             type="button"
-            class="inline-flex items-center py-[10px] px-[20px] w-full text-sm font-medium text-gray-800 hover:bg-red-200 hover:text-black transition duration-400 ease-in-out"
             aria-controls="dropdown-activities-offcanvas"
             data-collapse-toggle="dropdown-activities-offcanvas"
           >
@@ -115,7 +115,7 @@ onMounted(() => {
             <i class="ri-arrow-down-s-line ri-xl"></i>
           </Button>
           <!-- Dropdown  -->
-          <ul id="dropdown-activities-offcanvas" class="hidden py-2 space-y-2">
+          <ul id="dropdown-activities-offcanvas" class="hidden py-1 space-y-1">
             <li>
               <MenuLink to="/activities/interests" styleClass="pl-[30px]">
                 <i class="ri-service-line ri-xl mr-2"></i>
@@ -168,7 +168,7 @@ onMounted(() => {
             <span class="flex-1 whitespace-nowrap">Vip Service</span>
             <!-- right side content  -->
             <span
-              class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300"
+              class="inline-flex items-center justify-center px-2 ml-3 text-sm text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-white"
               >Pro</span
             >
           </MenuLink>
@@ -183,7 +183,8 @@ onMounted(() => {
 
         <li>
           <Button
-            class="inline-flex items-center py-[10px] px-[20px] w-full text-sm font-medium text-gray-800 hover:bg-red-200 hover:text-black transition duration-400 ease-in-out"
+            styleClass="w-full inline-flex items-center py-[10px] px-[20px] text-md"
+            type="button"
           >
             <i class="ri-logout-box-r-line ri-xl mr-2"></i>
             <span>Sign Out</span>
@@ -198,5 +199,9 @@ onMounted(() => {
 .router-link-exact-active {
   background-color: rgb(251 213 213 /1);
   border-right: 5px solid red;
+}
+.dark .router-link-exact-active {
+  background-color: #282828;
+  border-right: 5px solid white;
 }
 </style>

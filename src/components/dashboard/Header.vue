@@ -37,6 +37,7 @@ const languageChange = (params: string) => {
           <i class="ri-menu-2-line ri-xl"></i>
         </div>
 
+        <!-- Mobile menu  -->
         <div
           id="drawer-show-button"
           class="cursor-pointer w-[30px] block md:hidden"

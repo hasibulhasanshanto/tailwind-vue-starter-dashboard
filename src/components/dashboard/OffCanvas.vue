@@ -40,7 +40,7 @@ onMounted(() => {
   <!-- drawer component -->
   <div
     id="drawer-navigation"
-    class="fixed top-0 left-0 z-50 h-screen overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800"
+    class="fixed top-0 left-0 z-50 h-screen overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-dark-300 w-64"
     tabindex="-1"
     aria-labelledby="drawer-navigation-label"
   >

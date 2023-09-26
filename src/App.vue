@@ -3,8 +3,8 @@ import { ref } from "vue";
 import { RouterView } from "vue-router";
 import Navbar from "./components/dashboard/Header.vue";
 import Sidebar from "./components/dashboard/Sidebar.vue";
-import Footer from "./components/dashboard/Footer.vue";
 import OffCanvas from "./components/dashboard/OffCanvas.vue";
+import Footer from "./components/dashboard/Footer.vue";
 const showSidebar = ref<boolean>(false);
 
 const toggleMenu = () => {
@@ -13,7 +13,7 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <div class="body-content dark:bg-[#040303]">
+  <div class="body-content dark:bg-dark-100">
     <!-- Sidebar -->
     <Sidebar class="hidden md:block" :showSidebar="showSidebar" />
     <!-- Sidebar /.-->

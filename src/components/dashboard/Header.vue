@@ -25,7 +25,7 @@ const languageChange = (params: string) => {
 <template>
   <header class="header shadow-sm">
     <div
-      class="h-[60px] bg-white dark:bg-[#2C394B] text-gray-700 dark:text-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
+      class="h-[60px] bg-white dark:bg-dark-300 text-gray-700 dark:text-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
     >
       <!-- left Side  -->
       <div class="flex items-center">
@@ -201,10 +201,14 @@ const languageChange = (params: string) => {
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                      <h4
+                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                      >
                         High CPU Usage
                       </h4>
-                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
+                      <div
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                      >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -221,10 +225,14 @@ const languageChange = (params: string) => {
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                      <h4
+                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                      >
                         High CPU Usage
                       </h4>
-                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
+                      <div
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                      >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -241,10 +249,14 @@ const languageChange = (params: string) => {
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                      <h4
+                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                      >
                         High CPU Usage
                       </h4>
-                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
+                      <div
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                      >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -261,10 +273,14 @@ const languageChange = (params: string) => {
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                      <h4
+                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                      >
                         High CPU Usage
                       </h4>
-                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
+                      <div
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                      >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -281,10 +297,14 @@ const languageChange = (params: string) => {
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                      <h4
+                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                      >
                         High CPU Usage
                       </h4>
-                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
+                      <div
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                      >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -301,10 +321,14 @@ const languageChange = (params: string) => {
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                      <h4
+                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                      >
                         High CPU Usage
                       </h4>
-                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
+                      <div
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                      >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -321,10 +345,14 @@ const languageChange = (params: string) => {
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                      <h4
+                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                      >
                         High CPU Usage
                       </h4>
-                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
+                      <div
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                      >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -341,10 +369,14 @@ const languageChange = (params: string) => {
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                      <h4
+                        class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium"
+                      >
                         High CPU Usage
                       </h4>
-                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
+                      <div
+                        class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600"
+                      >
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>

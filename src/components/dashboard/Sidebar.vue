@@ -12,7 +12,7 @@ const iconClass = computed(() => {
 
 <template>
   <aside
-    class="sidebar h-full text-white bg-white duration-200 ease-out shadow-sm drop-shadow-md"
+    class="sidebar h-full bg-white dark:bg-[#2C394B] text-gray-700 dark:text-white duration-200 ease-out shadow-sm drop-shadow-md"
     :class="showSidebar ? 'w-[70px]' : 'w-[280px]'"
   >
     <div class="h-[60px] flex items-center justify-start duration-400 ease-out">

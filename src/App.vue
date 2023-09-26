@@ -13,7 +13,7 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <div class="body-content">
+  <div class="body-content dark:bg-[#040303]">
     <!-- Sidebar -->
     <Sidebar class="hidden md:block" :showSidebar="showSidebar" />
     <!-- Sidebar /.-->

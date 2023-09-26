@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import { useDark, useToggle } from "@vueuse/core";
 import Bangladesh from "../icons/bgd.vue";
 import UnitedStates from "../icons/usa.vue";
 import Warning from "../icons/warning.vue";
@@ -9,12 +11,21 @@ import Link from "../common/Link.vue";
 import BtnDropdown from "../common/BtnDropdown.vue";
 
 defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
+
+const langOption = ref<any>("english");
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+
+const languageChange = (params: string) => {
+  langOption.value = params;
+};
 </script>
 
 <template>
   <header class="header shadow-sm">
     <div
-      class="h-[60px] bg-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
+      class="h-[60px] bg-white dark:bg-[#2C394B] text-gray-700 dark:text-white flex items-center shadow-sm px-[10px] w-full py-[10px] z-10 justify-between"
     >
       <!-- left Side  -->
       <div class="flex items-center">
@@ -41,13 +52,15 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <i class="ri-search-line text-gray-500 ri-lg"></i>
+                <i
+                  class="ri-search-line text-gray-500 dark:text-gray-300 ri-lg"
+                ></i>
               </div>
               <input
                 type="text"
                 id="search"
                 name="search"
-                class="bg-[#f1f5f9] border border-[#f1f5f9] text-gray-700 text-sm rounded-lg block w-full pl-10 p-2.5 focus:ring-0 !outline-none"
+                class="bg-[#f1f5f9] border border-[#f1f5f9] text-gray-700 dark:text-white text-sm rounded-lg block w-full pl-10 p-2.5 focus:ring-0 !outline-none"
                 placeholder="Search..."
                 required
               />
@@ -64,20 +77,27 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
           <BtnDropdown
             btnId="langBtn"
             dropId="langDropdown"
-            buttonClass="flex items-center justify-start space-x-1 py-2"
-            dropDownClass="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            buttonClass="flex items-center justify-start text-gray-700 dark:text-white space-x-1 py-2"
+            dropDownClass="absolute right-[15px] md:right-[230px] z-10 mt-[10px] w-32 origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-[#2C394B] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <template v-slot:button>
-              <Bangladesh class="h-6 w-6" />
-              <div class="font-semibold text-left hidden md:block">
-                <div>Bangla</div>
+              <span v-if="langOption === 'bangla'"
+                ><Bangladesh class="h-6 w-6"
+              /></span>
+              <span v-else><UnitedStates class="h-6 w-6" /></span>
+
+              <div class="text-left hidden md:block">
+                <h5 class="text-sm font-medium">
+                  {{ langOption === "bangla" ? "Bangla" : "English" }}
+                </h5>
               </div>
             </template>
 
             <template v-slot:dropdown-options>
               <li>
                 <Button
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  @click="languageChange('bangla')"
+                  class="text-gray-700 dark:text-white hover:dark:text-gray-900 px-4 py-2 text-sm inline-flex items-center"
                 >
                   <Bangladesh class="mr-2 h-6 w-6" />
                   Bangla
@@ -86,7 +106,8 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 
               <li>
                 <Button
-                  class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                  @click="languageChange('english')"
+                  class="text-gray-700 dark:text-white hover:dark:text-gray-900 px-4 py-2 text-sm inline-flex items-center"
                 >
                   <UnitedStates class="mr-2 h-6 w-6" />
                   English
@@ -95,9 +116,16 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             </template>
           </BtnDropdown>
         </div>
+        <div class="mx-2">
+          <button @click="toggleDark()">
+            <span v-if="isDark"><i class="ri-moon-line ri-xl"></i></span>
+            <span v-else><i class="ri-sun-line ri-xl"></i></span>
+            <!-- <span>{{ isDark ? "Dark" : "Light" }}</span> -->
+          </button>
+        </div>
 
         <!-- Light Dark -->
-        <div class="mx-2">
+        <!-- <div class="mx-2">
           <BtnDropdown
             btnId="darkBtn"
             dropId="darkDropdown"
@@ -111,7 +139,8 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
             <template v-slot:dropdown-options>
               <li>
                 <Button
-                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                @click="toggleDark(false)"
+                  class="w-full text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex items-center"
                 >
                   <i class="ri-sun-line ri-xl mr-2"></i>
                   Light
@@ -120,7 +149,8 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 
               <li>
                 <Button
-                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                @click="toggleDark(true)"
+                  class="w-full text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex items-center"
                 >
                   <i class="ri-moon-line ri-xl mr-2"></i>
                   Dark
@@ -129,7 +159,8 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
 
               <li>
                 <Button
-                  class="w-full text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                @click="toggleDark(false)"
+                  class="w-full text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex items-center"
                 >
                   <i class="ri-computer-line ri-xl mr-2"></i>
                   System
@@ -137,15 +168,15 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
               </li>
             </template>
           </BtnDropdown>
-        </div>
+        </div> -->
 
         <!-- Notifications -->
         <div class="mx-2 hidden md:block">
           <BtnDropdown
             btnId="notificationBtn"
             dropId="notificationDropdown"
-            buttonClass="py-2 text-gray-900"
-            dropDownClass="absolute right-[195px] z-10 mt-[10px] w-80 top-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            buttonClass="py-2 text-gray-700 dark:text-white"
+            dropDownClass="absolute right-[195px] z-10 mt-[10px] w-80 top-full origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-[#2C394B] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <template v-slot:button>
               <i class="ri-notification-2-line ri-xl"></i>
@@ -163,15 +194,17 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   <!-- Notification item  -->
                   <Link
                     to="#"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                    styleClass="group text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex"
                   >
                     <div class="w-[12%] mr-1 mt-1">
                       <Warning class="h-6 w-6" />
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                      <div class="text-gray-500">
+                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                        High CPU Usage
+                      </h4>
+                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -181,15 +214,17 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   <!-- Notification item  -->
                   <Link
                     to="#"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                    styleClass="group text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex"
                   >
                     <div class="w-[12%] mr-1 mt-1">
                       <Success class="h-6 w-6" />
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                      <div class="text-gray-500">
+                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                        High CPU Usage
+                      </h4>
+                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -199,15 +234,17 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   <!-- Notification item  -->
                   <Link
                     to="#"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                    styleClass="group text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex"
                   >
                     <div class="w-[12%] mr-1 mt-1">
                       <Cross class="h-6 w-6" />
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                      <div class="text-gray-500">
+                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                        High CPU Usage
+                      </h4>
+                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -217,15 +254,17 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   <!-- Notification item  -->
                   <Link
                     to="#"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                    styleClass="group text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex"
                   >
                     <div class="w-[12%] mr-1 mt-1">
                       <Success class="h-6 w-6" />
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                      <div class="text-gray-500">
+                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                        High CPU Usage
+                      </h4>
+                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -235,15 +274,17 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   <!-- Notification item  -->
                   <Link
                     to="#"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                    styleClass="group text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex"
                   >
                     <div class="w-[12%] mr-1 mt-1">
                       <Success class="h-6 w-6" />
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                      <div class="text-gray-500">
+                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                        High CPU Usage
+                      </h4>
+                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -253,15 +294,17 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   <!-- Notification item  -->
                   <Link
                     to="#"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                    styleClass="group text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex"
                   >
                     <div class="w-[12%] mr-1 mt-1">
                       <Success class="h-6 w-6" />
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                      <div class="text-gray-500">
+                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                        High CPU Usage
+                      </h4>
+                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -271,15 +314,17 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   <!-- Notification item  -->
                   <Link
                     to="#"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                    styleClass="group text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex"
                   >
                     <div class="w-[12%] mr-1 mt-1">
                       <Success class="h-6 w-6" />
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                      <div class="text-gray-500">
+                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                        High CPU Usage
+                      </h4>
+                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -289,15 +334,17 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   <!-- Notification item  -->
                   <Link
                     to="#"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex"
+                    styleClass="group text-gray-700 dark:text-white px-4 py-2 text-sm inline-flex"
                   >
                     <div class="w-[12%] mr-1 mt-1">
                       <Success class="h-6 w-6" />
                     </div>
 
                     <div class="w-[calc(100-12%)]">
-                      <h4 class="text-gray-700 font-medium">High CPU Usage</h4>
-                      <div class="text-gray-500">
+                      <h4 class="text-gray-700 dark:text-white group-hover:dark:text-black font-medium">
+                        High CPU Usage
+                      </h4>
+                      <div class="text-gray-500 dark:text-gray-300 group-hover:dark:text-gray-600">
                         <p class="text-sm">CPU usage is at 92%</p>
                         <p class="text-xs">5 min ago</p>
                       </div>
@@ -305,13 +352,13 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                   </Link>
                 </div>
 
-                <!-- Logged out -->
+                <!-- See more -->
                 <div>
                   <Button
                     type="submit"
-                    styleClass="text-gray-700 inline-flex items-center justify-center px-4 !text-md"
+                    styleClass="inline-flex items-center justify-center px-4 !text-md text-gray-700 dark:text-white hover:dark:text-gray-900"
                   >
-                    See more
+                    <h5>See more</h5>
                     <i class="ri-arrow-right-line ri-md ml-1"></i>
                   </Button>
                 </div>
@@ -320,13 +367,13 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
           </BtnDropdown>
         </div>
 
-        <!-- User login -->
+        <!-- User login transform !translate-y-0 !translate-x-0 -->
         <div class="mx-2">
           <BtnDropdown
             btnId="userProfileBtn"
             dropId="userProfileDropdown"
             buttonClass="flex items-center justify-start space-x-4 cursor-pointer"
-            dropDownClass="absolute right-[195px] z-10 mt-[15px] w-56 top-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            dropDownClass="absolute right-[195px] z-10 mt-[15px] w-56 top-full origin-top-right rounded-md text-gray-700 dark:text-white bg-white dark:bg-[#2C394B] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <template v-slot:button>
               <img
@@ -335,8 +382,14 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                 alt=""
               />
               <div class="font-semibold text-left hidden md:block">
-                <div>Hasibul Hasan</div>
-                <div class="text-xs text-gray-500">Free user</div>
+                <h3
+                  class="text-md front-semibold text-gray-700 dark:text-white"
+                >
+                  Hasibul Hasan
+                </h3>
+                <div class="text-xs text-gray-500 dark:text-gray-300">
+                  Free user
+                </div>
               </div>
             </template>
 
@@ -352,14 +405,14 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                 <div class="py-1">
                   <Link
                     to="/profile"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                    class="text-gray-700 dark:text-white hover:dark:text-gray-900 px-4 py-2 text-sm inline-flex items-center"
                   >
                     <i class="ri-user-3-line ri-xl mr-2"></i>
                     Profile
                   </Link>
                   <Link
                     to="/settings"
-                    class="text-gray-700 px-4 py-2 text-sm hover:bg-gray-100 inline-flex items-center"
+                    class="text-gray-700 dark:text-white hover:dark:text-gray-900 px-4 py-2 text-sm inline-flex items-center"
                   >
                     <i class="ri-settings-5-line ri-xl mr-2"></i>
                     Settings
@@ -370,7 +423,7 @@ defineProps(["showDropDown", "showNotification", "showLightDark", "showLang"]);
                 <form action="#">
                   <Button
                     type="submit"
-                    styleClass="text-gray-700 hover:bg-gray-100 inline-flex items-center px-4"
+                    styleClass="text-gray-700 dark:text-white hover:dark:text-gray-900 inline-flex items-center px-4"
                   >
                     <i class="ri-logout-box-r-line ri-xl mr-2"></i>
                     Sign out

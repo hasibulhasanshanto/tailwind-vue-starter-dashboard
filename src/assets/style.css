@@ -13,12 +13,39 @@
   font-weight: normal;
 }
 
-/* Extra CSS class  */
+/* Customized CSS class  */
 @layer components {
+
+  /* Layout and body CSS */
   body {
     @apply bg-[#25242a] font-jakarta;
   }
 
+  #app {
+    @apply w-full min-h-screen;
+  }
+
+  .sidebar {
+    @apply fixed bottom-0 top-0 z-20 h-screen overflow-hidden transition-all delay-300 ease-in;
+  }
+
+  body .wrapper {
+    @apply flex flex-col flex-1 transition-[margin] delay-300 ease-in-out;
+  }
+
+  body .wrapper .header {
+    @apply sticky top-0 z-30 w-full flex items-center overflow-visible;
+  }
+
+  body .wrapper .content {
+    @apply flex w-full flex-col scroll-smooth min-h-[calc(100vh-60px)];
+  }
+
+  body .wrapper .footer {
+    @apply mt-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2 p-4;
+  }
+
+  /* others customs design */
   .sb-container {
     @apply w-full mx-auto;
   }
@@ -32,6 +59,7 @@
   }
 }
 
+/* Scroll bar customization color  */
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
@@ -52,62 +80,4 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #6161618e;
-}
-
-/* App layout css */
-#app {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.sidebar {
-  position: fixed;
-  bottom: 0px;
-  top: 0px;
-  z-index: 20;
-  height: 100vh;
-  overflow: hidden;
-  /* background-color: white; */
-  transition-property: all;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body .wrapper {
-  display: flex;
-  flex: 1 1 0%;
-  flex-direction: column;
-  transition-property: margin;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body .wrapper .header {
-  position: sticky;
-  top: 0px;
-  z-index: 30;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  overflow: visible;
-  background-color: white;
-}
-
-body .wrapper .content {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  scroll-behavior: smooth;
-  min-height: calc(100vh - 60px);
-}
-
-body .wrapper .footer {
-  margin-top: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  column-gap: 2rem;
-  row-gap: 0.5rem;
-  padding: 1rem;
 }

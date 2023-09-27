@@ -5,7 +5,9 @@ import Breadcrumb from "../../components/common/Breadcrumb.vue";
   <!-- Breadcrumb  -->
   <Breadcrumb :breadArray="['Profile Visited', 'Home']" />
 
-  <div>
-    <p>Profile Visited page</p>
+  <div class="card">
+    <h2 class="py-10 px-5 text-gray-800 dark:text-white">
+      Profile Visited page
+    </h2>
   </div>
 </template>

@@ -4,23 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
-} */
+}
 
 /* Customized CSS class  */
 @layer components {
   /* Layout and body CSS */
-
-  *,
-  *::before,
-  *::after {
-    @apply box-border m-0 font-normal;
-  }
 
   body {
     @apply bg-[#25242a] font-jakarta;
@@ -31,11 +25,11 @@
   }
 
   .sidebar {
-    @apply fixed bottom-0 top-0 z-20 h-screen overflow-hidden transition-all delay-300 ease-in;
+    @apply fixed bottom-0 top-0 z-20 h-screen;
   }
 
   body .wrapper {
-    @apply flex flex-col flex-1 transition-[padding] delay-300 ease-in-out;
+    @apply flex flex-col flex-1;
   }
 
   body .wrapper .header {
@@ -86,3 +80,76 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #6161618e;
 }
+
+/* App layout CSS */
+.sidebar {
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body .wrapper {
+  transition-property: margin;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Storing for using purpose in Future */
+/* App layout css before in vanilla css */
+/* #app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  bottom: 0px;
+  top: 0px;
+  z-index: 20;
+  height: 100vh;
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body .wrapper {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  transition-property: margin;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body .wrapper .header {
+  position: sticky;
+  top: 0px;
+  z-index: 30;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  overflow: visible;
+  background-color: white;
+}
+
+body .wrapper .content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  min-height: calc(100vh - 60px);
+}
+
+body .wrapper .footer {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+  padding: 1rem;
+} */

@@ -19,10 +19,10 @@ const dropItemStyle = computed(() => {
 
 <template>
   <aside
-    class="sidebar h-full bg-white dark:bg-dark-300 duration-200 ease-out shadow-sm drop-shadow-md"
+    class="sidebar h-full bg-white dark:bg-dark-300 shadow-sm drop-shadow-md"
     :class="showSidebar ? 'w-[70px]' : 'w-[280px]'"
   >
-    <div class="h-[60px] flex items-center justify-start duration-400 ease-out">
+    <div class="h-[60px] flex items-center justify-start">
       <div class="px-[20px]">
         <router-link to="/" class="logo-exact">
           <h3
@@ -175,10 +175,12 @@ const dropItemStyle = computed(() => {
   border-left: 0px !important;
 }
 .router-link-exact-active {
+  color: black;
   background-color: rgb(251 213 213 /1);
   border-left: 5px solid red;
 }
 .dark .router-link-exact-active {
+  color: white;
   background-color: #282828;
   border-left: 5px solid white;
 }

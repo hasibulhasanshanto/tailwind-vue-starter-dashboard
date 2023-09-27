@@ -5,7 +5,9 @@ import Breadcrumb from "../../components/common/Breadcrumb.vue";
   <!-- Breadcrumb  -->
   <Breadcrumb :breadArray="['Rejection List', 'Home']" />
 
-  <div>
-    <p>Rejection List page</p>
+  <div class="card">
+    <h2 class="py-10 px-5 text-gray-800 dark:text-white">
+      Rejection List page
+    </h2>
   </div>
 </template>

@@ -582,7 +582,7 @@ const inputData = ref();
           <hr class="border-t-2 border-slate-500 my-2" />
           <div class="flex flex-col py-2">
             <!-- Name  -->
-            <div class="flex text-sm font-medium">
+            <div class="flex flex-wrap text-sm font-medium gap-2">
               <span
                 class="bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-1.5 rounded dark:bg-pink-900 dark:text-pink-300 flex items-center justify-between"
               >

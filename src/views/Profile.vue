@@ -1,9 +1,24 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Breadcrumb from "../components/common/Breadcrumb.vue";
+import BaseModal from "../components/common/Modal.vue";
 import BaseInput from "../components/Form/BaseInput.vue";
 
-const inputData = ref();
+const modalData = ref({
+  modalId: "",
+  openModalId: "openModalId",
+  closeModalId: "closeModalId",
+  cancelBtnId: "cancelBtnId",
+});
+
+const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
+  console.log(mId, oId, cId, cfId);
+
+  modalData.value.modalId = mId;
+  modalData.value.openModalId = oId;
+  modalData.value.closeModalId = cId;
+  modalData.value.cancelBtnId = cfId;
+};
 </script>
 <template>
   <!-- Breadcrumb  -->
@@ -65,8 +80,17 @@ const inputData = ref();
               Social Media
             </h3>
             <button
-              data-toggle="modal"
-              data-target="#social-link"
+              @click="
+                showModal(
+                  'staticModal',
+                  'openModal',
+                  'closeButton',
+                  'cancelBtnFooter'
+                )
+              "
+              :id="modalData.openModalId"
+              data-modal-target="large-modal"
+              data-modal-toggle="large-modal"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -176,8 +200,17 @@ const inputData = ref();
               </p>
             </div>
             <button
-              data-toggle="modal"
-              data-target="#social-link"
+              @click="
+                showModal(
+                  'shortBioModal',
+                  'shortBioModalOpen',
+                  'shortBioCloseBtn',
+                  'shortBioCancelBtnFooter'
+                )
+              "
+              :id="modalData.openModalId"
+              data-modal-target="large-modal"
+              data-modal-toggle="large-modal"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -929,5 +962,14 @@ const inputData = ref();
       </div>
     </section>
     <!-- Right Section End -->
+
+    <!-- Open Modal Area  -->
+    <BaseModal
+      v-if="modalData.modalId !== ''"
+      :modalId="modalData.modalId"
+      :openModalId="modalData.openModalId"
+      :closeModalId="modalData.closeModalId"
+      :cancelBtnId="modalData.cancelBtnId"
+    />
   </div>
 </template>

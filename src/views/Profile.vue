@@ -1,24 +1,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Breadcrumb from "../components/common/Breadcrumb.vue";
-import BaseModal from "../components/common/Modal.vue";
-import BaseInput from "../components/Form/BaseInput.vue";
+import Breadcrumb from "../components/common/Breadcrumb.vue"; 
 
-const modalData = ref({
-  modalId: "",
-  openModalId: "openModalId",
-  closeModalId: "closeModalId",
-  cancelBtnId: "cancelBtnId",
-});
+import { Modal } from 'flowbite-vue' 
 
-const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
-  console.log(mId, oId, cId, cfId);
-
-  modalData.value.modalId = mId;
-  modalData.value.openModalId = oId;
-  modalData.value.closeModalId = cId;
-  modalData.value.cancelBtnId = cfId;
-};
+const isShowModal = ref(false)
+function closeModal() {
+  isShowModal.value = false
+}
+function showModal() {
+  isShowModal.value = true
+}
 </script>
 <template>
   <!-- Breadcrumb  -->
@@ -79,18 +71,7 @@ const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
             >
               Social Media
             </h3>
-            <button
-              @click="
-                showModal(
-                  'staticModal',
-                  'openModal',
-                  'closeButton',
-                  'cancelBtnFooter'
-                )
-              "
-              :id="modalData.openModalId"
-              data-modal-target="large-modal"
-              data-modal-toggle="large-modal"
+            <button  
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -199,18 +180,7 @@ const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
                 Say something about you or your expectation
               </p>
             </div>
-            <button
-              @click="
-                showModal(
-                  'shortBioModal',
-                  'shortBioModalOpen',
-                  'shortBioCloseBtn',
-                  'shortBioCancelBtnFooter'
-                )
-              "
-              :id="modalData.openModalId"
-              data-modal-target="large-modal"
-              data-modal-toggle="large-modal"
+            <button 
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -922,6 +892,10 @@ const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
         </div>
       </div>
 
+      <button @click="showModal" type="button" class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      Show modal
+  </button>
+
       <!-- Delete Account -->
       <div class="card">
         <div class="card-body">
@@ -963,13 +937,32 @@ const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
     </section>
     <!-- Right Section End -->
 
-    <!-- Open Modal Area  -->
-    <BaseModal
-      v-if="modalData.modalId !== ''"
-      :modalId="modalData.modalId"
-      :openModalId="modalData.openModalId"
-      :closeModalId="modalData.closeModalId"
-      :cancelBtnId="modalData.cancelBtnId"
-    />
+    <!-- Open Modal Area  --> 
+
+  <Modal v-if="isShowModal" @close="closeModal">
+    <template #header>
+      <div class="flex items-center text-lg">
+        Terms of Service
+      </div>
+    </template>
+    <template #body>
+      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+      </p>
+      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+      </p>
+    </template>
+    <template #footer>
+      <div class="flex justify-between">
+        <button @click="closeModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+          Decline
+        </button>
+        <button @click="closeModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          I accept
+        </button>
+      </div>
+    </template>
+  </Modal> 
   </div>
 </template>

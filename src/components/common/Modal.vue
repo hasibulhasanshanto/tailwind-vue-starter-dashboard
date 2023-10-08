@@ -1,177 +1,42 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { Modal } from "flowbite";
-const props = defineProps([
-  "modalId",
-  "openModalId",
-  "closeModalId",
-  "cancelBtnId",
-]);
+import { Modal } from 'flowbite-vue'
+import { ref } from 'vue'
 
-onMounted(() => {
-  // setup available elements
-  const $buttonElement: any = document.querySelector(`#${props.openModalId}`);
-  const $closeButton: any = document.querySelector(`#${props.closeModalId}`);
-  const $modalElement: any = document.querySelector(`#${props.modalId}`);
-  const $cancelButton: any = document.querySelector(`#${props.cancelBtnId}`);
-
-  // set modal options
-  const modalOptions = {
-    backdropClasses:
-      "bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40",
-  };
-
-  // create a new modal instance
-  if ($modalElement) {
-    const modal = new Modal($modalElement, modalOptions);
-
-    // set event listeners for the button to show the modal
-    $buttonElement.addEventListener("click", () => modal.toggle());
-    $closeButton.addEventListener("click", () => modal.hide());
-    $cancelButton.addEventListener("click", () => modal.hide());
-  }
-});
+const isShowModal = ref(false)
+function closeModal() {
+  isShowModal.value = false
+}
+function showModal() {
+  isShowModal.value = true
+}
 </script>
 <template>
-  <!-- Modal toggle -->
-  <!-- <button
-    id="openModalExample"
-    data-modal-target="large-modal"
-    data-modal-toggle="large-modal"
-    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    type="button"
-  >
-    Toggle modal
-  </button> -->
-
-  <!-- Main modal -->
-  <div
-    :id="modalId"
-    data-modal-backdrop="static"
-    tabindex="-1"
-    aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
-  >
-    <div class="relative w-full max-w-4xl max-h-full">
-      <!-- Modal content -->
-      <div
-        class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5"
-      >
-        <!-- Modal header -->
-        <div
-          class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600"
-        >
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-            Update Product
-          </h3>
-          <button
-            :id="closeModalId"
-            type="button"
-            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-            data-modal-toggle="updateProductModal"
-          >
-            <i class="ri-close-line ri-2x"></i>
-            <span class="sr-only">Close modal</span>
-          </button>
-        </div>
-        <!-- Modal body -->
-        <form action="#">
-          <div class="grid gap-4 mb-4 sm:grid-cols-2">
-            <div>
-              <label
-                for="name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Name</label
-              >
-              <input
-                type="text"
-                name="name"
-                id="name"
-                value="iPad Air Gen 5th Wi-Fi"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Ex. Apple iMac 27&ldquo;"
-              />
-            </div>
-            <div>
-              <label
-                for="brand"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Brand</label
-              >
-              <input
-                type="text"
-                name="brand"
-                id="brand"
-                value="Google"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Ex. Apple"
-              />
-            </div>
-            <div>
-              <label
-                for="price"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Price</label
-              >
-              <input
-                type="number"
-                value="399"
-                name="price"
-                id="price"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="$299"
-              />
-            </div>
-            <div>
-              <label
-                for="category"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Category</label
-              >
-              <select
-                id="category"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              >
-                <option selected="">Electronics</option>
-                <option value="TV">TV/Monitors</option>
-                <option value="PC">PC</option>
-                <option value="GA">Gaming/Console</option>
-                <option value="PH">Phones</option>
-              </select>
-            </div>
-            <div class="sm:col-span-2">
-              <label
-                for="description"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Description</label
-              >
-              <textarea
-                id="description"
-                rows="5"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Write a description..."
-              >
-Standard glass, 3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US</textarea
-              >
-            </div>
-          </div>
-          <div class="flex items-center space-x-4">
-            <button
-              type="submit"
-              class="text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-            >
-              Update
-            </button>
-            <button
-              :id="cancelBtnId"
-              type="button"
-              class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
+  <button @click="showModal" type="button" class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      Show modal
+  </button>
+  <Modal v-if="isShowModal" @close="closeModal">
+    <template #header>
+      <div class="flex items-center text-lg">
+        Terms of Service
       </div>
-    </div>
-  </div>
+    </template>
+    <template #body>
+      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+      </p>
+      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+      </p>
+    </template>
+    <template #footer>
+      <div class="flex justify-between">
+        <button @click="closeModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+          Decline
+        </button>
+        <button @click="closeModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          I accept
+        </button>
+      </div>
+    </template>
+  </Modal>
 </template>

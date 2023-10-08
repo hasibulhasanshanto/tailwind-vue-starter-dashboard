@@ -44,5 +44,5 @@ const toggleMenu = () => {
       </div>
     </div>
     <!-- Wrapper /.-->
-  </div> 
+  </div>
 </template>

@@ -2,18 +2,12 @@
 import { ref } from "vue";
 import Breadcrumb from "../components/common/Breadcrumb.vue";
 import BaseModal from "../components/common/Modal.vue";
-import BaseInput from "../components/Form/BaseInput.vue";
 
+const showModal = ref(false);
 
-const isOpenModalSocial = ref(false);
-const isOpenModalBio = ref(false);
-const toggleModalBio = () => {
-  isOpenModalBio.value = !isOpenModalBio.value;
-}
-const toggleModalSocial = () => {
-  isOpenModalSocial.value = !isOpenModalSocial.value;
-}
-
+const closeModal = () => {
+  showModal.value = false;
+};
 </script>
 <template>
   <!-- Breadcrumb  -->
@@ -74,8 +68,8 @@ const toggleModalSocial = () => {
             >
               Social Media
             </h3>
-            <button 
-              @click="toggleModalSocial"
+            <button
+              @click="showModal = true"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -185,7 +179,6 @@ const toggleModalSocial = () => {
               </p>
             </div>
             <button
-              @click="toggleModalBio"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -895,6 +888,7 @@ const toggleModalSocial = () => {
         </div>
       </div>
 
+      <!-- <button @click="showModal = true" class="bg-red-500 p-3 text-white block">Open Modal</button> -->
       <!-- Delete Account -->
       <div class="card">
         <div class="card-body">
@@ -934,13 +928,22 @@ const toggleModalSocial = () => {
         </div>
       </div>
     </section>
-    <!-- Right Section End --> 
+    <!-- Right Section End -->
   </div>
   <!-- Open Modal Area  -->
-  <BaseModal  v-if="isOpenModalBio" @toggleModal="toggleModalBio">
-      Bio Update Modal
-    </BaseModal>
-    <BaseModal  v-if="isOpenModalSocial" @toggleModal="toggleModalSocial"> 
-      Social Update Modal
-    </BaseModal>
+  <BaseModal v-if="showModal" :showModal="showModal" @closeModal="closeModal">
+    <template #modal-body>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+        perspiciatis praesentium inventore qui voluptatem velit cupiditate
+        consequuntur nam soluta tempora commodi deserunt quas, rem dolorum cum
+        incidunt magni dicta alias?
+      </p>
+    </template>
+    <template #update-btn>
+      <button @click="closeModal" class="bg-red-500 p-3 text-white">
+        Submit
+      </button>
+    </template>
+  </BaseModal>
 </template>

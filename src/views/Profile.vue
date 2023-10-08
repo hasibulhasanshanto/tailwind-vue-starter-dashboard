@@ -4,21 +4,16 @@ import Breadcrumb from "../components/common/Breadcrumb.vue";
 import BaseModal from "../components/common/Modal.vue";
 import BaseInput from "../components/Form/BaseInput.vue";
 
-const modalData = ref({
-  modalId: "",
-  openModalId: "openModalId",
-  closeModalId: "closeModalId",
-  cancelBtnId: "cancelBtnId",
-});
 
-const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
-  console.log(mId, oId, cId, cfId);
+const isOpenModalSocial = ref(false);
+const isOpenModalBio = ref(false);
+const toggleModalBio = () => {
+  isOpenModalBio.value = !isOpenModalBio.value;
+}
+const toggleModalSocial = () => {
+  isOpenModalSocial.value = !isOpenModalSocial.value;
+}
 
-  modalData.value.modalId = mId;
-  modalData.value.openModalId = oId;
-  modalData.value.closeModalId = cId;
-  modalData.value.cancelBtnId = cfId;
-};
 </script>
 <template>
   <!-- Breadcrumb  -->
@@ -79,18 +74,8 @@ const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
             >
               Social Media
             </h3>
-            <button
-              @click="
-                showModal(
-                  'staticModal',
-                  'openModal',
-                  'closeButton',
-                  'cancelBtnFooter'
-                )
-              "
-              :id="modalData.openModalId"
-              data-modal-target="large-modal"
-              data-modal-toggle="large-modal"
+            <button 
+              @click="toggleModalSocial"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -200,17 +185,7 @@ const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
               </p>
             </div>
             <button
-              @click="
-                showModal(
-                  'shortBioModal',
-                  'shortBioModalOpen',
-                  'shortBioCloseBtn',
-                  'shortBioCancelBtnFooter'
-                )
-              "
-              :id="modalData.openModalId"
-              data-modal-target="large-modal"
-              data-modal-toggle="large-modal"
+              @click="toggleModalBio"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -262,8 +237,6 @@ const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
               </p> -->
             </div>
             <button
-              data-toggle="modal"
-              data-target="#social-link"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -961,15 +934,13 @@ const showModal = (mId: string, oId: string, cId: string, cfId: string) => {
         </div>
       </div>
     </section>
-    <!-- Right Section End -->
-
-    <!-- Open Modal Area  -->
-    <BaseModal
-      v-if="modalData.modalId !== ''"
-      :modalId="modalData.modalId"
-      :openModalId="modalData.openModalId"
-      :closeModalId="modalData.closeModalId"
-      :cancelBtnId="modalData.cancelBtnId"
-    />
+    <!-- Right Section End --> 
   </div>
+  <!-- Open Modal Area  -->
+  <BaseModal  v-if="isOpenModalBio" @toggleModal="toggleModalBio">
+      Bio Update Modal
+    </BaseModal>
+    <BaseModal  v-if="isOpenModalSocial" @toggleModal="toggleModalSocial"> 
+      Social Update Modal
+    </BaseModal>
 </template>

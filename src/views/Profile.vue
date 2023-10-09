@@ -3,10 +3,14 @@ import { ref } from "vue";
 import Breadcrumb from "../components/common/Breadcrumb.vue";
 import BaseModal from "../components/common/Modal.vue";
 
-const showModal = ref(false);
-
+const isOpen = ref(false);
+// open modal handler
+const openModal = () => {
+  isOpen.value = true;
+};
+// close modal handler
 const closeModal = () => {
-  showModal.value = false;
+  isOpen.value = false;
 };
 </script>
 <template>
@@ -69,7 +73,7 @@ const closeModal = () => {
               Social Media
             </h3>
             <button
-              @click="showModal = true"
+              @click="openModal"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -179,6 +183,7 @@ const closeModal = () => {
               </p>
             </div>
             <button
+            @click="openModal"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -930,20 +935,21 @@ const closeModal = () => {
     </section>
     <!-- Right Section End -->
   </div>
-  <!-- Open Modal Area  -->
-  <BaseModal v-if="showModal" :showModal="showModal" @closeModal="closeModal">
-    <template #modal-body>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-        perspiciatis praesentium inventore qui voluptatem velit cupiditate
-        consequuntur nam soluta tempora commodi deserunt quas, rem dolorum cum
-        incidunt magni dicta alias?
-      </p>
+  <!-- Modal  -->
+  <Teleport to="#modal">
+  <BaseModal v-if="isOpen" @closeModal="closeModal">
+    <template #m-header> First modal tittle </template>
+    <template #m-body>
+      <p>Dynamic modal body</p>
     </template>
-    <template #update-btn>
-      <button @click="closeModal" class="bg-red-500 p-3 text-white">
-        Submit
+    <template #m-footer>
+      <button
+        @click.once="closeModal"
+        class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-red-600"
+      >
+        Update
       </button>
     </template>
   </BaseModal>
+</Teleport>
 </template>

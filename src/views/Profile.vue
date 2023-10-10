@@ -1,17 +1,31 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Breadcrumb from "../components/common/Breadcrumb.vue";
-import BaseModal from "../components/common/Modal.vue";
+import { ref, defineAsyncComponent } from "vue";
+import Breadcrumb from "../components/common/Breadcrumb.vue"; 
+import { useModal } from '../composables/useModal';
 
-const isOpen = ref(false);
+const modalComponent = ref('social');
+
+const modal = useModal();
 // open modal handler
-const openModal = () => {
-  isOpen.value = true;
+const openModal = (params:string) => {
+  modalComponent.value = params;
+  modal.showModal();
 };
 // close modal handler
-const closeModal = () => {
-  isOpen.value = false;
-};
+// const closeModal = () => {
+//   modal.hideModal();
+// };
+
+const profileModalComponents:any = {
+  'social': defineAsyncComponent(() => import('../components/profile/SocialModal.vue')), 
+  'short-bio': defineAsyncComponent(() => import('../components/profile/ShortBioModal.vue')), 
+  'life-style': defineAsyncComponent(() => import('../components/profile/LifeStyleModal.vue')), 
+  'education': defineAsyncComponent(() => import('../components/profile/EducationModal.vue')), 
+  'family': defineAsyncComponent(() => import('../components/profile/FamilyModal.vue')), 
+  'religious': defineAsyncComponent(() => import('../components/profile/ReligiousModal.vue')), 
+  'location': defineAsyncComponent(() => import('../components/profile/LocationModal.vue')), 
+  'hobbies': defineAsyncComponent(() => import('../components/profile/HobbiesModal.vue')), 
+}
 </script>
 <template>
   <!-- Breadcrumb  -->
@@ -73,7 +87,7 @@ const closeModal = () => {
               Social Media
             </h3>
             <button
-              @click="openModal"
+              @click="openModal('social')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -183,7 +197,7 @@ const closeModal = () => {
               </p>
             </div>
             <button
-            @click="openModal"
+              @click="openModal('short-bio')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -235,6 +249,7 @@ const closeModal = () => {
               </p> -->
             </div>
             <button
+            @click="openModal('life-style')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -308,8 +323,7 @@ const closeModal = () => {
               </h2>
             </div>
             <button
-              data-toggle="modal"
-              data-target="#social-link"
+            @click="openModal('education')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -367,8 +381,7 @@ const closeModal = () => {
               </h2>
             </div>
             <button
-              data-toggle="modal"
-              data-target="#social-link"
+            @click="openModal('family')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -442,8 +455,7 @@ const closeModal = () => {
               </h2>
             </div>
             <button
-              data-toggle="modal"
-              data-target="#social-link"
+            @click="openModal('religious')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -513,8 +525,7 @@ const closeModal = () => {
               </h2>
             </div>
             <button
-              data-toggle="modal"
-              data-target="#social-link"
+            @click="openModal('location')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -576,8 +587,7 @@ const closeModal = () => {
               </h2>
             </div>
             <button
-              data-toggle="modal"
-              data-target="#social-link"
+            @click="openModal('hobbies')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -935,21 +945,7 @@ const closeModal = () => {
     </section>
     <!-- Right Section End -->
   </div>
-  <!-- Modal  -->
-  <Teleport to="#modal">
-  <BaseModal v-if="isOpen" @closeModal="closeModal">
-    <template #m-header> First modal tittle </template>
-    <template #m-body>
-      <p>Dynamic modal body</p>
-    </template>
-    <template #m-footer>
-      <button
-        @click.once="closeModal"
-        class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-red-600"
-      >
-        Update
-      </button>
-    </template>
-  </BaseModal>
-</Teleport>
+
+  <!-- Dynamically loading Modal component -->  
+  <component :is="profileModalComponents[modalComponent]"></component> 
 </template>

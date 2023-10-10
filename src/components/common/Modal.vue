@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import { Modal } from 'flowbite-vue'
-import { ref } from 'vue'
+import { Modal } from 'flowbite-vue' 
 
-const isShowModal = ref(false)
-function closeModal() {
-  isShowModal.value = false
-}
-function showModal() {
-  isShowModal.value = true
-}
+const emit = defineEmits(["closeModal"]) 
+function modalClose() {
+  emit('closeModal');
+} 
 </script>
-<template>
-  <button @click="showModal" type="button" class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-      Show modal
-  </button>
-  <Modal v-if="isShowModal" @close="closeModal">
+<template> 
+  <Modal size="3xl" @close="modalClose">
     <template #header>
       <div class="flex items-center text-lg">
         Terms of Service
@@ -29,12 +22,12 @@ function showModal() {
       </p>
     </template>
     <template #footer>
-      <div class="flex justify-between">
-        <button @click="closeModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-          Decline
+      <div class="flex items-center justify-end gap-x-4">
+        <button @click="modalClose" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+          Cancel
         </button>
-        <button @click="closeModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          I accept
+        <button @click="modalClose" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Update
         </button>
       </div>
     </template>

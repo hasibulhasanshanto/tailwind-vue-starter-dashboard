@@ -9,11 +9,11 @@ const closeHandler = () => {
 <template>  
     <transition name="fade">
       <div>
-        <div class="absolute bg-black opacity-80 inset-0 z-40 overflow-y-auto"> 
+        <div class="absolute bg-black opacity-80 inset-0 z-30 overflow-y-auto"> 
         <div
-          class="w-full max-w-lg mx-auto my-auto rounded-xl shadow-lg bg-white z-50"
+          class="flex justify-center w-full max-w-lg mx-auto my-auto rounded-xl shadow-lg"
         >
-          <div class="modal">
+          <div class="modal bg-white">
             <!-- Modal header  -->
             <div class="modal-header flex items-center justify-between p-4">
               <h4 class="text-lg font-semibold text-black">

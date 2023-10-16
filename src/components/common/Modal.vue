@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { useModal } from '../../composables/useModal';
+defineProps({
+  modalSize: {
+    type: String,
+    default: "max-w-lg max-h-full md:h-auto"
+  }
+})
 const modal = useModal();
 
 const closeHandler = () => {
@@ -15,7 +21,7 @@ const closeHandler = () => {
         <div
           class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 w-full md:inset-0 h-modal md:h-full justify-center items-center flex !z-[101]"
         >
-          <div class="relative p-4 w-full h-full md:h-auto max-w-2xl">
+          <div class="relative p-4 w-full" :class="modalSize">
             <div
               class="relative bg-white rounded-lg shadow dark:bg-dark-300 overflow-hidden"
             >

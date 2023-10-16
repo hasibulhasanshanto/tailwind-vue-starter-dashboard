@@ -94,6 +94,7 @@ const closeModal = () => {
           </select>
         </div>
 
+        <!-- Input field  -->
         <div class="mb-2">
           <label
             for="company_name"
@@ -110,6 +111,7 @@ const closeModal = () => {
           />
         </div>
 
+        <!-- Input field  -->
         <div class="mb-2">
           <label
             for="monthly_income"

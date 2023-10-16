@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, defineAsyncComponent } from "vue";
-import Breadcrumb from "../components/common/Breadcrumb.vue"; 
-import { useModal } from '../composables/useModal';
+import Breadcrumb from "../components/common/Breadcrumb.vue";
+import { useModal } from "../composables/useModal";
 
-const modalComponent = ref('social');
+const modalComponent = ref("social");
 
 const modal = useModal();
 // open modal handler
-const openModal = (params:string) => {
+const openModal = (params: string) => {
   modalComponent.value = params;
   modal.showModal();
 };
@@ -16,16 +16,32 @@ const openModal = (params:string) => {
 //   modal.hideModal();
 // };
 
-const profileModalComponents:any = {
-  'social': defineAsyncComponent(() => import('../components/profile/SocialModal.vue')), 
-  'short-bio': defineAsyncComponent(() => import('../components/profile/ShortBioModal.vue')), 
-  'life-style': defineAsyncComponent(() => import('../components/profile/LifeStyleModal.vue')), 
-  'education': defineAsyncComponent(() => import('../components/profile/EducationModal.vue')), 
-  'family': defineAsyncComponent(() => import('../components/profile/FamilyModal.vue')), 
-  'religious': defineAsyncComponent(() => import('../components/profile/ReligiousModal.vue')), 
-  'location': defineAsyncComponent(() => import('../components/profile/LocationModal.vue')), 
-  'hobbies': defineAsyncComponent(() => import('../components/profile/HobbiesModal.vue')), 
-}
+const profileModalComponents: any = {
+  social: defineAsyncComponent(
+    () => import("../components/profile/SocialModal.vue")
+  ),
+  "short-bio": defineAsyncComponent(
+    () => import("../components/profile/ShortBioModal.vue")
+  ),
+  "life-style": defineAsyncComponent(
+    () => import("../components/profile/LifeStyleModal.vue")
+  ),
+  education: defineAsyncComponent(
+    () => import("../components/profile/EducationModal.vue")
+  ),
+  family: defineAsyncComponent(
+    () => import("../components/profile/FamilyModal.vue")
+  ),
+  religious: defineAsyncComponent(
+    () => import("../components/profile/ReligiousModal.vue")
+  ),
+  location: defineAsyncComponent(
+    () => import("../components/profile/LocationModal.vue")
+  ),
+  hobbies: defineAsyncComponent(
+    () => import("../components/profile/HobbiesModal.vue")
+  ),
+};
 </script>
 <template>
   <!-- Breadcrumb  -->
@@ -64,9 +80,13 @@ const profileModalComponents:any = {
           >
             Hasibul Hasan
           </h2>
-          <h4 class="text-md font-semibold text-slate-500">01777111222</h4>
+          <h4 class="text-md font-semibold text-slate-500">SB000000105</h4>
           <p class="text-sm font-normal tracking-tight text-slate-400">
             Platinum User
+          </p>
+          <p class="text-sm font-normal tracking-tight text-slate-400">
+            Mobile no. is verified
+            <i class="ri-shield-check-line ml-2 ri-xl"></i>
           </p>
           <div class="badge badge-soft-success my-3 inline-block px-4">
             <span
@@ -249,7 +269,7 @@ const profileModalComponents:any = {
               </p> -->
             </div>
             <button
-            @click="openModal('life-style')"
+              @click="openModal('life-style')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -323,7 +343,7 @@ const profileModalComponents:any = {
               </h2>
             </div>
             <button
-            @click="openModal('education')"
+              @click="openModal('education')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -381,7 +401,7 @@ const profileModalComponents:any = {
               </h2>
             </div>
             <button
-            @click="openModal('family')"
+              @click="openModal('family')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -455,7 +475,7 @@ const profileModalComponents:any = {
               </h2>
             </div>
             <button
-            @click="openModal('religious')"
+              @click="openModal('religious')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -525,7 +545,7 @@ const profileModalComponents:any = {
               </h2>
             </div>
             <button
-            @click="openModal('location')"
+              @click="openModal('location')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -587,7 +607,7 @@ const profileModalComponents:any = {
               </h2>
             </div>
             <button
-            @click="openModal('hobbies')"
+              @click="openModal('hobbies')"
               class="cursor-pointer text-sm text-slate-600 duration-150 ease-in hover:text-primary-500 dark:text-slate-300 dark:hover:text-primary-500"
             >
               <i class="ri-edit-box-line ri-xl"></i>
@@ -946,6 +966,6 @@ const profileModalComponents:any = {
     <!-- Right Section End -->
   </div>
 
-  <!-- Dynamically loading Modal component -->  
-  <component :is="profileModalComponents[modalComponent]"></component> 
+  <!-- Dynamically loading Modal component -->
+  <component :is="profileModalComponents[modalComponent]"></component>
 </template>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import BaseModal from "../common/Modal.vue";
 import { useModal } from "../../composables/useModal";
-import Datepicker from "flowbite-datepicker/Datepicker";
+import { Calendar, DatePicker } from "v-calendar";
+const masks = ref({
+  input: 'DD-MM-YYYY',
+});
 
-const datepickerEl = document.getElementById('datepickerId');
-new Datepicker(datepickerEl, {
-  // options
-}); 
-
+const dob = ref(new Date());
 const modal = useModal();
 // close modal handler
 const closeModal = () => {
@@ -19,37 +19,31 @@ const closeModal = () => {
     <template #m-header> Basics & Lifestyle modal tittle </template>
     <template #m-body>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 p-1 md:p-2">
+         <!-- Date picker  -->
         <div class="mb-2">
           <label
             for="dob"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Date of birth</label
           >
-          <div class="relative">
-            <div
-              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-            >
-              <svg
-                class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+          <DatePicker v-model="dob" :masks="masks">
+            <template #default="{ inputValue, togglePopover }">
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                >
+                  <i class="ri-calendar-line"></i>
+                </div>
+                <input
+                  @click="togglePopover"
+                  :value="inputValue"
+                  type="text"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Select date"
                 />
-              </svg>
-            </div>
-            <input
-              id="datepickerId"
-              datepicker
-              datepicker-autohide
-              type="text"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Select date"
-            />
-          </div>
+              </div>
+            </template>
+          </DatePicker>
         </div>
 
         <div class="mb-2">

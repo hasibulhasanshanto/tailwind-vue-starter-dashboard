@@ -101,7 +101,7 @@ const closeModal = () => {
           >
             <option value="traditional">Traditional</option>
             <option value="moderate">Moderate</option>
-            <option value="liberal">Liberal</option> 
+            <option value="liberal">Liberal</option>
           </select>
         </div>
 
@@ -120,8 +120,84 @@ const closeModal = () => {
             <option value="affluent">Affluent</option>
             <option value="upper_middle_class">Upper Middle Class</option>
             <option value="middle_class">Middle Class</option>
-            <option value="lower_middle_class">Lower Middle Class</option> 
+            <option value="lower_middle_class">Lower Middle Class</option>
           </select>
+        </div>
+
+        <!-- Input field  -->
+        <div class="mb-2">
+          <label
+            for="company_name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Number of Brothers
+          </label>
+          <input
+            type="number"
+            id="company_name"
+            min="0"
+            max="20"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter native place"
+            required
+          />
+        </div>
+
+        <!-- Input field  -->
+        <div class="mb-2">
+          <label
+            for="company_name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Married Brothers
+          </label>
+          <input
+            type="number"
+            id="company_name"
+            min="0"
+            max="20"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter native place"
+            required
+          />
+        </div>
+
+        <!-- Input field  -->
+        <div class="mb-2">
+          <label
+            for="company_name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Number of Sisters
+          </label>
+          <input
+            type="number"
+            id="company_name"
+            min="0"
+            max="20"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter native place"
+            required
+          />
+        </div>
+
+        <!-- Input field  -->
+        <div class="mb-2">
+          <label
+            for="company_name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Married Sisters
+          </label>
+          <input
+            type="number"
+            id="company_name"
+            min="0"
+            max="20"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter native place"
+            required
+          />
         </div>
 
         <!-- Input field  -->
@@ -131,7 +207,7 @@ const closeModal = () => {
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Family Type
-          </label> 
+          </label>
           <div class="flex flex-wrap py-2.5">
             <div class="flex items-center mr-4">
               <input
@@ -144,7 +220,8 @@ const closeModal = () => {
               />
               <label
                 for="s_no"
-                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
                 Joint
               </label>
             </div>
@@ -158,7 +235,8 @@ const closeModal = () => {
               />
               <label
                 for="s_no"
-                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
                 Nuclear
               </label>
             </div>

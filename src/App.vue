@@ -5,6 +5,8 @@ import Navbar from "./components/dashboard/Header.vue";
 import Sidebar from "./components/dashboard/Sidebar.vue";
 import OffCanvas from "./components/dashboard/OffCanvas.vue";
 import Footer from "./components/dashboard/Footer.vue";
+import Loader from "./components/Loading.vue";
+
 const showSidebar = ref<boolean>(false);
 
 const toggleMenu = () => {
@@ -12,8 +14,12 @@ const toggleMenu = () => {
 };
 </script>
 
-<template> 
+<template>
+  <!-- Loading component  -->
+  <Loader/>
+  
   <div class="body-content bg-light-900 dark:bg-dark-100">
+    
     <!-- Sidebar -->
     <Sidebar class="hidden md:block" :showSidebar="showSidebar" />
     <!-- Sidebar /.-->
@@ -44,5 +50,5 @@ const toggleMenu = () => {
       </div>
     </div>
     <!-- Wrapper /.-->
-  </div>
+  </div> 
 </template>

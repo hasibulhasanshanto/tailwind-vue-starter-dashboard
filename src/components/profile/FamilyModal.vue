@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import BaseModal from "../common/Modal.vue";
 import { useModal } from "../../composables/useModal";
+import {
+  FatherStatusOptions,
+  MotherStatusOptions,
+} from "../../constant/commonOption";
 
 const modal = useModal();
 // close modal handler
@@ -25,11 +29,13 @@ const closeModal = () => {
             id="highest_qualification"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="never_married">Never Married</option>
-            <option value="married">Married</option>
-            <option value="divorce">Divorce</option>
-            <option value="widow">Widow</option>
-            <option value="widower">Widower</option>
+            <option
+              v-for="(status, key) in FatherStatusOptions"
+              :key="key"
+              :value="status.key"
+            >
+              {{ status.value }}
+            </option>
           </select>
         </div>
 
@@ -62,11 +68,13 @@ const closeModal = () => {
             id="highest_qualification"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="never_married">Never Married</option>
-            <option value="married">Married</option>
-            <option value="divorce">Divorce</option>
-            <option value="widow">Widow</option>
-            <option value="widower">Widower</option>
+            <option
+              v-for="(status, key) in MotherStatusOptions"
+              :key="key"
+              :value="status.key"
+            >
+              {{ status.value }}
+            </option>
           </select>
         </div>
 
@@ -76,13 +84,13 @@ const closeModal = () => {
             for="company_name"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Native Place
+            Nature of Business
           </label>
           <input
             type="text"
             id="company_name"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter native place"
+            placeholder="Example 'Super Store'"
             required
           />
         </div>
@@ -149,7 +157,7 @@ const closeModal = () => {
             for="company_name"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Married Brothers
+            Brothers Married
           </label>
           <input
             type="number"
@@ -187,13 +195,30 @@ const closeModal = () => {
             for="company_name"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Married Sisters
+            Sisters Married
           </label>
           <input
             type="number"
             id="company_name"
             min="0"
             max="20"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter native place"
+            required
+          />
+        </div>
+
+        <!-- Input field  -->
+        <div class="mb-2">
+          <label
+            for="company_name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Native Place
+          </label>
+          <input
+            type="text"
+            id="company_name"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter native place"
             required
@@ -211,9 +236,9 @@ const closeModal = () => {
           <div class="flex flex-wrap py-2.5">
             <div class="flex items-center mr-4">
               <input
-                id="s_no"
+                id="s_yes"
                 type="radio"
-                value="false"
+                value="true"
                 name="smoker"
                 checked
                 class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -222,14 +247,14 @@ const closeModal = () => {
                 for="s_no"
                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                Joint
+                Nuclear
               </label>
             </div>
             <div class="flex items-center mr-4">
               <input
-                id="s_yes"
+                id="s_no"
                 type="radio"
-                value="true"
+                value="false"
                 name="smoker"
                 class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
@@ -237,7 +262,7 @@ const closeModal = () => {
                 for="s_no"
                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                Nuclear
+                Joint
               </label>
             </div>
           </div>

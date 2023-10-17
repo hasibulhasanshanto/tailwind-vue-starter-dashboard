@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import BaseModal from "../common/Modal.vue";
 import { useModal } from "../../composables/useModal";
+import {
+  HighestQualificationOptions,
+  InstituteOptions,
+  WorkingWithOptions,
+  WorkingProfessionOptions,
+} from "../../constant/commonOption";
 
 const modal = useModal();
 // close modal handler
@@ -25,72 +31,79 @@ const closeModal = () => {
             id="highest_qualification"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="never_married">Never Married</option>
-            <option value="married">Married</option>
-            <option value="divorce">Divorce</option>
-            <option value="widow">Widow</option>
-            <option value="widower">Widower</option>
+            <option
+              v-for="(qualification, key) in HighestQualificationOptions"
+              :key="key"
+              :value="qualification.key"
+            >
+              {{ qualification.value }}
+            </option>
           </select>
         </div>
 
         <!-- Input field  -->
-        <div class="mb-2"> 
+        <div class="mb-2">
           <label
             for="institution"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-          Institution
+            Institution
           </label>
           <select
             id="institution"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="never_married">Never Married</option>
-            <option value="married">Married</option>
-            <option value="divorce">Divorce</option>
-            <option value="widow">Widow</option>
-            <option value="widower">Widower</option>
+            <option
+              v-for="(institute, key) in InstituteOptions"
+              :key="key"
+              :value="institute.key"
+            >
+              {{ institute.value }}
+            </option>
           </select>
         </div>
 
         <!-- Input field  -->
-        <div class="mb-2"> 
+        <div class="mb-2">
           <label
             for="working_with"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-          Working With
+            Working With
           </label>
           <select
             id="working_with"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="private_company">Private Company</option>
-            <option value="government">Government Sector</option>
-            <option value="defense">Defense / Armed forces</option>
-            <option value="civil_services">Civil Services</option>
-            <option value="business">Business /  Self Employed</option>
-            <option value="not_working">Not Working</option>
+            <option
+              v-for="(workingWith, key) in WorkingWithOptions"
+              :key="key"
+              :value="workingWith.key"
+            >
+              {{ workingWith.value }}
+            </option>
           </select>
         </div>
 
         <!-- Input field  -->
-        <div class="mb-2"> 
+        <div class="mb-2">
           <label
             for="working_as"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-          Working As
+            Working As
           </label>
           <select
             id="working_as"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="private_company">Engineer</option>
-            <option value="government">Lecturer</option>
-            <option value="defense">Teacher</option>
-            <option value="civil_services">Army</option>
-            <option value="business">Student</option>v
+            <option
+              v-for="(profession, key) in WorkingProfessionOptions"
+              :key="key"
+              :value="profession.key"
+            >
+              {{ profession.value }}
+            </option>
           </select>
         </div>
 
@@ -120,8 +133,9 @@ const closeModal = () => {
             Monthly Income (*BDT)
           </label>
           <input
-            type="text"
+            type="number"
             id="monthly_income"
+            min="0"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter your monthly income"
             required

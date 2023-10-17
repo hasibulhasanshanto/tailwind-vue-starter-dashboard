@@ -40,7 +40,7 @@ export const MaritalStatusOptions = [
   { key: "divorce", value: "Divorce" },
   { key: "separate", value: "Separate" },
   { key: "widow", value: "Widow" },
-  { key: "widower", value: "Widower" },
+  { key: "widower", value: "Widower" }
 ];
 
 // Grew up status options for dropdown selection
@@ -49,7 +49,7 @@ export const GrewUpCountryOptions = [
     { key: "BD", value: "BANGLADESH", flag: "https://flagcdn.com/w320/bd.png" },
     { key: "USA", value: "UNITED STATES", flag: "https://flagcdn.com/w320/us.png" },
     { key: "UK", value: "UNITED KINGDOM", flag: "https://flagcdn.com/w320/gb.png" },
-    { key: "CANADA", value: "CANADA", flag: "https://flagcdn.com/w320/ca.png" }, 
+    { key: "CANADA", value: "CANADA", flag: "https://flagcdn.com/w320/ca.png" } 
 ];
 
 // Diet options for dropdown selection
@@ -58,7 +58,7 @@ export const DietOptions = [
     { key: "non-vegetarian", value: "Non Vegetarian" },
     { key: "halal-food-always", value: "Halal food always" },
     { key: "halal-food-when-i-can", value: "Halal food when I can" }, 
-    { key: "no-restrictions", value: "No Restrictions" }, 
+    { key: "no-restrictions", value: "No Restrictions" } 
 ];
 
 // Health Info options for dropdown selection
@@ -69,7 +69,7 @@ export const HealthInfoOptions = [
     { key: "low-bp", value: "Low BP" }, 
     { key: "high-bp", value: "High BP" }, 
     { key: "heart-dieseases", value: "Heart Dieseases" }, 
-    { key: "other", value: "Other" }, 
+    { key: "other", value: "Other" } 
 ];
 
 // Body Type options for dropdown selection
@@ -77,7 +77,7 @@ export const BodyTypeOptions = [
     { key: "slim", value: "Slim" },
     { key: "athletic", value: "Athletic" },
     { key: "average", value: "Average" },
-    { key: "heavy", value: "Heavy" },  
+    { key: "heavy", value: "Heavy" }  
 ];
 
 // Blood Group options for dropdown selection
@@ -89,7 +89,7 @@ export const BloodGroupOptions = [
     { key: "o_pos", value: "O +" },
     { key: "o_neg", value: "O -" }, 
     { key: "ab_pos", value: "AB +" },
-    { key: "ab_neg", value: "AB -" }, 
+    { key: "ab_neg", value: "AB -" } 
 ];
 
 // Skin Complexion options for dropdown selection
@@ -99,5 +99,64 @@ export const SkinComplexionOptions = [
     { key: "medium", value: "Medium" },
     { key: "light_brown", value: "Light Brown" }, 
     { key: "brown", value: "Brown" },  
-    { key: "black", value: "Black" },  
+    { key: "black", value: "Black" } 
+];
+
+// Highest Qualification options for dropdown selection
+export const HighestQualificationOptions = [
+    { key: "bsc", value: "BSC" },
+    { key: "msc", value: "MSC" }, 
+    { key: "ba", value: "BA" },
+    { key: "ma", value: "MA" }, 
+    { key: "LLB", value: "LLB" },  
+    { key: "LLM", value: "LLM" }
+];
+
+// Institute options for dropdown selection
+export const InstituteOptions = [
+    { key: "dhaka", value: "Dhaka University" },  
+    { key: "jagonnath", value: "Jagonnath University" },  
+    { key: "Jahangirnogor", value: "Jahangirnogor University" },  
+    { key: "Khulna", value: "Khulna University" },  
+    { key: "Chittagong", value: "Chittagong University" },  
+    { key: "Rajshahi", value: "Rajshahi University" },  
+    { key: "Barishal", value: "Barishal University" },  
+    { key: "Shylhet", value: "Shylhet University" }  
+];
+
+// Working With options for dropdown selection
+export const WorkingWithOptions = [
+    { key: "private_company", value: "Private Company" },   
+    { key: "government", value: "Government Sector" },   
+    { key: "defense", value: "Defense / Armed forces" },   
+    { key: "civil_services", value: "Civil Services" },   
+    { key: "business", value: "Business /  Self Employed" },   
+    { key: "not_working", value: "Not Working" }   
+];
+
+// Working With options for dropdown selection
+export const WorkingProfessionOptions = [
+    { key: "engineer", value: "Engineer" },   
+    { key: "doctor", value: "Doctor" },   
+    { key: "advocate", value: "Advocate" },   
+    { key: "army", value: "Army" },   
+    { key: "police", value: "police" },   
+];
+
+// Father's status options for dropdown selection
+export const FatherStatusOptions = [
+    { key: "employed", value: "Employed" },   
+    { key: "business", value: "Business" },   
+    { key: "retired", value: "Retired" },   
+    { key: "army", value: "Not Employed" },   
+    { key: "deceased", value: "Deceased" },   
+];
+
+// Mother's status options for dropdown selection
+export const MotherStatusOptions = [
+    { key: "homemaker", value: "Homemaker" },   
+    { key: "employed", value: "Employed" },   
+    { key: "business", value: "Business" },   
+    { key: "retired", value: "Retired" },     
+    { key: "deceased", value: "Deceased" },   
 ];

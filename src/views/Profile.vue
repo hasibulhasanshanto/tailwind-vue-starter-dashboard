@@ -82,11 +82,11 @@ const profileModalComponents: any = {
           </h2>
           <h4 class="text-md font-semibold text-slate-500">SB000000105</h4>
           <p class="text-sm font-normal tracking-tight text-slate-400">
-            Platinum User
+            Platinum user
           </p>
           <p class="text-sm font-normal tracking-tight text-slate-400">
-            Mobile no. is verified
-            <i class="ri-shield-check-line ml-2 ri-xl"></i>
+            Mobile no. verified
+            <i class="ri-shield-check-line ml-1 ri-lg"></i>
           </p>
           <div class="badge badge-soft-success my-3 inline-block px-4">
             <span

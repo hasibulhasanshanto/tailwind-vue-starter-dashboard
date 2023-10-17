@@ -140,7 +140,7 @@ export const WorkingProfessionOptions = [
     { key: "doctor", value: "Doctor" },   
     { key: "advocate", value: "Advocate" },   
     { key: "army", value: "Army" },   
-    { key: "police", value: "police" },   
+    { key: "police", value: "police" }  
 ];
 
 // Father's status options for dropdown selection
@@ -149,7 +149,7 @@ export const FatherStatusOptions = [
     { key: "business", value: "Business" },   
     { key: "retired", value: "Retired" },   
     { key: "army", value: "Not Employed" },   
-    { key: "deceased", value: "Deceased" },   
+    { key: "deceased", value: "Deceased" }  
 ];
 
 // Mother's status options for dropdown selection
@@ -158,5 +158,46 @@ export const MotherStatusOptions = [
     { key: "employed", value: "Employed" },   
     { key: "business", value: "Business" },   
     { key: "retired", value: "Retired" },     
-    { key: "deceased", value: "Deceased" },   
+    { key: "deceased", value: "Deceased" }   
+];
+
+// Religion options for dropdown selection
+export const ReligionOptions = [
+    { key: "islam", value: "Islam" },   
+    { key: "hindhu", value: "Hindhu" },   
+    { key: "christian", value: "Christian" },   
+    { key: "buddha", value: "Buddha" },   
+    { key: "others", value: "Others" }   
+];
+
+// Religion options for dropdown selection
+export const CastOrSectOptions = [
+    { key: "sunni", value: "Sunni" },   
+    { key: "shiya", value: "Shiya" },   
+    { key: "hanafi", value: "Hanafi" },   
+    { key: "ahmadiyaa", value: "Ahmadiyaa" }   
+];
+
+// Praying options for dropdown selection
+export const PrayingOptions = [
+    { key: "five_times", value: "Five Times" },   
+    { key: "only_jummah", value: "Only on Jummah" },   
+    { key: "during_ramadan", value: "During Ramadan" },   
+    { key: "occasionally", value: "Occasionally" }   
+];
+
+// Wear Panjabi options for dropdown selection
+export const WearPanjabiOptions = [
+    { key: "regularly", value: "Regularly" },   
+    { key: "only_jummah", value: "Only on Jummah" },     
+    { key: "occasionally", value: "Occasionally" }   
+];
+
+// Residency Status options for dropdown selection
+export const ResidencyStatusOptions = [
+    { key: "citizen", value: "Citizen" },   
+    { key: "permanent_resident", value: "Permanent Resident" },     
+    { key: "student_visa", value: "Student Visa" },   
+    { key: "temporary_visa", value: "Temporary Visa" },   
+    { key: "work_permit", value: "Work Permit" }   
 ];

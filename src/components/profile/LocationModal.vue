@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import BaseModal from "../common/Modal.vue";
 import { useModal } from "../../composables/useModal";
+import {
+  ResidencyStatusOptions
+} from "../../constant/commonOption";
 
 const modal = useModal();
 // close modal handler
@@ -122,11 +125,13 @@ const closeModal = () => {
             id="highest_qualification"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="never_married">Citizen</option>
-            <option value="married">Permanent Resident</option>
-            <option value="divorce">Student Visa</option>
-            <option value="widow">Temporary Visa</option>
-            <option value="widower">Work Permit</option>
+            <option
+              v-for="(residency, key) in ResidencyStatusOptions"
+              :key="key"
+              :value="residency.key"
+            >
+              {{ residency.value }}
+            </option> 
           </select>
         </div>
       </div>

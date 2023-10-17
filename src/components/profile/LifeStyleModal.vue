@@ -2,9 +2,21 @@
 import { ref } from "vue";
 import BaseModal from "../common/Modal.vue";
 import { useModal } from "../../composables/useModal";
-import { Calendar, DatePicker } from "v-calendar";
+import { DatePicker } from "v-calendar";
+
+import {
+  MaritalStatusOptions,
+  HeightOptions,
+  WeightOptions,
+  GrewUpCountryOptions,
+  DietOptions,
+  HealthInfoOptions,
+  BodyTypeOptions,
+  BloodGroupOptions,
+  SkinComplexionOptions,
+} from "../../constant/commonOption";
 const masks = ref({
-  input: 'DD-MM-YYYY',
+  input: "DD-MM-YYYY",
 });
 
 const dob = ref(new Date());
@@ -19,7 +31,7 @@ const closeModal = () => {
     <template #m-header> Basics & Lifestyle modal tittle </template>
     <template #m-body>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 p-1 md:p-2">
-         <!-- Date picker  -->
+        <!-- Date picker  -->
         <div class="mb-2">
           <label
             for="dob"
@@ -56,11 +68,13 @@ const closeModal = () => {
             id="marital_status"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="never_married">Never Married</option>
-            <option value="married">Married</option>
-            <option value="divorce">Divorce</option>
-            <option value="widow">Widow</option>
-            <option value="widower">Widower</option>
+            <option
+              v-for="(marital, key) in MaritalStatusOptions"
+              :key="key"
+              :value="marital.key"
+            >
+              {{ marital.value }}
+            </option>
           </select>
         </div>
 
@@ -74,26 +88,13 @@ const closeModal = () => {
             id="height"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="134">4ft 5in - 134cm</option>
-            <option value="137">4ft 6in - 137cm</option>
-            <option value="139">4ft 7in - 139cm</option>
-            <option value="142">4ft 8in - 142cm</option>
-            <option value="144">4ft 9in - 144cm</option>
-            <option value="147">4ft 10in - 147cm</option>
-            <option value="149">4ft 11in - 149cm</option>
-            <option value="152">5ft - 152cm</option>
-            <option value="154">5ft 1in - 154cm</option>
-            <option value="157" selected>5ft 2in - 157cm</option>
-            <option value="160">5ft 3in - 160cm</option>
-            <option value="162">5ft 4in - 162cm</option>
-            <option value="165">5ft 5in - 165cm</option>
-            <option value="167">5ft 6in - 167cm</option>
-            <option value="170">5ft 7in - 170cm</option>
-            <option value="172">5ft 8in - 172cm</option>
-            <option value="175">5ft 9in - 175cm</option>
-            <option value="177">5ft 10in - 177cm</option>
-            <option value="180">5ft 11in - 180cm</option>
-            <option value="182">6ft - 182cm</option>
+            <option
+              v-for="(height, key) in HeightOptions"
+              :key="key"
+              :value="height.key"
+            >
+              {{ height.value }}
+            </option>
           </select>
         </div>
 
@@ -103,13 +104,18 @@ const closeModal = () => {
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Weight</label
           >
-          <input
-            type="text"
-            id="weight"
+          <select
+            id="height"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter your weight in kg"
-            required
-          />
+          >
+            <option
+              v-for="(weight, key) in WeightOptions"
+              :key="key"
+              :value="weight.key"
+            >
+              {{ weight.value }} kg
+            </option>
+          </select>
         </div>
 
         <div class="mb-2">
@@ -122,10 +128,13 @@ const closeModal = () => {
             id="grew_up_in"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="BD">Bangladesh</option>
-            <option value="USA">USA</option>
-            <option value="CA">CANDA</option>
-            <option value="UK">UK</option>
+            <option
+              v-for="(country, key) in GrewUpCountryOptions"
+              :key="key"
+              :value="country.key"
+            >
+              {{ country.value }}
+            </option>
           </select>
         </div>
 
@@ -139,12 +148,13 @@ const closeModal = () => {
             id="diet"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="veg">Veg</option>
-            <option value="non-veg">Non-Veg</option>
-            <option value="oca-non-veg">Occasionally Non Veg</option>
-            <option value="eggetarian">Eggetarian</option>
-            <option value="jain">Jain</option>
-            <option value="vegan">Vegan</option>
+            <option
+              v-for="(diet, key) in DietOptions"
+              :key="key"
+              :value="diet.key"
+            >
+              {{ diet.value }}
+            </option>
           </select>
         </div>
 
@@ -158,13 +168,13 @@ const closeModal = () => {
             id="health_info"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="no">No Health Problems</option>
-            <option value="hiv">HIV Positive</option>
-            <option value="diabetes">Diabetes</option>
-            <option value="low-bp">Low BP</option>
-            <option value="high-bp">High BP</option>
-            <option value="heart-dieseases">Heart Dieseases</option>
-            <option value="other">Other</option>
+            <option
+              v-for="(health, key) in HealthInfoOptions"
+              :key="key"
+              :value="health.key"
+            >
+              {{ health.value }}
+            </option>
           </select>
         </div>
 
@@ -178,10 +188,13 @@ const closeModal = () => {
             id="body_type"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="slim">Slim</option>
-            <option value="athletic">Athletic</option>
-            <option value="average">Average</option>
-            <option value="heavy">Heavy</option>
+            <option
+              v-for="(type, key) in BodyTypeOptions"
+              :key="key"
+              :value="type.key"
+            >
+              {{ type.value }}
+            </option>
           </select>
         </div>
 
@@ -195,14 +208,13 @@ const closeModal = () => {
             id="grew_up_in"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="a_pos">A+</option>
-            <option value="a_neg">A-</option>
-            <option value="b_pos">B+</option>
-            <option value="b_neg">B-</option>
-            <option value="o_pos">O+</option>
-            <option value="o_neg">O-</option>
-            <option value="ab_pos">AB+</option>
-            <option value="ab_neg">AB-</option>
+            <option
+              v-for="(blood, key) in BloodGroupOptions"
+              :key="key"
+              :value="blood.key"
+            >
+              {{ blood.value }}
+            </option>
           </select>
         </div>
 
@@ -210,15 +222,20 @@ const closeModal = () => {
           <label
             for="personal_values"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Personal Values</label
+            >Skin Complexion</label
           >
-          <input
-            type="text"
-            id="personal_values"
+          <select
+            id="grew_up_in"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter personal values"
-            required
-          />
+          >
+            <option
+              v-for="(complexion, key) in SkinComplexionOptions"
+              :key="key"
+              :value="complexion.key"
+            >
+              {{ complexion.value }}
+            </option>
+          </select>
         </div>
 
         <div class="mb-2">

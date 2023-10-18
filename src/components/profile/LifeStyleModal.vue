@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import BaseModal from "../common/Modal.vue";
+import SelectOption from "../common/SelectOption.vue";
 import { useModal } from "../../composables/useModal";
 import { DatePicker } from "v-calendar";
+import { useToast } from "vue-toastification";
 
 import {
   MaritalStatusOptions,
@@ -15,14 +17,32 @@ import {
   BloodGroupOptions,
   SkinComplexionOptions,
 } from "../../constant/commonOption";
+
+const toast = useToast();
 const masks = ref({
   input: "DD-MM-YYYY",
 });
 
 const dob = ref(new Date());
+const marital_status = ref({
+  "key": "married",
+  "value": "Married"
+});
+
 const modal = useModal();
 // close modal handler
 const closeModal = () => {
+  modal.hideModal();
+};
+
+const updateBasicInfo = () => {
+  console.log(marital_status.value);
+  
+  // toast("This is default message");
+  toast.success("Updated Basics & Lifestyle successfully");
+  // toast.error("This is error message");
+  // toast.info("This is info message");
+  // toast.warning("This is warning message");
   modal.hideModal();
 };
 </script>
@@ -63,19 +83,32 @@ const closeModal = () => {
             for="marital_status"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Marital Status</label
-          >
-          <select
-            id="marital_status"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          >
-            <option
-              v-for="(marital, key) in MaritalStatusOptions"
-              :key="key"
-              :value="marital.key"
-            >
-              {{ marital.value }}
-            </option>
-          </select>
+          > 
+          <!-- <SelectOption 
+            id="marital_status" 
+            v-model="marital_status"
+            label="value" 
+            track="value"
+            :options="MaritalStatusOptions" 
+            placeholder="Select marital status"
+          /> -->
+
+          <Multiselect
+            id="marital_status" 
+            v-model="marital_status"
+            :options="MaritalStatusOptions"
+            label="value" 
+            value="key"  
+            track-by="value"
+            :searchable="true" 
+            :close-on-select="true" 
+            :show-labels="false"  
+            placeholder="Select marital status" 
+          > 
+            <template #noResult>
+              <p class="text-black dark:text-white">No results found</p>
+            </template>
+          </Multiselect> 
         </div>
 
         <div class="mb-2">
@@ -373,7 +406,7 @@ const closeModal = () => {
 
     <template #m-footer>
       <button
-        @click.once="closeModal"
+        @click.once="updateBasicInfo"
         class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-red-600"
       >
         Update

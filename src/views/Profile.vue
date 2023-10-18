@@ -320,7 +320,7 @@ function getValueByKey(dataArray: any, inputKey: any) {
                 <div class="text-black/90 dark:text-white/80 space-y-1 w-1/2">
                   <h6>: 29</h6>
                   <h6>: 12-March-1994</h6>
-                  <h6>: {{ getValueByKey(MaritalStatusOptions, 'never_married') }}</h6>
+                  <h6>: Never Married</h6>
                   <h6>: {{ getValueByKey(HeightOptions, 162) }}</h6>
                   <h6>: Bangladesh</h6>
                   <h6>: {{ getValueByKey(DietOptions, 'halal-food-always') }}</h6>

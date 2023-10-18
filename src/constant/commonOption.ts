@@ -161,6 +161,21 @@ export const MotherStatusOptions = [
     { key: "deceased", value: "Deceased" }   
 ];
 
+// Family Values options for dropdown selection
+export const FamilyValuesOptions = [
+    { key: "traditional", value: "Traditional" },   
+    { key: "moderate", value: "Moderate" },   
+    { key: "liberal", value: "Liberal" },      
+];
+
+// Family Affluence options for dropdown selection
+export const FamilyAffluenceOptions = [
+    { key: "affluent", value: "Affluent" },   
+    { key: "upper_middle_class", value: "Upper Middle Class" },   
+    { key: "middle_class", value: "Middle Class" },      
+    { key: "lower_middle_class", value: "Lower Middle Class" },      
+];
+
 // Religion options for dropdown selection
 export const ReligionOptions = [
     { key: "islam", value: "Islam" },   

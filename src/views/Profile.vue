@@ -2,6 +2,24 @@
 import { ref, defineAsyncComponent } from "vue";
 import Breadcrumb from "../components/common/Breadcrumb.vue";
 import { useModal } from "../composables/useModal";
+import {
+  MaritalStatusOptions,
+  HeightOptions,
+  WeightOptions,
+  GrewUpCountryOptions,
+  DietOptions,
+  HealthInfoOptions,
+  BodyTypeOptions,
+  BloodGroupOptions,
+  SkinComplexionOptions,
+  WorkingWithOptions,
+  FatherStatusOptions,
+  MotherStatusOptions,
+  FamilyValuesOptions,
+  FamilyAffluenceOptions,
+  PrayingOptions,
+  ResidencyStatusOptions
+} from "../constant/commonOption";
 
 const modalComponent = ref("social");
 
@@ -42,6 +60,12 @@ const profileModalComponents: any = {
     () => import("../components/profile/HobbiesModal.vue")
   ),
 };
+
+function getValueByKey(dataArray: any, inputKey: any) {
+  // console.log('calling the function');  
+  const resultArr = dataArray.find(item => item.key === inputKey);
+  return resultArr['value'];
+}
 </script>
 <template>
   <!-- Breadcrumb  -->
@@ -296,10 +320,10 @@ const profileModalComponents: any = {
                 <div class="text-black/90 dark:text-white/80 space-y-1 w-1/2">
                   <h6>: 29</h6>
                   <h6>: 12-March-1994</h6>
-                  <h6>: Never married</h6>
-                  <h6>: 5'6"</h6>
+                  <h6>: {{ getValueByKey(MaritalStatusOptions, 'never_married') }}</h6>
+                  <h6>: {{ getValueByKey(HeightOptions, 162) }}</h6>
                   <h6>: Bangladesh</h6>
-                  <h6>: Non-Veg</h6>
+                  <h6>: {{ getValueByKey(DietOptions, 'halal-food-always') }}</h6>
                   <h6>: Pisces</h6>
                 </div>
               </div>
@@ -307,7 +331,7 @@ const profileModalComponents: any = {
               <!-- right side  -->
               <div class="flex items-center justify-between">
                 <div class="text-slate-600 dark:text-slate-300 space-y-1 w-1/2">
-                  <h6>Personal values</h6>
+                  <h6>Complexion</h6>
                   <h6>Blood Group</h6>
                   <h6>Health Information</h6>
                   <h6>Body Type</h6>
@@ -317,10 +341,10 @@ const profileModalComponents: any = {
                 </div>
 
                 <div class="text-black/90 dark:text-white/80 space-y-1 w-1/2">
-                  <h6>: Will tell you later</h6>
-                  <h6>: B+</h6>
-                  <h6>: No Health Problem</h6>
-                  <h6>: Vuriwala</h6>
+                  <h6>: {{ getValueByKey(SkinComplexionOptions, 'light_brown') }}</h6>
+                  <h6>: {{ getValueByKey(BloodGroupOptions, 'b_pos') }}</h6>
+                  <h6>: {{ getValueByKey(HealthInfoOptions, null) }}</h6>
+                  <h6>: {{ getValueByKey(BodyTypeOptions, 'slim') }}</h6>
                   <h6>: None</h6>
                   <h6>: No</h6>
                   <h6>: No</h6>
@@ -379,7 +403,7 @@ const profileModalComponents: any = {
                 </div>
 
                 <div class="text-black/90 dark:text-white/80 space-y-1 w-1/2">
-                  <h6>: Private Company</h6>
+                  <h6>: {{ getValueByKey(WorkingWithOptions, 'private_company') }}</h6>
                   <h6>: Software Engineer</h6>
                   <h6>: Jatri Services Limited</h6>
                 </div>
@@ -428,9 +452,9 @@ const profileModalComponents: any = {
                 <div
                   class="text-black/90 dark:text-white/80 space-y-1 flex-initial w-[50%]"
                 >
-                  <h6>: Bussiness</h6>
+                  <h6>: {{ getValueByKey(FatherStatusOptions, 'business') }}</h6>
                   <h6>: Furniture</h6>
-                  <h6>: Housewife</h6>
+                  <h6>: {{ getValueByKey(MotherStatusOptions, 'homemaker') }}</h6>
                   <h6>: Gopalpur, Tangail</h6>
                   <h6>: Tangail</h6>
                 </div>
@@ -454,8 +478,8 @@ const profileModalComponents: any = {
                   <h6>: 1 of which married 1</h6>
                   <h6>: 2 of which married 1</h6>
                   <h6>: Joint</h6>
-                  <h6>: Moderate</h6>
-                  <h6>: Middle Class</h6>
+                  <h6>: {{ getValueByKey(FamilyValuesOptions, 'traditional') }}</h6>
+                  <h6>: {{ getValueByKey(FamilyAffluenceOptions, 'middle_class') }}</h6>
                 </div>
               </div>
             </div>
@@ -522,7 +546,7 @@ const profileModalComponents: any = {
                 <div
                   class="text-black/90 dark:text-white/80 space-y-1 flex-initial w-[50%]"
                 >
-                  <h6>: Yes</h6>
+                  <h6>: {{ getValueByKey(PrayingOptions, 'five_times') }}</h6>
                   <h6>: Yes</h6>
                   <h6>: No</h6>
                   <h6>: Yes</h6>
@@ -586,7 +610,7 @@ const profileModalComponents: any = {
                 <div
                   class="text-black/90 dark:text-white/80 space-y-1 flex-initial w-[50%]"
                 >
-                  <h6>: Citizens</h6>
+                  <h6>: {{ getValueByKey(ResidencyStatusOptions, 'citizen') }}</h6>
                   <h6>: 1204</h6>
                 </div>
               </div>

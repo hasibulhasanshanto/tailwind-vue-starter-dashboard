@@ -17,6 +17,7 @@ import {
   BloodGroupOptions,
   SkinComplexionOptions,
 } from "../../constant/commonOption";
+import { log } from "console";
 
 const toast = useToast();
 const masks = ref({
@@ -24,9 +25,9 @@ const masks = ref({
 });
 
 const dob = ref(new Date());
-const marital_status = ref({
-  "key": "married",
-  "value": "Married"
+const marital_status = ref({ "key": "separate", "value": "Separate" });
+const basicInfo = ref({
+  maritalStatus: '',
 });
 
 const modal = useModal();
@@ -45,6 +46,11 @@ const updateBasicInfo = () => {
   // toast.warning("This is warning message");
   modal.hideModal();
 };
+
+const updateSelected = ({ key }) => {
+  basicInfo.value.maritalStatus = key;
+  console.log(basicInfo.value); 
+}
 </script>
 <template>
   <BaseModal v-if="modal.isOpen.value" modalSize="max-w-4xl max-h-full">
@@ -93,23 +99,25 @@ const updateBasicInfo = () => {
             placeholder="Select marital status"
           /> -->
 
-          <Multiselect
+          <VueMultiselect
             id="marital_status" 
             v-model="marital_status"
             :options="MaritalStatusOptions"
-            label="value" 
+            @update:model-value="updateSelected"
+            label="value"  
             value="key"  
-            track-by="value"
             :searchable="true" 
             :close-on-select="true" 
             :show-labels="false"  
             placeholder="Select marital status" 
+            track-by="value"
           > 
             <template #noResult>
               <p class="text-black dark:text-white">No results found</p>
             </template>
-          </Multiselect> 
+          </VueMultiselect> 
         </div>
+        {{ marital_status }}
 
         <div class="mb-2">
           <label

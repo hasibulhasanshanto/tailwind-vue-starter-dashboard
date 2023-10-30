@@ -10,7 +10,7 @@ import Toast, { POSITION } from "vue-toastification";
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router"; 
-import Multiselect from 'vue-multiselect'
+import VueMultiselect from 'vue-multiselect'
 
 const app = createApp(App);
 
@@ -31,7 +31,7 @@ const options = {
     rtl: false
 };
 
-app.component('Multiselect', Multiselect);
+app.component('VueMultiselect', VueMultiselect);
 app.use(Toast, options);
 app.use(router); 
 
